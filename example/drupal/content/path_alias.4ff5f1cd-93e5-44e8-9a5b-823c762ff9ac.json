@@ -1,0 +1,27 @@
+{
+    "uuid": [
+        {
+            "value": "4ff5f1cd-93e5-44e8-9a5b-823c762ff9ac"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en"
+        }
+    ],
+    "path": [
+        {
+            "value": "\/node\/ce1c094e-7789-4d57-b4b3-f3f2223a22fc"
+        }
+    ],
+    "alias": [
+        {
+            "value": "\/recipes\/watercress-soup"
+        }
+    ],
+    "status": [
+        {
+            "value": true
+        }
+    ]
+}

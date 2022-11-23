@@ -1,0 +1,102 @@
+{
+    "uuid": [
+        {
+            "value": "e3a8b785-efbe-4c1b-8f44-02bf4bd040a6"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "es"
+        }
+    ],
+    "bundle": [
+        {
+            "target_id": "image",
+            "target_type": "media_type",
+            "target_uuid": "a2312dea-d75c-4ae6-8fb4-9f6e1e60c246"
+        }
+    ],
+    "revision_created": [
+        {
+            "value": "2022-11-23T23:47:27+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "revision_user": [],
+    "revision_log_message": [],
+    "status": [
+        {
+            "value": true
+        }
+    ],
+    "uid": [
+        {
+            "target_type": "user",
+            "target_uuid": "8896998e-f5d2-4fa7-a929-706f414e752b"
+        }
+    ],
+    "name": [
+        {
+            "value": "Salsa de chile ardiente"
+        }
+    ],
+    "thumbnail": [
+        {
+            "alt": "Una variedad iridiscente de chiles, cebollas y ajo, que suda lentamente a fuego lento",
+            "title": null,
+            "width": 768,
+            "height": 512,
+            "target_type": "file",
+            "target_uuid": "3a5dabf2-7702-4086-aa55-f5a31d47e24a"
+        }
+    ],
+    "created": [
+        {
+            "value": "2022-11-23T23:47:27+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "changed": [
+        {
+            "value": "2022-11-23T23:47:27+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": false
+        }
+    ],
+    "revision_translation_affected": [
+        {
+            "value": true
+        }
+    ],
+    "path": [
+        {
+            "alias": null,
+            "pid": null,
+            "langcode": "es"
+        }
+    ],
+    "content_translation_source": [
+        {
+            "value": "und"
+        }
+    ],
+    "content_translation_outdated": [
+        {
+            "value": false
+        }
+    ],
+    "field_media_image": [
+        {
+            "alt": "Una variedad iridiscente de chiles, cebollas y ajo, que suda lentamente a fuego lento",
+            "title": null,
+            "width": 768,
+            "height": 512,
+            "target_type": "file",
+            "target_uuid": "4a1eeae5-d175-4b3b-b51e-cbe1b1705067"
+        }
+    ]
+}

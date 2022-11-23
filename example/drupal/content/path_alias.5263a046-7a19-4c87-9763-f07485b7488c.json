@@ -1,0 +1,27 @@
+{
+    "uuid": [
+        {
+            "value": "5263a046-7a19-4c87-9763-f07485b7488c"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en"
+        }
+    ],
+    "path": [
+        {
+            "value": "\/taxonomy\/term\/10"
+        }
+    ],
+    "alias": [
+        {
+            "value": "\/tags\/dessert"
+        }
+    ],
+    "status": [
+        {
+            "value": true
+        }
+    ]
+}

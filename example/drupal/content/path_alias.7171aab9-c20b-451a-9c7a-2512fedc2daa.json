@@ -1,0 +1,27 @@
+{
+    "uuid": [
+        {
+            "value": "7171aab9-c20b-451a-9c7a-2512fedc2daa"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "es"
+        }
+    ],
+    "path": [
+        {
+            "value": "\/node\/bc99d133-d857-47b6-9d23-ae5b288aff62"
+        }
+    ],
+    "alias": [
+        {
+            "value": "\/recipes\/pasta-vegetariana-horno-super-facil"
+        }
+    ],
+    "status": [
+        {
+            "value": true
+        }
+    ]
+}

@@ -1,0 +1,102 @@
+{
+    "uuid": [
+        {
+            "value": "b4905d1b-9918-484e-af17-782fd3639ff7"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "es"
+        }
+    ],
+    "bundle": [
+        {
+            "target_id": "image",
+            "target_type": "media_type",
+            "target_uuid": "a2312dea-d75c-4ae6-8fb4-9f6e1e60c246"
+        }
+    ],
+    "revision_created": [
+        {
+            "value": "2022-11-23T23:47:27+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "revision_user": [],
+    "revision_log_message": [],
+    "status": [
+        {
+            "value": true
+        }
+    ],
+    "uid": [
+        {
+            "target_type": "user",
+            "target_uuid": "8896998e-f5d2-4fa7-a929-706f414e752b"
+        }
+    ],
+    "name": [
+        {
+            "value": "Paquete de 3 ediciones de la revista de comida Umami"
+        }
+    ],
+    "thumbnail": [
+        {
+            "alt": "Paquete de 3 ediciones de la revista de comida Umami",
+            "title": null,
+            "width": 266,
+            "height": 236,
+            "target_type": "file",
+            "target_uuid": "1e8189f4-30cd-4c89-ada4-554112502b0a"
+        }
+    ],
+    "created": [
+        {
+            "value": "2022-11-23T23:47:27+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "changed": [
+        {
+            "value": "2022-11-23T23:47:27+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": false
+        }
+    ],
+    "revision_translation_affected": [
+        {
+            "value": true
+        }
+    ],
+    "path": [
+        {
+            "alias": null,
+            "pid": null,
+            "langcode": "es"
+        }
+    ],
+    "content_translation_source": [
+        {
+            "value": "und"
+        }
+    ],
+    "content_translation_outdated": [
+        {
+            "value": false
+        }
+    ],
+    "field_media_image": [
+        {
+            "alt": "Paquete de 3 ediciones de la revista de comida Umami",
+            "title": null,
+            "width": 266,
+            "height": 236,
+            "target_type": "file",
+            "target_uuid": "8de37458-c72d-4461-92e1-21cba06e699e"
+        }
+    ]
+}

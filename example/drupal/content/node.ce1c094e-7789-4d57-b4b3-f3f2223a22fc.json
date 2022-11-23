@@ -1,0 +1,171 @@
+{
+    "uuid": [
+        {
+            "value": "ce1c094e-7789-4d57-b4b3-f3f2223a22fc"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "recipe",
+            "target_type": "node_type",
+            "target_uuid": "32ec144e-fca5-4296-89eb-6f366052376f"
+        }
+    ],
+    "revision_timestamp": [
+        {
+            "value": "2022-11-23T23:47:27+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "revision_uid": [
+        {
+            "target_type": "user",
+            "target_uuid": "b4410231-7e18-4610-998a-16f9b312fc08"
+        }
+    ],
+    "revision_log": [],
+    "status": [
+        {
+            "value": true
+        }
+    ],
+    "uid": [
+        {
+            "target_type": "user",
+            "target_uuid": "b4410231-7e18-4610-998a-16f9b312fc08"
+        }
+    ],
+    "title": [
+        {
+            "value": "Watercress soup"
+        }
+    ],
+    "created": [
+        {
+            "value": "2022-11-23T23:47:27+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "changed": [
+        {
+            "value": "2022-11-23T23:47:27+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "promote": [
+        {
+            "value": true
+        }
+    ],
+    "sticky": [
+        {
+            "value": false
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true
+        }
+    ],
+    "revision_translation_affected": [],
+    "moderation_state": [
+        {
+            "value": "published"
+        }
+    ],
+    "path": [
+        {
+            "alias": "\/recipes\/watercress-soup",
+            "langcode": "en"
+        }
+    ],
+    "content_translation_source": [
+        {
+            "value": "und"
+        }
+    ],
+    "content_translation_outdated": [
+        {
+            "value": false
+        }
+    ],
+    "field_cooking_time": [
+        {
+            "value": 20
+        }
+    ],
+    "field_difficulty": [
+        {
+            "value": "easy"
+        }
+    ],
+    "field_ingredients": [
+        {
+            "value": "3 bunches watercress"
+        },
+        {
+            "value": "3 potatoes"
+        },
+        {
+            "value": "3 onions"
+        },
+        {
+            "value": "2 leeks"
+        },
+        {
+            "value": "800ml stock"
+        },
+        {
+            "value": "5 tbsp cr\u00e8me fra\u00eeche"
+        }
+    ],
+    "field_media_image": [
+        {
+            "target_type": "media",
+            "target_uuid": "f942c318-a2c4-441f-9c13-22f34f6c113d"
+        }
+    ],
+    "field_number_of_servings": [
+        {
+            "value": 4
+        }
+    ],
+    "field_preparation_time": [
+        {
+            "value": 10
+        }
+    ],
+    "field_recipe_category": [
+        {
+            "target_type": "taxonomy_term",
+            "target_uuid": "616fe109-b476-4110-8dd3-6bb26a1ee8c7"
+        }
+    ],
+    "field_recipe_instruction": [
+        {
+            "value": "<ol>\n  <li>Prepare the vegetables by peeling and chopping the potatoes, finely chopping the onions, leeks and garlic.<\/li>\n  <li>Heat a little oil in a pan and add the chopped vegetables, gently cooking them for about 5 minutes.<\/li>\n  <li>Add the vegetable stock to the same pan and turn up the heat until simmering, adding the watercress after about 10 minutes. Cook until all the vegetables are soft and easily mashed.<\/li>\n  <li>Liquidize the soup either with a hand blender or in a mixer, until smooth.<\/li>\n  <li>If the soup has cooled too much whilst being liquidized, stir in the cr\u00e8me fra\u00eeche and reheat before serving (otherwise serve straight away). Season to taste.<\/li>\n<\/ol>\n",
+            "format": "basic_html"
+        }
+    ],
+    "field_summary": [
+        {
+            "value": "A wonderfully simple and light soup, making the most of seasonal, local produce. ",
+            "format": "basic_html"
+        }
+    ],
+    "field_tags": [
+        {
+            "target_type": "taxonomy_term",
+            "target_uuid": "fd5c6ebe-434c-4316-bfbe-b11d2b73a72d"
+        },
+        {
+            "target_type": "taxonomy_term",
+            "target_uuid": "b941b5d1-3c55-4f13-a1d0-236166c9505d"
+        }
+    ]
+}

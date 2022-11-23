@@ -1,0 +1,27 @@
+{
+    "uuid": [
+        {
+            "value": "b10dab31-f112-42a6-893a-8106b7e0718e"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "es"
+        }
+    ],
+    "path": [
+        {
+            "value": "\/taxonomy\/term\/13"
+        }
+    ],
+    "alias": [
+        {
+            "value": "\/tags\/huevo"
+        }
+    ],
+    "status": [
+        {
+            "value": true
+        }
+    ]
+}

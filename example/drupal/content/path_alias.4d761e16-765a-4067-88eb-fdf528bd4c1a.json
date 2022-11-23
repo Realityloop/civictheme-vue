@@ -1,0 +1,27 @@
+{
+    "uuid": [
+        {
+            "value": "4d761e16-765a-4067-88eb-fdf528bd4c1a"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en"
+        }
+    ],
+    "path": [
+        {
+            "value": "\/taxonomy\/term\/19"
+        }
+    ],
+    "alias": [
+        {
+            "value": "\/tags\/oats"
+        }
+    ],
+    "status": [
+        {
+            "value": true
+        }
+    ]
+}

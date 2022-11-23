@@ -1,0 +1,27 @@
+{
+    "uuid": [
+        {
+            "value": "20eb5d68-02b3-4c2a-ae03-e9656690d20c"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en"
+        }
+    ],
+    "path": [
+        {
+            "value": "\/node\/cdfd1916-f664-41d9-af10-e23e7c9cbcb8"
+        }
+    ],
+    "alias": [
+        {
+            "value": "\/recipes\/victoria-sponge-cake"
+        }
+    ],
+    "status": [
+        {
+            "value": true
+        }
+    ]
+}

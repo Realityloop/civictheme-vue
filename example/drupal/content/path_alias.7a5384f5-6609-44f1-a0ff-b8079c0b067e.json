@@ -1,0 +1,27 @@
+{
+    "uuid": [
+        {
+            "value": "7a5384f5-6609-44f1-a0ff-b8079c0b067e"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "es"
+        }
+    ],
+    "path": [
+        {
+            "value": "\/taxonomy\/term\/17"
+        }
+    ],
+    "alias": [
+        {
+            "value": "\/tags\/aprender-a-cocinar"
+        }
+    ],
+    "status": [
+        {
+            "value": true
+        }
+    ]
+}

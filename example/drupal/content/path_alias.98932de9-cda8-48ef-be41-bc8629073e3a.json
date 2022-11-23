@@ -1,0 +1,27 @@
+{
+    "uuid": [
+        {
+            "value": "98932de9-cda8-48ef-be41-bc8629073e3a"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "es"
+        }
+    ],
+    "path": [
+        {
+            "value": "\/taxonomy\/term\/33"
+        }
+    ],
+    "alias": [
+        {
+            "value": "\/recipe-category\/entrantes"
+        }
+    ],
+    "status": [
+        {
+            "value": true
+        }
+    ]
+}

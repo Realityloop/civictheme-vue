@@ -1,0 +1,27 @@
+{
+    "uuid": [
+        {
+            "value": "bc525048-5966-49df-9bc9-027f4fc552b1"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "es"
+        }
+    ],
+    "path": [
+        {
+            "value": "\/taxonomy\/term\/25"
+        }
+    ],
+    "alias": [
+        {
+            "value": "\/tags\/sopa"
+        }
+    ],
+    "status": [
+        {
+            "value": true
+        }
+    ]
+}

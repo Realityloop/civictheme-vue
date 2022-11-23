@@ -1,0 +1,27 @@
+{
+    "uuid": [
+        {
+            "value": "ccdcc0f3-0211-4f96-8a09-0fda917a671d"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en"
+        }
+    ],
+    "path": [
+        {
+            "value": "\/node\/5f1dff72-ad41-4d64-ad36-b7a56b0044b2"
+        }
+    ],
+    "alias": [
+        {
+            "value": "\/recipes\/fiery-chili-sauce"
+        }
+    ],
+    "status": [
+        {
+            "value": true
+        }
+    ]
+}

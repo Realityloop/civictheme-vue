@@ -16,4 +16,9 @@ export default function (moduleOptions = {}) {
       prefix: 'CT'
     })
   })
+
+  // Nuxt Storybook integration.
+  this.nuxt.hook('storybook:config', ({ stories }) => {
+    stories.push(join(__dirname, '../components/*.stories.*js'))
+  })
 }

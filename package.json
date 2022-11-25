@@ -28,6 +28,7 @@
     "build:watch": "siroc build --watch",
     "changeset": "changeset",
     "lint": "eslint --ext .js,.vue src",
+    "storybook": "cd examples/nuxt && npx nuxt storybook",
     "test": "jest",
     "test:watch": "jest --watch"
   },

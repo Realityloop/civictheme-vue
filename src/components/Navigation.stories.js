@@ -3,6 +3,12 @@ import CTNavigation from './Navigation.vue'
 export default {
   title: 'CivicTheme/Organisms/Navigation',
   component: CTNavigation,
+  argTypes: {
+    theme: {
+      options: ['dark', 'light'],
+      control: 'select'
+    },
+  }
 }
 
 const Template = (args, { argTypes }) => {
@@ -20,5 +26,6 @@ Default.args = {
     { title: 'Link', url: '#' },
     { title: 'Link', url: '#' },
     { title: 'Link', url: '#' },
-  ]
+  ],
+  theme: 'light',
 }

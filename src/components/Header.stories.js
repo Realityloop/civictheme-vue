@@ -3,6 +3,12 @@ import CTHeader from './Header.vue'
 export default {
   title: 'CivicTheme/Organisms/Header',
   component: CTHeader,
+  argTypes: {
+    theme: {
+      options: ['dark', 'light'],
+      control: 'select'
+    },
+  }
 }
 
 const Template = (args, { argTypes }) => {
@@ -23,5 +29,6 @@ const Template = (args, { argTypes }) => {
 export const Default = Template.bind({})
 Default.storyName = 'Header'
 Default.args = {
-  content_middle2: '[LOGO]'
+  content_middle2: '[LOGO]',
+  theme: 'light',
 }

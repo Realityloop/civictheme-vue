@@ -1,7 +1,7 @@
 <template>
   <div :class="`ct-list ${themeClass}`">
-    <div v-if="title" class="ct-list__container">
-      <div class="ct-list__header container">
+    <div class="ct-list__container">
+      <div v-if="title" class="ct-list__header container">
         <div class="ct-list__header-title">
           <div class="container">
             <div class="row">
@@ -577,7 +577,6 @@
                       class="ct-item-grid__item col-xxs-12 col-m-4"
                     >
                       <slot name="item" :item="item">
-                        <!-- {{ item }} -->
                         <CTCardPromo v-bind="item" />
                       </slot>
                     </div>
@@ -734,7 +733,7 @@
 </template>
 
 <script>
-import ThemeMixin from '../mixins/theme'
+import ThemeMixin from '../mixins/theme.mjs'
 
 export default {
   mixins: [ThemeMixin],

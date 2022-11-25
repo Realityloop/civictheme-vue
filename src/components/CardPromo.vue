@@ -2,18 +2,19 @@
   <div
     :class="`ct-promo-card ${themeClass} ct-promo-card--image-over story-wrapper-size--small`"
   >
-    <!-- @TODO - Image -->
-    <!-- <div class="ct-promo-card__image-wrapper">
-      <img
-        class="ct-image ct-theme-light"
-        src="./assets/images/demo2.jpg"
-        alt="Image alt text"
-      />
+    <div v-if="imageSrc || $scopedSlots.image" class="ct-promo-card__image-wrapper">
+      <slot name="image">
+        <img
+          :class="`ct-image ${themeClass}`"
+          :src="imageSrc"
+          :alt="imageAlt"
+        />
+      </slot>
 
       <div class="ct-promo-card__image-over">
-        <div class="story-slot story-slot--image_over">{{ image_over }}</div>
+        <slot name="image_over" />
       </div>
-    </div> -->
+    </div>
 
     <div class="ct-promo-card__content">
       <div class="ct-promo-card__content_top">
@@ -80,12 +81,20 @@
 </template>
 
 <script>
-import ThemeMixin from '../mixins/theme'
+import ThemeMixin from '../mixins/theme.mjs'
 
 export default {
   mixins: [ThemeMixin],
 
   props: {
+    imageAlt: {
+      type: String,
+      default: undefined
+    },
+    imageSrc: {
+      type: String,
+      default: undefined,
+    },
     link: {
       type: String,
       default: undefined

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import ThemeMixin from '../mixins/theme'
+import ThemeMixin from '../mixins/theme.mjs'
 
 export default {
   mixins: [ThemeMixin],

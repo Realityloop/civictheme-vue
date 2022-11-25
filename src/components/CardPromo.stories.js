@@ -3,6 +3,12 @@ import CTCardPromo from './CardPromo.vue'
 export default {
   title: 'CivicTheme/Molecules/Cards/PromoCard',
   component: CTCardPromo,
+  argTypes: {
+    theme: {
+      options: ['dark', 'light'],
+      control: 'select'
+    },
+  }
 }
 
 const Template = (args, { argTypes }) => {
@@ -17,5 +23,6 @@ const Template = (args, { argTypes }) => {
 export const Default = Template.bind({})
 Default.storyName = 'PromoCard'
 Default.args = {
+  theme: 'light',
   title: 'Title'
 }

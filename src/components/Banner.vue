@@ -11,9 +11,7 @@
           <div class="row">
             <div class="col-xxs-12">
               <div class="ct-banner__content-top">
-                <div class="story-slot story-slot--content_top1">
-                  <!-- {{ content_top1 }} -->
-                </div>
+                <slot name="content_top" />
               </div>
             </div>
           </div>
@@ -198,7 +196,7 @@
 </template>
 
 <script>
-import ThemeMixin from '../mixins/theme'
+import ThemeMixin from '../mixins/theme.mjs'
 
 export default {
   mixins: [ThemeMixin],

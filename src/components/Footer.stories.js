@@ -3,6 +3,12 @@ import CTFooter from './Footer.vue'
 export default {
   title: 'CivicTheme/Organisms/Footer',
   component: CTFooter,
+  argTypes: {
+    theme: {
+      options: ['dark', 'light'],
+      control: 'select'
+    },
+  }
 }
 
 const Template = (args, { argTypes }) => {
@@ -23,5 +29,6 @@ const Template = (args, { argTypes }) => {
 export const Default = Template.bind({})
 Default.storyName = 'Footer'
 Default.args = {
-  content_top1: '[LOGO]'
+  content_top1: '[LOGO]',
+  theme: 'light',
 }

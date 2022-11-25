@@ -3,6 +3,12 @@ import CTFormElement from './FormElement.vue'
 export default {
   title: 'CivicTheme/Molecules/Form Element',
   component: CTFormElement,
+  argTypes: {
+    theme: {
+      options: ['dark', 'light'],
+      control: 'select'
+    },
+  }
 }
 
 const Template = (args, { argTypes }) => {
@@ -14,5 +20,6 @@ const Template = (args, { argTypes }) => {
 
 export const Default = Template.bind({})
 Default.storyName = 'Form Element'
-// Default.args = {
-// }
+Default.args = {
+  theme: 'light',
+}

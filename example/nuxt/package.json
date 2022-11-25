@@ -1,12 +1,17 @@
 {
-  "name": "druxt-module-template-example",
+  "name": "civictheme-vue-nuxt-example",
   "version": "0.0.0",
   "scripts": {
     "dev": "nuxt dev"
   },
   "dependencies": {
-    "druxt": "latest",
-    "druxt-module-template": "link:../..",
-    "nuxt": "latest"
+    "civictheme-vue": "link:../..",
+    "druxt-site": "latest",
+    "ellipsize": "^0.5.1",
+    "nuxt": "2"
+  },
+  "devDependencies": {
+    "@nuxt/postcss8": "^1.1.3",
+    "@nuxtjs/storybook": "^4.3.2"
   }
 }

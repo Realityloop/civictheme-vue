@@ -5,21 +5,28 @@
     :class="{
       [themeClass]: true,
       [`ct-button--${size}`]: true,
-      [`ct-button--${type}`]: type
+      [`ct-button--${type}`]: type,
+      [`ct-button--external ct-icon--upper-right-arrow--after--${iconSize}`]: isExternal
     }"
     data-component-name="button"
     data-button="true"
     v-bind="props"
   >
+    <span v-if="icon && iconPosition === 'before'" class="ct-button__icon">
+      <span :class="`ct-icon ct-icon--${icon} ct-icon--size-${iconSize}`" />
+    </span>
+
     <slot v-if="!text || $slots.default" />
-    <template v-else>
-      {{ text }}
-    </template>
+    <template v-else>{{ text }}</template>
+
+    <span v-if="icon && iconPosition === 'after'" class="ct-button__icon">
+      <span :class="`ct-icon ct-icon--${icon} ct-icon--size-${iconSize}`" />
+    </span>
   </component>
 </template>
 
 <script>
-import ThemeMixin from '../mixins/theme'
+import ThemeMixin from '../mixins/theme.mjs'
 
 export default {
   mixins: [ThemeMixin],
@@ -28,6 +35,18 @@ export default {
     kind: {
       type: String,
       default: 'button'
+    },
+    icon: {
+      type: String,
+      default: undefined
+    },
+    iconPosition: {
+      type: String,
+      default: 'after'
+    },
+    iconSize: {
+      type: String,
+      default: 'regular'
     },
     size: {
       type: String,
@@ -63,6 +82,9 @@ export default {
       reset: {},
       submit: {}
     }[kind]),
+
+    // @TODO - Determine if URL is external.
+    isExternal: () => false,
   }
 }
 </script>

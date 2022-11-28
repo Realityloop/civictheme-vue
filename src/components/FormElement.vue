@@ -5,8 +5,9 @@
         <div
           :class="`ct-form-element ${themeClass} ct-form-element--${type} ct-form-element--label--undefined ct-form-element--label--after`"
         >
+          <!-- Label: before -->
           <label
-            v-if="label"
+            v-if="isLabelBefore"
             :class="`ct-label ${themeClass} ct-label--regular`"
             :for="`input-${id}`"
             v-text="label"
@@ -21,15 +22,49 @@
             }"
             :id="`input-${id}`"
           >
-            <component
-              :is="element"
-              :class="`ct-textfield ct-input__element ${themeClass}`"
-              :placeholder="placeholder"
-              :id="`input-${id}`"
-              v-bind="props"
-              @input="onInput"
-            >{{ model }}</component>
+            <!-- Textfield: text, email, tel, password -->
+            <CTTextfield
+              v-if="['text', 'email', 'tel', 'password'].includes(type)"
+              v-bind="{ id, placeholder, required, type }"
+              v-model="model"
+            />
+
+            <!-- Textarea -->
+            <CTTextarea
+              v-else-if="type === 'textarea'"
+              v-bind="{ id, placeholder, required }"
+              v-model="model"
+            />
+
+            <!-- Select -->
+            <CTSelect
+              v-else-if="type === 'select'"
+              v-bind="{ id, options, placeholder, required }"
+              v-model="model"
+            />
+
+            <!-- Radio -->
+            <CTRadio
+              v-else-if="type === 'radio'"
+              v-bind="{ id, placeholder, required }"
+              v-model="model"
+            />
+
+            <!-- Checkbox -->
+            <CTCheckbox
+              v-else-if="type === 'checkbox'"
+              v-bind="{ id, placeholder, required }"
+              v-model="model"
+            />
           </div>
+
+          <!-- Label: after -->
+          <label
+            v-if="isLabelAfter"
+            :class="`ct-label ${themeClass} ct-label--regular`"
+            :for="`input-${id}`"
+            v-text="label"
+          />
 
           <div v-if="description" class="ct-form-element__description" v-text="description" />
         </div>
@@ -57,6 +92,14 @@ export default {
       type: String,
       default: undefined
     },
+    labelPosition: {
+      type: String,
+      default: 'before'
+    },
+    options: {
+      type: Array,
+      default: () => ([]),
+    },
     placeholder: {
       type: String,
       default: undefined
@@ -80,36 +123,8 @@ export default {
   }),
 
   computed: {
-    element: ({ type }) => ({
-      email: 'input',
-      password: 'input',
-      text: 'input',
-      textarea: 'textarea'
-    }[type]),
-
-    props: ({ type, value }) => ({
-      email: {
-        type: 'email',
-        value,
-      },
-      password: {
-        type: 'password',
-        value,
-      },
-      text: {
-        type: 'text',
-        value,
-      },
-      textarea: {
-        rows: 5,
-      }
-    }[type])
-  },
-
-  methods: {
-    onInput(e) {
-      this.model = e.target.value
-    }
+    isLabelAfter: ({ label, labelPosition, type }) => (label && labelPosition === 'after') || ['radio', 'checkbox'].includes(type),
+    isLabelBefore: ({ label, labelPosition, type }) => !(!label || labelPosition !== 'before' || ['radio', 'checkbox'].includes(type))
   },
 
   watch: {

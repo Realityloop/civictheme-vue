@@ -4,10 +4,18 @@ export default {
   title: 'CivicTheme/Molecules/Form Element',
   component: CTFormElement,
   argTypes: {
+    labelPosition: {
+      options: ['before', 'after'],
+      control: 'select'
+    },
     theme: {
       options: ['dark', 'light'],
       control: 'select'
     },
+    type: {
+      options: ['text', 'textarea', 'email', 'tel', 'password', 'select', 'radio', 'checkbox'],
+      control: 'select'
+    }
   }
 }
 
@@ -21,5 +29,7 @@ const Template = (args, { argTypes }) => {
 export const Default = Template.bind({})
 Default.storyName = 'Form Element'
 Default.args = {
+  description: 'CivicTheme input description',
+  label: 'Label for input',
   theme: 'light',
 }

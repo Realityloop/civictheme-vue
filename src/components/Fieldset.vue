@@ -6,7 +6,7 @@
           :class="`ct-fieldset ct-form-element ${themeClass} ct-form-element--default`"
         >
           <legend v-if="legend" class="ct-label">
-            <span v-text="legend">
+            <span v-text="legend" />
           </legend>
 
           <div class="ct-fieldset__wrapper">

@@ -3,6 +3,7 @@
     :class="`ct-textfield ct-input__element ${themeClass}`"
     :placeholder="placeholder"
     :type="type"
+    v-model="model"
   />
 </template>
 
@@ -33,6 +34,12 @@ export default {
 
   data: ({ value }) => ({
     model: value
-  })
+  }),
+
+  watch: {
+    model() {
+      this.$emit('input', this.model)
+    }
+  }
 }
 </script>

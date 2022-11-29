@@ -46,6 +46,12 @@ export default {
 
   data: ({ value }) => ({
     model: value
-  })
+  }),
+
+  watch: {
+    model() {
+      this.$emit('input', this.model)
+    }
+  }
 }
 </script>

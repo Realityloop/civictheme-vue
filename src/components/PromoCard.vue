@@ -1,57 +1,59 @@
 <template>
-  <div :class="`ct-event-card ${themeClass}`">
-    <div v-if="hasImage" class="ct-event-card__image-wrapper">
+  <div
+    class="ct-promo-card"
+    :class="{
+      [themeClass]: true,
+      'ct-promo-card--image-over': hasImage && $scopedSlots.image_over
+    }"
+  >
+    <div v-if="hasImage" class="ct-promo-card__image-wrapper">
       <!-- Slot: Image -->
       <slot name="image">
         <CTImage :alt="imageAlt" :src="imageSrc" />
       </slot>
-      <div v-if="$scopedSlots.image_over" class="ct-event-card__image-over">
+      <div class="ct-promo-card__image-over">
         <!-- Slot: Image over -->
         <slot name="image_over" />
       </div>
     </div>
 
-    <div class="ct-event-card__content">
-      <!-- Slot: Content top -->
-      <div v-if="$scopedSlots.content_top" class="ct-event-card__content-top">
+    <div class="ct-promo-card__content">
+      <div v-if="$scopedSlots.content_top" class="ct-promo-card__content-top">
         <slot name="content_top" />
       </div>
 
       <!-- Date -->
       <CTTag
-        class="ct-event-card__date"
+        class="ct-promo-card__date"
         icon="calendar-2"
         :theme="theme"
-        type="secondary"
+        type="tertiary"
         :value="date"
       />
 
       <!-- Title -->
-      <div v-if="title" class="ct-event-card__title">
+      <div v-if="title" class="ct-promo-card__title">
         <CTLink
-          class="ct-event-card__title-link"
-          :link="link"
+          class="ct-promo-card__title-link"
+          :link="link || '#'"
           :theme="theme"
-          :text="title"
+          v-text="title"
         />
       </div>
 
       <!-- Slot: Content middle -->
-      <div v-if="$scopedSlots.content_middle" class="ct-event-card__content-middle">
+      <div v-if="$scopedSlots.content_middle" class="ct-promo-card__content_middle">
         <slot name="content_middle" />
       </div>
 
-      <!-- Location -->
-      <div v-if="location" class="ct-event-card__location" v-text="location" />
-
       <!-- Slot: Default/summary -->
-      <div class="ct-event-card__summary">
+      <div class="ct-promo-card__summary">
         <slot>{{ summary }}</slot>
       </div>
 
-      <div class="ct-event-card__bottom-wrapper">
+      <div class="ct-promo-card__bottom-wrapper">
         <!-- Tags -->
-        <div class="ct-event-card__tags">
+        <div class="ct-promo-card__tags">
           <CTTag
             v-for="tag of tags"
             :key="tag.id"
@@ -59,7 +61,7 @@
           />
         </div>
 
-        <div v-if="link" class="ct-event-card__icon-wrapper">
+        <div v-if="link" class="ct-promo-card__icon-wrapper">
           <span
             class="ct-icon ct-icon--right-arrow-2 ct-navigation-card__icon--arrow"
           ></span>
@@ -67,7 +69,7 @@
       </div>
 
       <!-- Slot: Content bottom -->
-      <div v-if="$scopedSlots.content_bottom" class="ct-event-card__content-bottom">
+      <div v-if="$scopedSlots.content_bottom" class="ct-promo-card__content-bottom">
         <slot name="content_bottom" />
       </div>
     </div>
@@ -97,10 +99,6 @@ export default {
       type: String,
       default: undefined
     },
-    location: {
-      type: String,
-      default: undefined
-    },
     summary: {
       type: String,
       default: undefined,
@@ -116,7 +114,7 @@ export default {
   },
 
   computed: {
-    hasImage: ({ imageSrc }) => imageSrc || $scopedSlots.image
+    hasImage: ({ $scopedSlots, imageSrc }) => imageSrc || $scopedSlots.image
   }
 }
 </script>

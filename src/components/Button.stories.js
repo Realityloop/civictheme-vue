@@ -32,6 +32,11 @@ export default {
       options: ['primary', 'secondary', 'tertiary'],
       control: 'select'
     }
+  },
+  parameters: {
+    status: {
+      type: 'beta',
+    }
   }
 }
 

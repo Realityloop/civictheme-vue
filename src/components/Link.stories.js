@@ -8,6 +8,11 @@ export default {
       options: ['dark', 'light'],
       control: 'select'
     },
+  },
+  parameters: {
+    status: {
+      type: 'beta',
+    }
   }
 }
 

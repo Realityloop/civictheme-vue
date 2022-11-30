@@ -16,6 +16,11 @@ export default {
       options: ['large', 'regular', 'small'],
       control: 'select'
     },
+  },
+  parameters: {
+    status: {
+      type: 'beta',
+    }
   }
 }
 
@@ -24,7 +29,7 @@ const Template = (args, { argTypes }) => {
     props: Object.keys(argTypes),
     template: `<CTChip v-bind="$props" v-on="$props">
   <template v-if="$props.default">{{ $props.default }}</template>
-</CTCardPromo>`,
+</CTChip>`,
   }
 }
 

@@ -16,6 +16,11 @@ export default {
       options: ['text', 'textarea', 'email', 'tel', 'password', 'select', 'radio', 'checkbox'],
       control: 'select'
     }
+  },
+  parameters: {
+    status: {
+      type: 'beta',
+    }
   }
 }
 

@@ -1,13 +1,18 @@
-import CTPEventCard from './EventCard.vue'
+import CTEventCard from './EventCard.vue'
 
 export default {
   title: 'CivicTheme/Molecules/Cards/Event Card',
-  component: CTPEventCard,
+  component: CTEventCard,
   argTypes: {
     theme: {
       options: ['dark', 'light'],
       control: 'select'
     },
+  },
+  parameters: {
+    status: {
+      type: 'beta',
+    }
   }
 }
 

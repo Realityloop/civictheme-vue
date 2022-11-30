@@ -8,5 +8,8 @@ export default {
     'civictheme-vue/nuxt',
     'druxt-site',
   ],
-  druxt: { baseUrl }
+  druxt: { baseUrl },
+  storybook: {
+    addons: ['@etchteam/storybook-addon-status']
+  }
 }

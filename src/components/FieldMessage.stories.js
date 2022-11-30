@@ -12,6 +12,11 @@ export default {
       options: ['error', 'information', 'warning', 'success'],
       control: 'select'
     }
+  },
+  parameters: {
+    status: {
+      type: 'beta',
+    }
   }
 }
 

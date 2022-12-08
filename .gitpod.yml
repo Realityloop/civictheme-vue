@@ -14,9 +14,15 @@ tasks:
       # Build module
       yarn && yarn build
     command: |
+
+      # Setup DDev.
       .gitpod/scripts/ddev-setup.sh
+
+      # Setup Nuxt.
       .gitpod/scripts/nuxt-setup.sh
-      cd $GITPOD_REPO_ROOT/example/nuxt && NUXT_TELEMETRY_DISABLED=1 yarn dev
+
+      # Run Nuxt Storybook.
+      cd $GITPOD_REPO_ROOT/example/nuxt && NUXT_TELEMETRY_DISABLED=1 npx nuxt storybook
 
 # VScode xdebug extension
 vscode:
@@ -39,7 +45,7 @@ ports:
 
   # Nuxt/Druxt
   - port: 3003
-    onOpen: ignore
+    onOpen: open-preview
     visibility: public
 
   # Currently un-notified and unsupported mailhog http port

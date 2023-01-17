@@ -28,6 +28,7 @@
     "build:watch": "siroc build --watch",
     "changeset": "changeset",
     "lint": "eslint --ext .js,.vue src",
+    "postinstall": "husky install",
     "storybook": "cd examples/nuxt && npx nuxt storybook",
     "test": "jest",
     "test:watch": "jest --watch"
@@ -45,6 +46,8 @@
     "esbuild-jest": "0.5.0",
     "eslint": "8.28.0",
     "eslint-plugin-nuxt": "4.0.0",
+    "git-conventional-commits": "^2.4.0",
+    "husky": "^8.0.3",
     "jest": "27.5.1",
     "siroc": "0.16.0",
     "vue-jest": "3.0.7",

@@ -1,0 +1,10 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# yarn lint:commit --edit $1
+
+# Conventional Commits
+# fix for windows systems
+PATH="/c/Program Files/nodejs:$HOME/AppData/Roaming/npm/:$PATH"
+
+./node_modules/.bin/git-conventional-commits commit-msg-hook "$1"

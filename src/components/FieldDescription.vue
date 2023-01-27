@@ -1,5 +1,7 @@
 <template>
-  <div :class="`ct-field-description ${themeClass}`"><slot /></div>
+  <div :class="`ct-field-description ${themeClass}`">
+    <slot />
+  </div>
 </template>
 
 <script>

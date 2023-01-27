@@ -10,7 +10,10 @@
     data-component-name="chip"
     data-chip="true"
   >
-    <input v-if="kind === 'input'" type="radio" />
+    <input
+      v-if="kind === 'input'"
+      type="radio"
+    >
     <slot>{{ label }}</slot>
   </component>
 </template>

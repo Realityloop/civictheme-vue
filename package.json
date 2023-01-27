@@ -27,22 +27,22 @@
     "build": "siroc build",
     "build:watch": "siroc build --watch",
     "changeset": "changeset",
+    "postinstall": "husky install",
     "lint": "eslint --ext .js,.vue src",
     "lint:commit": "commitlint",
     "lint:renovate": "renovate-config-validator",
-    "postinstall": "husky install",
     "storybook": "cd examples/nuxt && npx nuxt storybook",
     "test": "jest",
     "test:watch": "jest --watch"
-  },
-  "lint-staged": {
-    "*.{js,vue}": "eslint",
-    "*.{css,scss,vue}": "stylelint"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.{js,vue}": "eslint",
+    "*.{css,scss,vue}": "stylelint"
   },
   "dependencies": {
     "civictheme": "git+https://github.com/Realityloop/civictheme_library.git"

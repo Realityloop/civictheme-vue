@@ -17,7 +17,10 @@
           </div>
 
           <!-- Breadcrumb -->
-          <div v-if="breadcrumbs" class="row">
+          <div
+            v-if="breadcrumbs"
+            class="row"
+          >
             <div class="col-xxs-12 col-m-6">
               <div class="ct-banner__breadcrumb">
                 <!-- @TODO -->
@@ -138,7 +141,10 @@
             <div class="col-xxs-12 col-m-6">
               <div class="ct-banner__title">
                 <slot name="title">
-                  <h1 :class="`ct-heading ct-theme-${theme}`" v-text="title" />
+                  <h1
+                    :class="`ct-heading ct-theme-${theme}`"
+                    v-text="title"
+                  />
                 </slot>
               </div>
             </div>
@@ -158,7 +164,10 @@
             <div class="col-xxs-12 col-m-6">
               <div class="ct-banner__content">
                 <div class="ct-banner__content__example">
-                  <div v-if="updated" class="ct-banner__content__example-last-updated">
+                  <div
+                    v-if="updated"
+                    class="ct-banner__content__example-last-updated"
+                  >
                     <p>Last updated: @TODO</p>
                   </div>
 
@@ -172,12 +181,15 @@
         </div>
       </div>
 
-      <div v-if="image" class="ct-banner__featured-image">
+      <div
+        v-if="image"
+        class="ct-banner__featured-image"
+      >
         <img
           :class="`ct-image ${themeClass}`"
           :src="image"
           alt="Featured image alt text"
-        />
+        >
       </div>
     </div>
 
@@ -216,7 +228,7 @@ export default {
     },
     title: {
       type: String,
-      require: true
+      required: true
     },
     updated: {
       type: [Boolean, Date],

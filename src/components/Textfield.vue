@@ -1,10 +1,10 @@
 <template>
   <input
+    v-model="model"
     :class="`ct-textfield ct-input__element ${themeClass}`"
     :placeholder="placeholder"
     :type="type"
-    v-model="model"
-  />
+  >
 </template>
 
 <script>

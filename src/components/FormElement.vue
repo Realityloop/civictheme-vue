@@ -14,13 +14,13 @@
           />
 
           <div
+            :id="`input-${id}`"
             class="ct-input ct-input--default"
             :class="{
               [themeClass]: true,
               [`ct-input--${type}`]: true,
-              'ct-input--required required': this.required
+              'ct-input--required required': required
             }"
-            :id="`input-${id}`"
           >
             <!-- Textfield: text, email, tel, password -->
             <CTTextfield
@@ -66,7 +66,11 @@
             v-text="label"
           />
 
-          <div v-if="description" class="ct-form-element__description" v-text="description" />
+          <div
+            v-if="description"
+            class="ct-form-element__description"
+            v-text="description"
+          />
         </div>
       </div>
     </div>
@@ -86,7 +90,7 @@ export default {
     },
     id: {
       type: String,
-      require: true
+      required: true
     },
     label: {
       type: String,

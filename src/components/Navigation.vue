@@ -1,8 +1,15 @@
 <template>
   <div :class="`ct-navigation ${themeClass} ${dropdownClass}`">
-    <h5 v-if="title" class="ct-heading ct-theme-light ct-navigation__title" v-text="title" />
+    <h5
+      v-if="title"
+      class="ct-heading ct-theme-light ct-navigation__title"
+      v-text="title"
+    />
     <div class="ct-navigation__items">
-      <CTMenu class="ct-navigation__menu" :items="items" />
+      <CTMenu
+        class="ct-navigation__menu"
+        :items="items"
+      />
     </div>
   </div>
 </template>
@@ -20,7 +27,7 @@ export default {
     },
     items: {
       type: Array,
-      require: true
+      required: true
     },
     title: {
       type: String,

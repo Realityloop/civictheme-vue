@@ -1,5 +1,6 @@
 <template>
   <select
+    v-model="model"
     class="ct-select ct-input__element"
     :class="{
       [themeClass]: true,
@@ -8,7 +9,6 @@
     }"
     :multiple="multiple"
     :required="required"
-    v-model="model"
   >
     <option
       v-for="option of options"

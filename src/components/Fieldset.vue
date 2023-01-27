@@ -5,13 +5,21 @@
         <fieldset
           :class="`ct-fieldset ct-form-element ${themeClass} ct-form-element--default`"
         >
-          <legend v-if="legend" class="ct-label">
+          <legend
+            v-if="legend"
+            class="ct-label"
+          >
             <span v-text="legend" />
           </legend>
 
           <div class="ct-fieldset__wrapper">
-            <div v-if="description || $scopedSlots.description" class="description">
-              <slot name="description">{{ description }}</slot>
+            <div
+              v-if="description || $scopedSlots.description"
+              class="description"
+            >
+              <slot name="description">
+                {{ description }}
+              </slot>
             </div>
 
             <slot />

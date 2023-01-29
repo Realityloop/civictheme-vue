@@ -144,7 +144,7 @@ export default {
   },
 
   computed: {
-    hasImage: ({ imageSrc, $scopedSlots }) => imageSrc || $scopedSlots.image
+    hasImage: ({ $scopedSlots, imageSrc }) => imageSrc || $scopedSlots.image
   }
 }
 </script>

@@ -4,7 +4,8 @@
     :class="{
       [themeClass]: true,
       [`ct-field-message--${type}`]: type
-    }">
+    }"
+  >
     <span :class="`ct-icon ct-icon--${icon} ct-icon--size-small`" />
     <slot />
   </div>

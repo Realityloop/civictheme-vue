@@ -18,7 +18,9 @@
       data-popover-id="data-popover-1"
     >
       <slot>
-        <div class="story-placeholder">Content placeholder</div>
+        <div class="story-placeholder">
+          Content placeholder
+        </div>
       </slot>
     </div>
   </div>

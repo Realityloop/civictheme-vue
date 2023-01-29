@@ -1,9 +1,9 @@
 <template>
   <textarea
+    v-model="model"
     :class="`ct-textarea ct-input__element ${themeClass}`"
     :rows="rows"
     :placeholder="placeholder"
-    v-model="model"
   />
 </template>
 

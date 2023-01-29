@@ -1,12 +1,18 @@
 <template>
   <div :class="`ct-list ${themeClass}`">
     <div class="ct-list__container">
-      <div v-if="title" class="ct-list__header container">
+      <div
+        v-if="title"
+        class="ct-list__header container"
+      >
         <div class="ct-list__header-title">
           <div class="container">
             <div class="row">
               <div class="col-xxs-12">
-                <h2 :class="`ct-heading ${themeClass}`" v-text="title" />
+                <h2
+                  :class="`ct-heading ${themeClass}`"
+                  v-text="title"
+                />
               </div>
             </div>
           </div>
@@ -565,7 +571,10 @@
       </div> -->
 
       <div class="ct-list__body">
-        <div class="ct-item-grid" aria-live="polite">
+        <div
+          class="ct-item-grid"
+          aria-live="polite"
+        >
           <div class="container">
             <div class="row">
               <div class="col-xxs-12">
@@ -576,7 +585,10 @@
                       :key="item.id"
                       class="ct-item-grid__item col-xxs-12 col-m-4"
                     >
-                      <slot name="item" :item="item">
+                      <slot
+                        name="item"
+                        :item="item"
+                      >
                         <CTCardPromo v-bind="item" />
                       </slot>
                     </div>
@@ -741,7 +753,7 @@ export default {
   props: {
     items: {
       type: Array,
-      require: true,
+      required: true,
     },
     title: {
       type: String,

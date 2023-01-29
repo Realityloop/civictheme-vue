@@ -1,11 +1,20 @@
 <template>
   <div :class="`ct-event-card ${themeClass}`">
-    <div v-if="hasImage" class="ct-event-card__image-wrapper">
+    <div
+      v-if="hasImage"
+      class="ct-event-card__image-wrapper"
+    >
       <!-- Slot: Image -->
       <slot name="image">
-        <CTImage :alt="imageAlt" :src="imageSrc" />
+        <CTImage
+          :alt="imageAlt"
+          :src="imageSrc"
+        />
       </slot>
-      <div v-if="$scopedSlots.image_over" class="ct-event-card__image-over">
+      <div
+        v-if="$scopedSlots.image_over"
+        class="ct-event-card__image-over"
+      >
         <!-- Slot: Image over -->
         <slot name="image_over" />
       </div>
@@ -13,7 +22,10 @@
 
     <div class="ct-event-card__content">
       <!-- Slot: Content top -->
-      <div v-if="$scopedSlots.content_top" class="ct-event-card__content-top">
+      <div
+        v-if="$scopedSlots.content_top"
+        class="ct-event-card__content-top"
+      >
         <slot name="content_top" />
       </div>
 
@@ -27,7 +39,10 @@
       />
 
       <!-- Title -->
-      <div v-if="title" class="ct-event-card__title">
+      <div
+        v-if="title"
+        class="ct-event-card__title"
+      >
         <CTLink
           class="ct-event-card__title-link"
           :link="link"
@@ -37,12 +52,19 @@
       </div>
 
       <!-- Slot: Content middle -->
-      <div v-if="$scopedSlots.content_middle" class="ct-event-card__content-middle">
+      <div
+        v-if="$scopedSlots.content_middle"
+        class="ct-event-card__content-middle"
+      >
         <slot name="content_middle" />
       </div>
 
       <!-- Location -->
-      <div v-if="location" class="ct-event-card__location" v-text="location" />
+      <div
+        v-if="location"
+        class="ct-event-card__location"
+        v-text="location"
+      />
 
       <!-- Slot: Default/summary -->
       <div class="ct-event-card__summary">
@@ -59,15 +81,21 @@
           />
         </div>
 
-        <div v-if="link" class="ct-event-card__icon-wrapper">
+        <div
+          v-if="link"
+          class="ct-event-card__icon-wrapper"
+        >
           <span
             class="ct-icon ct-icon--right-arrow-2 ct-navigation-card__icon--arrow"
-          ></span>
+          />
         </div>
       </div>
 
       <!-- Slot: Content bottom -->
-      <div v-if="$scopedSlots.content_bottom" class="ct-event-card__content-bottom">
+      <div
+        v-if="$scopedSlots.content_bottom"
+        class="ct-event-card__content-bottom"
+      >
         <slot name="content_bottom" />
       </div>
     </div>
@@ -116,7 +144,7 @@ export default {
   },
 
   computed: {
-    hasImage: ({ imageSrc }) => imageSrc || $scopedSlots.image
+    hasImage: ({ imageSrc, $scopedSlots }) => imageSrc || $scopedSlots.image
   }
 }
 </script>

@@ -3,7 +3,7 @@
     :class="`ct-image ${themeClass}`"
     :src="src"
     :alt="alt"
-  />
+  >
 </template>
 
 <script>
@@ -19,7 +19,7 @@ export default {
     },
     src: {
       type: String,
-      require: true
+      required: true
     }
   }
 }

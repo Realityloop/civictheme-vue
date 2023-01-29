@@ -1,6 +1,6 @@
 import { join } from 'path'
 
-export default function (moduleOptions = {}) {
+export default function () {
   // Add CivicTheme CSS.
   this.nuxt.options.css = this.nuxt.options.css || []
   this.nuxt.options.css.push('civictheme/dist/civictheme.css')

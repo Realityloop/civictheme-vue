@@ -9,9 +9,15 @@
     :title="model"
     :aria-label="model"
   >
-    <span v-if="iconPosition === 'before'" :class="`ct-icon ct-icon--${icon} ct-icon--size-small`" />
+    <span
+      v-if="iconPosition === 'before'"
+      :class="`ct-icon ct-icon--${icon} ct-icon--size-small`"
+    />
     {{ model }}
-    <span v-if="iconPosition === 'after'" :class="`ct-icon ct-icon--${icon} ct-icon--size-small`" />
+    <span
+      v-if="iconPosition === 'after'"
+      :class="`ct-icon ct-icon--${icon} ct-icon--size-small`"
+    />
   </span>
 </template>
 
@@ -36,7 +42,7 @@ export default {
     },
     value: {
       type: String,
-      require: true
+      required: true
     }
   },
 

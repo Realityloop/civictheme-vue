@@ -6,10 +6,16 @@
       'ct-promo-card--image-over': hasImage && $scopedSlots.image_over
     }"
   >
-    <div v-if="hasImage" class="ct-promo-card__image-wrapper">
+    <div
+      v-if="hasImage"
+      class="ct-promo-card__image-wrapper"
+    >
       <!-- Slot: Image -->
       <slot name="image">
-        <CTImage :alt="imageAlt" :src="imageSrc" />
+        <CTImage
+          :alt="imageAlt"
+          :src="imageSrc"
+        />
       </slot>
       <div class="ct-promo-card__image-over">
         <!-- Slot: Image over -->
@@ -18,7 +24,10 @@
     </div>
 
     <div class="ct-promo-card__content">
-      <div v-if="$scopedSlots.content_top" class="ct-promo-card__content-top">
+      <div
+        v-if="$scopedSlots.content_top"
+        class="ct-promo-card__content-top"
+      >
         <slot name="content_top" />
       </div>
 
@@ -32,7 +41,10 @@
       />
 
       <!-- Title -->
-      <div v-if="title" class="ct-promo-card__title">
+      <div
+        v-if="title"
+        class="ct-promo-card__title"
+      >
         <CTLink
           class="ct-promo-card__title-link"
           :link="link || '#'"
@@ -42,7 +54,10 @@
       </div>
 
       <!-- Slot: Content middle -->
-      <div v-if="$scopedSlots.content_middle" class="ct-promo-card__content_middle">
+      <div
+        v-if="$scopedSlots.content_middle"
+        class="ct-promo-card__content_middle"
+      >
         <slot name="content_middle" />
       </div>
 
@@ -61,15 +76,21 @@
           />
         </div>
 
-        <div v-if="link" class="ct-promo-card__icon-wrapper">
+        <div
+          v-if="link"
+          class="ct-promo-card__icon-wrapper"
+        >
           <span
             class="ct-icon ct-icon--right-arrow-2 ct-navigation-card__icon--arrow"
-          ></span>
+          />
         </div>
       </div>
 
       <!-- Slot: Content bottom -->
-      <div v-if="$scopedSlots.content_bottom" class="ct-promo-card__content-bottom">
+      <div
+        v-if="$scopedSlots.content_bottom"
+        class="ct-promo-card__content-bottom"
+      >
         <slot name="content_bottom" />
       </div>
     </div>

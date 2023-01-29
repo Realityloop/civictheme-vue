@@ -1,7 +1,16 @@
 <template>
-  <header :class="`ct-header ${themeClass}`" role="banner">
-    <div v-if="hasTop" class="ct-header__top">
-      <div v-if="$scopedSlots['content_top1']" class="container">
+  <header
+    :class="`ct-header ${themeClass}`"
+    role="banner"
+  >
+    <div
+      v-if="hasTop"
+      class="ct-header__top"
+    >
+      <div
+        v-if="$scopedSlots['content_top1']"
+        class="container"
+      >
         <div class="row">
           <div class="col-xxs-12">
             <div class="ct-header__content-top1">
@@ -13,7 +22,10 @@
         </div>
       </div>
 
-      <div v-if="$scopedSlots['content_top2'] || $scopedSlots['content_top3']" class="container">
+      <div
+        v-if="$scopedSlots['content_top2'] || $scopedSlots['content_top3']"
+        class="container"
+      >
         <div class="row">
           <div class="col-xxs-12 col-m-6">
             <div class="ct-header__content-top2">
@@ -31,7 +43,10 @@
     </div>
 
     <!-- Middle -->
-    <div v-if="hasMiddle" class="ct-header__middle">
+    <div
+      v-if="hasMiddle"
+      class="ct-header__middle"
+    >
       <div class="container">
         <div class="row">
           <div class="col-xxs-12">

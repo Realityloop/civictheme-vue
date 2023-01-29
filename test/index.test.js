@@ -1,32 +1,42 @@
-import NuxtModule from '../src'
+/* global beforeEach, describe, expect, jest, test */
 
-const options = {
-  baseUrl: 'https://demo-api.druxtjs.org',
-  endpoint: '/jsonapi',
-}
+import NuxtModule from '../src/nuxt'
 
+const options = {}
 let mock
 
-describe('DruxtModule Nuxt module', () => {
+describe('CivicTheme Vue: Nuxt module', () => {
   beforeEach(() => {
     mock = {
-      addModule: jest.fn(),
-      addTemplate: jest.fn(),
-      extendRoutes: jest.fn(),
+      addPlugin: jest.fn(),
       nuxt: {
         hook: jest.fn(),
+        options: {
+          css: []
+        }
       },
-      options: {},
-      NuxtModule
     }
   })
 
   test('Init', () => {
     // Add Nuxt hook mock handler.
     const dirs = []
-    mock.nuxt.hook = jest.fn((hook, fn) => fn(dirs))
+    const stories = []
+    mock.nuxt.hook = jest.fn((hook, fn) => {
+      switch (hook) {
+        case 'components:dirs': {
+          fn(dirs)
+        }
+        break
 
-    // Call Druxt module with module options.
+        case 'storybook:config': {
+          fn({ stories })
+        }
+        break
+      }
+    })
+
+    // Call Nuxt module with module options.
     NuxtModule.call(mock, options)
 
     // Expect that:
@@ -34,5 +44,9 @@ describe('DruxtModule Nuxt module', () => {
     // - One directory is present.
     expect(mock.nuxt.hook).toHaveBeenCalledWith('components:dirs', expect.any(Function))
     expect(dirs.length).toBe(1)
+    // - The storybook:config hook was invoked.
+    // - One stories directory is present.
+    expect(mock.nuxt.hook).toHaveBeenCalledWith('storybook:config', expect.any(Function))
+    expect(stories.length).toBe(1)
   })
 })

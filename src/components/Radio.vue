@@ -7,11 +7,11 @@
     }"
   >
     <input
+      v-model="model"
       type="radio"
       class="ct-radio__element"
       :required="required"
-      v-model="model"
-    />
+    >
     <span class="ct-radio__state" />
     <label class="ct-radio__label"><slot /></label>
   </div>

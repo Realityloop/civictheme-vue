@@ -61,6 +61,7 @@
     "eslint-plugin-nuxt": "4.0.0",
     "husky": "^8.0.3",
     "jest": "27.5.1",
+    "jest-junit": "^15.0.0",
     "lint-staged": "^13.1.0",
     "renovate": "^34.104.0",
     "siroc": "0.16.0",

@@ -589,7 +589,7 @@
                         name="item"
                         :item="item"
                       >
-                        <CTCardPromo v-bind="item" />
+                        <component :is="itemComponent" v-bind="item" />
                       </slot>
                     </div>
                   </div>
@@ -751,6 +751,10 @@ export default {
   mixins: [ThemeMixin],
 
   props: {
+    itemComponent: {
+      type: String,
+      default: 'CTPromoCard'
+    },
     items: {
       type: Array,
       required: true,

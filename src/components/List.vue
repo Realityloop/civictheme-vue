@@ -589,7 +589,10 @@
                         name="item"
                         :item="item"
                       >
-                        <component :is="itemComponent" v-bind="item" />
+                        <component
+                          :is="itemComponent"
+                          v-bind="item"
+                        />
                       </slot>
                     </div>
                   </div>

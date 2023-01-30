@@ -4,6 +4,10 @@ export default {
   title: 'CivicTheme/Organisms/List',
   component: CTList,
   argTypes: {
+    itemComponent: {
+      options: ['CTEventCard', 'CTNavigationCard', 'CTPromoCard', 'CTSubjectCard'],
+      control: 'select'
+    },
     theme: {
       options: ['dark', 'light'],
       control: 'select'

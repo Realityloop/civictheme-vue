@@ -32,8 +32,8 @@
     "lint:commit": "commitlint",
     "lint:renovate": "renovate-config-validator",
     "storybook": "cd examples/nuxt && npx nuxt storybook",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "test": "jest ./test/jest",
+    "test:watch": "jest ./test/jest --watch"
   },
   "husky": {
     "hooks": {

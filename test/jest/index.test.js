@@ -1,6 +1,6 @@
 /* global beforeEach, describe, expect, jest, test */
 
-import NuxtModule from '../src/nuxt'
+import NuxtModule from '../../src/nuxt'
 
 const options = {}
 let mock

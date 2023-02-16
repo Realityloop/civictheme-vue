@@ -30,7 +30,13 @@ jobs:
 
     - run: yarn lint
 
-    - run: yarn test --reporters=jest-junit --runInBand
+    - name: Jest tests
+      run: yarn test:jest --reporters=jest-junit --runInBand
+
+    - name: Cypress tests
+      uses: cypress-io/github-action@v5
+      with:
+        command: yarn test:cypress
 
     - name: Codecov
       uses: codecov/codecov-action@v3.1.1

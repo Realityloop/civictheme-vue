@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import ThemeMixin from '../mixins/theme.mjs'
+import ThemeMixin from '../mixins/theme'
 
 export default {
   mixins: [ThemeMixin],

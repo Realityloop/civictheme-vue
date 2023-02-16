@@ -1,4 +1,6 @@
 example/package-lock.json
+cypress/screenshots
+cypress/videos
 
 # Logs
 logs

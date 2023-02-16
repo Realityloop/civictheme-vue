@@ -20,18 +20,20 @@ import { mount } from 'cypress/vue2'
 
 Cypress.Commands.add('mount', mount)
 
-Cypress.Commands.add('standardComponentTest', (component, options, rules) => {
+Cypress.Commands.add('standardComponentTest', (component, context) => {
+  const { axeRules, mountOptions, imageMatchOptions } = context
+
   // Add CSS assets.
   require('civictheme/dist/civictheme.css')
   require('civictheme/dist/civictheme.variables.css')
 
   // see: https://test-utils.vuejs.org/guide/
-  cy.mount(component, options)
+  cy.mount(component, mountOptions)
 
   // Accessibility testing
   cy.injectAxe()
   cy.configureAxe({
-    rules: rules || [
+    rules: axeRules || [
       {
         id: 'page-has-heading-one',
         enabled: false,
@@ -41,5 +43,5 @@ Cypress.Commands.add('standardComponentTest', (component, options, rules) => {
   cy.checkA11y()
 
   // Visual regression testing
-  cy.responsiveImageMatch()
+  cy.responsiveImageMatch(imageMatchOptions)
 })

@@ -21,13 +21,13 @@ import { mount } from 'cypress/vue2'
 Cypress.Commands.add('mount', mount)
 
 Cypress.Commands.add('standardComponentTest', (component, context) => {
-  const { axeRules, mountOptions, imageMatchOptions } = context
+  const { axeRules, imageMatchOptions, mountOptions, options } = context
 
   // Add CSS assets.
   require('civictheme/dist/civictheme.css')
   require('civictheme/dist/civictheme.variables.css')
 
-  if (mountOptions.propsData.theme === 'dark') {
+  if ((options || {}).background && mountOptions.propsData.theme === 'dark') {
     cy.get('div[role="main"]').invoke('css', 'background-color', 'var(--ct-color-dark-background)')
   }
 

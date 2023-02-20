@@ -27,6 +27,10 @@ Cypress.Commands.add('standardComponentTest', (component, context) => {
   require('civictheme/dist/civictheme.css')
   require('civictheme/dist/civictheme.variables.css')
 
+  if (mountOptions.propsData.theme === 'dark') {
+    cy.get('div[role="main"]').invoke('css', 'background-color', 'var(--ct-color-dark-background)')
+  }
+
   // see: https://test-utils.vuejs.org/guide/
   cy.mount(component, mountOptions)
 

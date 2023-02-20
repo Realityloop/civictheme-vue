@@ -14,7 +14,6 @@
           />
 
           <div
-            :id="`input-${id}`"
             class="ct-input ct-input--default"
             :class="{
               [themeClass]: true,
@@ -25,35 +24,35 @@
             <!-- Textfield: text, email, tel, password -->
             <CTTextfield
               v-if="['text', 'email', 'tel', 'password'].includes(type)"
-              v-bind="{ id, placeholder, required, type }"
+              v-bind="{ id: `input-${id}`, placeholder, required, type }"
               v-model="model"
             />
 
             <!-- Textarea -->
             <CTTextarea
               v-else-if="type === 'textarea'"
-              v-bind="{ id, placeholder, required }"
+              v-bind="{ id: `input-${id}`, placeholder, required }"
               v-model="model"
             />
 
             <!-- Select -->
             <CTSelect
               v-else-if="type === 'select'"
-              v-bind="{ id, options, placeholder, required }"
+              v-bind="{ id: `input-${id}`, options, placeholder, required }"
               v-model="model"
             />
 
             <!-- Radio -->
             <CTRadio
               v-else-if="type === 'radio'"
-              v-bind="{ id, placeholder, required }"
+              v-bind="{ id: `input-${id}`, placeholder, required }"
               v-model="model"
             />
 
             <!-- Checkbox -->
             <CTCheckbox
               v-else-if="type === 'checkbox'"
-              v-bind="{ id, placeholder, required }"
+              v-bind="{ id: `input-${id}`, placeholder, required }"
               v-model="model"
             />
           </div>

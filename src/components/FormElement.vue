@@ -23,7 +23,7 @@
           >
             <!-- Textfield: text, email, tel, password -->
             <CTTextfield
-              v-if="['text', 'email', 'tel', 'password'].includes(type)"
+              v-if="['date', 'email', 'number', 'password', 'tel', 'text'].includes(type)"
               v-bind="{ id: `input-${id}`, placeholder, required, type }"
               v-model="model"
             />
@@ -70,6 +70,8 @@
             class="ct-form-element__description"
             v-text="description"
           />
+
+          <CTFieldMessage v-if="$slots.error || error" type="error"><slot name="error">{{ error }}</slot></CTFieldMessage>
         </div>
       </div>
     </div>
@@ -84,6 +86,10 @@ export default {
 
   props: {
     description: {
+      type: String,
+      default: undefined
+    },
+    error: {
       type: String,
       default: undefined
     },

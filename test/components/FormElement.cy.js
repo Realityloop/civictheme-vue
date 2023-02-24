@@ -1,8 +1,10 @@
 /* global cy, describe, it */
 import FormElement from '../../src/components/FormElement.vue'
+import CTFieldMessage from '../../src/components/FieldMessage.vue'
 import CTTextfield from '../../src/components/Textfield.vue'
 
 const components = {
+  CTFieldMessage,
   CTTextfield
 }
 const propsData = {
@@ -10,6 +12,9 @@ const propsData = {
   id: 'test',
   label: 'Field label',
   type: 'text'
+}
+const slots = {
+  error: 'Error message.'
 }
 
 describe('Atoms/Molecules/Form Element', () => {
@@ -19,8 +24,9 @@ describe('Atoms/Molecules/Form Element', () => {
         components,
         propsData: {
           ...propsData,
-          theme: 'light',
-        }
+          theme: 'light'
+        },
+        slots
       }
     })
   })
@@ -32,7 +38,8 @@ describe('Atoms/Molecules/Form Element', () => {
         propsData: {
           ...propsData,
           theme: 'dark'
-        }
+        },
+        slots
       },
       options: {
         background: true

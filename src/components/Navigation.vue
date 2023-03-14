@@ -9,6 +9,7 @@
     <div class="ct-navigation__items">
       <CTMenu
         class="ct-navigation__menu"
+        :theme="theme"
         :items="items"
       />
     </div>

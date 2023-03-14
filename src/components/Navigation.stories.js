@@ -1,4 +1,5 @@
 import CTNavigation from './Navigation.vue'
+import 'civictheme/components/00-base/collapsible/collapsible'
 
 export default {
   title: 'CivicTheme/Organisms/Navigation',
@@ -6,6 +7,10 @@ export default {
   argTypes: {
     theme: {
       options: ['dark', 'light'],
+      control: 'select'
+    },
+    dropdown: {
+      options: ['none', 'dropdown', 'drawer'],
       control: 'select'
     },
   },
@@ -27,10 +32,17 @@ export const Default = Template.bind({})
 Default.storyName = 'Navigation'
 Default.args = {
   items: [
-    { title: 'Link', url: '#' },
-    { title: 'Link', url: '#' },
-    { title: 'Link', url: '#' },
-    { title: 'Link', url: '#' },
+    {
+      title: 'Link 1',
+      url: '#',
+      children: [
+        { title: 'Link 1.1', url: '#' },
+        { title: 'Link 1.2', url: '#' }
+      ]
+    },
+    { title: 'Link 2', url: '#' },
+    { title: 'Link 3', url: '#' },
+    { title: 'Link 4', url: '#' },
   ],
   theme: 'light',
 }

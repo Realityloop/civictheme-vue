@@ -1,9 +1,10 @@
 <template>
   <div :class="`ct-navigation ${themeClass} ${dropdownClass}`">
-    <h5
+    <CTHeading
       v-if="title"
-      class="ct-heading ct-theme-light ct-navigation__title"
-      v-text="title"
+      class="ct-navigation__title"
+      :level="5"
+      :text="title"
     />
     <div class="ct-navigation__items">
       <CTMenu

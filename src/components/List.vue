@@ -1,6 +1,7 @@
 <template>
   <div :class="`ct-list ${themeClass}`">
     <div class="ct-list__container">
+      <!-- Header -->
       <div
         v-if="title"
         class="ct-list__header container"
@@ -9,10 +10,7 @@
           <div class="container">
             <div class="row">
               <div class="col-xxs-12">
-                <h2
-                  :class="`ct-heading ${themeClass}`"
-                  v-text="title"
-                />
+                <CTHeading :text="title" />
               </div>
             </div>
           </div>
@@ -570,6 +568,7 @@
         </div>
       </div> -->
 
+      <!-- Body -->
       <div class="ct-list__body">
         <div
           class="ct-item-grid"

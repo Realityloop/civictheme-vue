@@ -18,7 +18,11 @@
 import './commands'
 import { mount } from 'cypress/vue2'
 
-Cypress.Commands.add('mount', mount)
+Cypress.Commands.add('mount', (...args) => {
+  return mount(...args).then(({ wrapper }) => {
+    return cy.wrap(wrapper).as('vue')
+  })
+})
 
 Cypress.Commands.add('standardComponentTest', (component, context) => {
   const { axeRules, imageMatchOptions, mountOptions, options } = context
@@ -26,10 +30,6 @@ Cypress.Commands.add('standardComponentTest', (component, context) => {
   // Add CSS assets.
   require('civictheme/dist/civictheme.css')
   require('civictheme/dist/civictheme.variables.css')
-
-  if ((options || {}).background && mountOptions.propsData.theme === 'dark') {
-    cy.get('div[role="main"]').invoke('css', 'background-color', 'var(--ct-color-dark-background)')
-  }
 
   // see: https://test-utils.vuejs.org/guide/
   cy.mount(component, mountOptions)
@@ -47,5 +47,19 @@ Cypress.Commands.add('standardComponentTest', (component, context) => {
   cy.checkA11y()
 
   // Visual regression testing
+  cy.responsiveImageMatch(imageMatchOptions)
+
+  // Dark theme.
+  cy.mount(component, {
+    ...mountOptions || {},
+    propsData: {
+      ...mountOptions.propsData || {},
+      theme: 'dark'
+    }
+  })
+  if ((options || {}).background) {
+    cy.get('body').invoke('css', 'background-color', 'var(--ct-color-dark-background)')
+  }
+  cy.checkA11y()
   cy.responsiveImageMatch(imageMatchOptions)
 })

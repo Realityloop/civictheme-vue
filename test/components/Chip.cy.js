@@ -2,23 +2,11 @@
 import Chip from '../../src/components/Chip.vue'
 
 describe('Atoms/Chip', () => {
-  it('Light', () => {
+  it('Default', () => {
     cy.standardComponentTest(Chip, {
       mountOptions: {
         propsData: {
-          label: 'Chip label',
-          theme: 'light',
-        }
-      }
-    })
-  })
-
-  it('Dark', () => {
-    cy.standardComponentTest(Chip, {
-      mountOptions: {
-        propsData: {
-          label: 'Chip label',
-          theme: 'dark'
+          label: 'Chip label'
         }
       },
       options: {

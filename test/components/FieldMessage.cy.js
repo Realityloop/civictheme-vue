@@ -9,25 +9,10 @@ const slots = {
 }
 
 describe('Atoms/Forms/Field Message', () => {
-  it('Light', () => {
+  it('Default', () => {
     cy.standardComponentTest(FieldMessage, {
       mountOptions: {
-        propsData: {
-          ...propsData,
-          theme: 'light',
-        },
-        slots
-      }
-    })
-  })
-
-  it('Dark', () => {
-    cy.standardComponentTest(FieldMessage, {
-      mountOptions: {
-        propsData: {
-          ...propsData,
-          theme: 'dark'
-        },
+        propsData,
         slots
       }
     })

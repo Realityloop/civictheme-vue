@@ -18,27 +18,11 @@ const slots = {
 }
 
 describe('Atoms/Molecules/Form Element', () => {
-  it('Light', () => {
+  it('Default', () => {
     cy.standardComponentTest(FormElement, {
       mountOptions: {
         components,
-        propsData: {
-          ...propsData,
-          theme: 'light'
-        },
-        slots
-      }
-    })
-  })
-
-  it('Dark', () => {
-    cy.standardComponentTest(FormElement, {
-      mountOptions: {
-        components,
-        propsData: {
-          ...propsData,
-          theme: 'dark'
-        },
+        propsData,
         slots
       },
       options: {

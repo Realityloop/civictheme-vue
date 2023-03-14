@@ -2,27 +2,14 @@
 import Banner from '../../src/components/Banner.vue'
 
 describe('Organisms/Banner', () => {
-  it('Light', () => {
+  it('Default', () => {
     cy.standardComponentTest(Banner, {
       axeRules: [],
       mountOptions: {
         propsData: {
-          title: 'Title',
-          theme: 'light'
+          title: 'Title'
         }
       }
-    })
-  })
-
-  it('Dark', () => {
-    cy.standardComponentTest(Banner, {
-      axeRules: [],
-      mountOptions: {
-        propsData: {
-          title: 'Title',
-          theme: 'dark'
-        }
-      },
     })
   })
 })

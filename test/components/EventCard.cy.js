@@ -17,25 +17,10 @@ const slots = {
 }
 
 describe('Molecules/Cards/Event', () => {
-  it('Light', () => {
+  it('Default', () => {
     cy.standardComponentTest(EventCard, {
       mountOptions: {
-        propsData: {
-          ...propsData,
-          theme: 'light',
-        },
-        slots
-      }
-    })
-  })
-
-  it('Dark', () => {
-    cy.standardComponentTest(EventCard, {
-      mountOptions: {
-        propsData: {
-          ...propsData,
-          theme: 'dark'
-        },
+        propsData,
         slots
       }
     })

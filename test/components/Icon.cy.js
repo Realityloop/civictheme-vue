@@ -13,6 +13,9 @@ describe('Atoms/Base/Icon', () => {
       mountOptions: {
         propsData,
         slots
+      },
+      options: {
+        background: true
       }
     })
   })

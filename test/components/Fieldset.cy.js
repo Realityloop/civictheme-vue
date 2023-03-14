@@ -10,25 +10,10 @@ const slots = {
 }
 
 describe('Atoms/Forms/FieldSet', () => {
-  it('Light', () => {
+  it('Default', () => {
     cy.standardComponentTest(Fieldset, {
       mountOptions: {
-        propsData: {
-          ...propsData,
-          theme: 'light',
-        },
-        slots
-      }
-    })
-  })
-
-  it('Dark', () => {
-    cy.standardComponentTest(Fieldset, {
-      mountOptions: {
-        propsData: {
-          ...propsData,
-          theme: 'dark'
-        },
+        propsData,
         slots
       },
       options: {

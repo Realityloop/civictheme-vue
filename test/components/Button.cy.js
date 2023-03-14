@@ -2,23 +2,11 @@
 import Button from '../../src/components/Button.vue'
 
 describe('Atoms/Button', () => {
-  it('Light', () => {
+  it('Default', () => {
     cy.standardComponentTest(Button, {
       mountOptions: {
         propsData: {
-          text: 'Button text',
-          theme: 'light',
-        }
-      }
-    })
-  })
-
-  it('Dark', () => {
-    cy.standardComponentTest(Button, {
-      mountOptions: {
-        propsData: {
-          text: 'Button text',
-          theme: 'dark'
+          text: 'Button text'
         }
       }
     })

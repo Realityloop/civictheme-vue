@@ -8,10 +8,17 @@ import 'civictheme/components/00-base/collapsible/collapsible'
 
 const propsData = {
   items: [
-    { title: 'Link', url: '#' },
-    { title: 'Link', url: '#' },
-    { title: 'Link', url: '#' },
-    { title: 'Link', url: '#' },
+    {
+      title: 'Link 1',
+      url: '#',
+      children: [
+        { title: 'Link 1.1', url: '#' },
+        { title: 'Link 1.2', url: '#' }
+      ]
+    },
+    { title: 'Link 2', url: '#' },
+    { title: 'Link 3', url: '#' },
+    { title: 'Link 4', url: '#' },
   ]
 }
 const slots = {}
@@ -23,10 +30,10 @@ describe('Menu', () => {
         components: {
           CTMenuItem
         },
-        mocks: {
-          process: {}
-        },
         propsData
+      },
+      options: {
+        background: true
       }
     })
   })

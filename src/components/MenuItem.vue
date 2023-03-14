@@ -2,6 +2,7 @@
   <li
     class="ct-menu__item"
     :class="{
+      [themeClass]: true,
       [`ct-menu__item--level-${level}`]: true,
       'ct-menu__item--has-children': hasChildren,
       'ct-navigation__has-dropdown': hasChildren
@@ -16,9 +17,10 @@
     <slot v-bind="{ item }">
       <CTLink
         class="ct-menu__item__link"
+        :data-collapsible-trigger="hasChildren"
         :text="item.title"
         :link="item.url"
-        :data-collapsible-trigger="hasChildren"
+        :theme="theme"
       />
     </slot>
 

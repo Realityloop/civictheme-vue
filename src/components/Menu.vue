@@ -9,6 +9,7 @@
         :key="item.id"
         :item="item"
         :level="level"
+        :theme="theme"
       />
     </slot>
   </ul>

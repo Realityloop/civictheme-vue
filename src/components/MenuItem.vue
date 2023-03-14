@@ -63,7 +63,13 @@ export default {
 
   created() {
     // @TODO - Do this elsewhere?
-    if (process.client) require('civictheme/components/00-base/collapsible/collapsible')
+    try {
+      if (process.client) require('civictheme/components/00-base/collapsible/collapsible')
+    }
+    catch(e) {
+      // eslint-disable-next-line
+      console.error(e)
+    }
   }
 }
 </script>

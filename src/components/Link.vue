@@ -4,8 +4,9 @@
     v-if="isExternal"
     :class="classes"
     :href="link"
-    v-text="text"
-  />
+  >
+    <slot>{{ text }}</slot>
+  </a>
 
   <!-- Internal link -->
   <NuxtLink
@@ -13,8 +14,9 @@
     :class="classes"
     tag="a"
     :to="link"
-    v-text="text"
-  />
+  >
+    <slot>{{ text }}</slot>
+  </NuxtLink>
 </template>
 
 <script>

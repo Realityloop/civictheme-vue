@@ -48,8 +48,8 @@
         <CTLink
           class="ct-promo-card__title-link"
           :link="link || '#'"
+          :text="title"
           :theme="theme"
-          v-text="title"
         />
       </div>
 
@@ -68,7 +68,7 @@
 
       <div class="ct-promo-card__bottom-wrapper">
         <!-- Tags -->
-        <div class="ct-promo-card__tags">
+        <div v-if="tags.length" class="ct-promo-card__tags">
           <CTTag
             v-for="tag of tags"
             :key="tag.id"

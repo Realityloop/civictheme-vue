@@ -50,16 +50,18 @@ Cypress.Commands.add('standardComponentTest', (component, context) => {
   cy.responsiveImageMatch(imageMatchOptions)
 
   // Dark theme.
-  cy.mount(component, {
-    ...mountOptions || {},
-    propsData: {
-      ...mountOptions.propsData || {},
-      theme: 'dark'
+  if ((options || {}).dark !== false) {
+    cy.mount(component, {
+      ...mountOptions || {},
+      propsData: {
+        ...mountOptions.propsData || {},
+        theme: 'dark'
+      }
+    })
+    if ((options || {}).background) {
+      cy.get('body').invoke('css', 'background-color', 'var(--ct-color-dark-background)')
     }
-  })
-  if ((options || {}).background) {
-    cy.get('body').invoke('css', 'background-color', 'var(--ct-color-dark-background)')
+    cy.checkA11y()
+    cy.responsiveImageMatch(imageMatchOptions)
   }
-  cy.checkA11y()
-  cy.responsiveImageMatch(imageMatchOptions)
 })

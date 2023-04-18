@@ -72,6 +72,7 @@ export default {
 
   mounted() {
     try {
+      // eslint-disable-next-line nuxt/no-env-in-hooks
       if (process.client) require('civictheme/components/00-base/flyout/flyout')
     }
     catch(e) {

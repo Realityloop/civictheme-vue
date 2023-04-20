@@ -6,9 +6,10 @@
     <div
       v-if="hasTop"
       class="ct-header__top"
+      :class="topClasses"
     >
       <div
-        v-if="$scopedSlots['content_top1']"
+        v-if="$slots['content_top1']"
         class="container"
       >
         <div class="row">
@@ -23,7 +24,7 @@
       </div>
 
       <div
-        v-if="$scopedSlots['content_top2'] || $scopedSlots['content_top3']"
+        v-if="$slots['content_top2'] || $slots['content_top3']"
         class="container"
       >
         <div class="row">
@@ -46,6 +47,7 @@
     <div
       v-if="hasMiddle"
       class="ct-header__middle"
+      :class="middleClasses"
     >
       <div class="container">
         <div class="row">
@@ -81,11 +83,16 @@
       </div>
     </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-xxs-12">
-          <div class="ct-header__content-bottom1">
-            <div class="story-slot story-slot--content_bottom1">
+    <!-- Bottom -->
+    <div
+      v-if="hasBottom"
+      class="ct-header__bottom"
+      :class="bottomClasses"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-xxs-12">
+            <div class="ct-header__content-bottom1">
               <slot name="content_bottom1" />
             </div>
           </div>
@@ -101,9 +108,25 @@ import ThemeMixin from '../mixins/theme'
 export default {
   mixins: [ThemeMixin],
 
+  props: {
+    topClasses: {
+      type: String,
+      default: undefined
+    },
+    middleClasses: {
+      type: String,
+      default: undefined
+    },
+    bottomClasses: {
+      type: String,
+      default: undefined
+    }
+  },
+
   computed: {
-    hasTop: ({ $scopedSlots }) => $scopedSlots['content_top1'] || $scopedSlots['content_top2'] || $scopedSlots['content_top3'],
-    hasMiddle: ({ $scopedSlots }) => $scopedSlots['content_middle1'] || $scopedSlots['content_middle2'] || $scopedSlots['content_middle3'],
+    hasTop: ({ $scopedSlots }) => $scopedSlots.content_top1 || $scopedSlots.content_top2 || $scopedSlots.content_top3,
+    hasMiddle: ({ $scopedSlots }) => $scopedSlots.content_middle1 || $scopedSlots.content_middle2 || $scopedSlots.content_middle3,
+    hasBottom: ({ $scopedSlots }) => $scopedSlots.content_bottom1
   }
 }
 </script>

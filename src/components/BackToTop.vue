@@ -5,8 +5,16 @@
     data-scrollspy=""
     data-scrollspy-offset="400"
   >
-    <CTButton kind="link" :theme="theme" url="#top">
-      <CTIcon class="ct-button__icon" symbol="up-arrow" :theme="theme" />
+    <CTButton
+      kind="link"
+      :theme="theme"
+      url="#top"
+    >
+      <CTIcon
+        class="ct-button__icon"
+        symbol="up-arrow"
+        :theme="theme"
+      />
     </CTButton>
   </div>
 </template>

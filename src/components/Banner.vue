@@ -1,5 +1,11 @@
 <template>
-  <div :class="`ct-banner ${themeClass} ct-banner--decorative`">
+  <div
+    class="ct-banner"
+    :class="{
+      [themeClass]: true,
+      'ct-banner--decorative': decorative
+    }"
+  >
     <div class="ct-banner__wrapper">
       <div
         class="ct-banner__wrapper__inner ct-background--normal"
@@ -220,6 +226,10 @@ export default {
     },
     breadcrumbs: {
       type: [Boolean, Array],
+      default: false
+    },
+    decorative: {
+      type: Boolean,
       default: false
     },
     image: {

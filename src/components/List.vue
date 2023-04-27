@@ -582,7 +582,8 @@
                     <div
                       v-for="item of items"
                       :key="item.id"
-                      class="ct-item-grid__item col-xxs-12 col-m-4"
+                      class="ct-item-grid__item col-xxs-12"
+                      :class="itemClasses"
                     >
                       <slot
                         name="item"
@@ -753,6 +754,10 @@ export default {
   mixins: [ThemeMixin],
 
   props: {
+    itemClasses: {
+      type: String,
+      default: 'col-m-4'
+    },
     itemComponent: {
       type: String,
       default: 'CTPromoCard'

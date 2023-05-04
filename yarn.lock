@@ -5673,9 +5673,9 @@ ci-info@^3.1.0, ci-info@^3.2.0:
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-3.6.2.tgz#362ea15378f1c39378ba786affbc1c9ef015ecfd"
   integrity sha512-lVZdhvbEudris15CLytp2u6Y0p5EKfztae9Fqa189MfNmln9F33XuH69v5fvNfiRN5/0eAUz2yJL3mo+nhaRKg==
 
-"civictheme@git+https://github.com/Realityloop/civictheme_library.git":
-  version "1.2.6"
-  resolved "git+https://github.com/Realityloop/civictheme_library.git#de0e504278343ef4caf6cb23fcf3eb57c98e2a0e"
+"civictheme@git+https://github.com/salsadigitalauorg/civictheme_library.git":
+  version "1.4.5"
+  resolved "git+https://github.com/salsadigitalauorg/civictheme_library.git#531f6d5712d0989f8b973594ac5f62e7ae71e289"
   dependencies:
     "@popperjs/core" "^2.11.6"
     breakpoint-sass "^2.7.1"

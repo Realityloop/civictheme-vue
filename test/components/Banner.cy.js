@@ -7,7 +7,8 @@ describe('Organisms/Banner', () => {
       axeRules: [],
       mountOptions: {
         propsData: {
-          title: 'Title'
+          title: 'Title',
+          decorative: true
         }
       }
     })

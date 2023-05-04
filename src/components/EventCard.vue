@@ -2,7 +2,7 @@
   <div :class="`ct-event-card ${themeClass}`">
     <div
       v-if="hasImage"
-      class="ct-event-card__image-wrapper"
+      class="ct-event-card__image"
     >
       <!-- Slot: Image -->
       <slot name="image">

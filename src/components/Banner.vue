@@ -188,13 +188,13 @@
       </div>
 
       <div
-        v-if="image"
+        v-if="imageSrc"
         class="ct-banner__featured-image"
       >
         <img
+          :alt="imageAlt"
           :class="`ct-image ${themeClass}`"
-          :src="image"
-          alt="Featured image alt text"
+          :src="imageSrc"
         >
       </div>
     </div>
@@ -232,9 +232,13 @@ export default {
       type: Boolean,
       default: false
     },
-    image: {
+    imageAlt: {
       type: String,
       default: undefined
+    },
+    imageSrc: {
+      type: String,
+      default: undefined,
     },
     title: {
       type: String,

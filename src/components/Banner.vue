@@ -8,7 +8,7 @@
   >
     <div class="ct-banner__wrapper">
       <div
-        class="ct-banner__wrapper__inner ct-background--normal"
+        class="ct-banner__inner ct-background--normal"
         :style="{
           backgroundImage: background && `url('${background}')`
         }"

@@ -1,8 +1,8 @@
 <template>
-  <div :class="`ct-event-card ${themeClass}`">
+  <div :class="`ct-navigation-card ${themeClass}`">
     <div
       v-if="hasImage"
-      class="ct-event-card__image-wrapper"
+      class="ct-navigation-card__image"
     >
       <!-- Slot: Image -->
       <slot name="image">
@@ -11,90 +11,60 @@
           :src="imageSrc"
         />
       </slot>
+
       <div
         v-if="$scopedSlots.image_over"
-        class="ct-event-card__image-over"
+        class="ct-navigation-card__image-over"
       >
         <!-- Slot: Image over -->
         <slot name="image_over" />
       </div>
     </div>
 
-    <div class="ct-event-card__content">
+    <div class="ct-navigation-card__content">
       <!-- Slot: Content top -->
       <div
         v-if="$scopedSlots.content_top"
-        class="ct-event-card__content-top"
+        class="ct-navigation-card__content-top"
       >
         <slot name="content_top" />
       </div>
 
-      <!-- Date -->
-      <CTTag
-        class="ct-event-card__date"
-        icon="calendar-2"
-        :theme="theme"
-        type="secondary"
-        :value="date"
-      />
+      <!-- @TODO - Icon -->
 
       <!-- Title -->
-      <div
+      <CTHeading
         v-if="title"
-        class="ct-event-card__title"
+        class="ct-navigation-card__title"
+        :level="4"
       >
         <CTLink
-          class="ct-event-card__title-link"
+          class="ct-navigation-card__title-link"
           :link="link"
           :theme="theme"
-          :text="title"
-        />
-      </div>
+        >
+          {{ title }}
+          <CTIcon symbol="right-arrow-2" />
+        </CTLink>
+      </CTHeading>
 
       <!-- Slot: Content middle -->
       <div
         v-if="$scopedSlots.content_middle"
-        class="ct-event-card__content-middle"
+        class="ct-navigation-card__content-middle"
       >
         <slot name="content_middle" />
       </div>
 
-      <!-- Location -->
-      <div
-        v-if="location"
-        class="ct-event-card__location"
-        v-text="location"
-      />
-
       <!-- Slot: Default/summary -->
-      <div class="ct-event-card__summary">
+      <div class="ct-navigation-card__summary">
         <slot>{{ summary }}</slot>
-      </div>
-
-      <div class="ct-event-card__bottom-wrapper">
-        <!-- Tags -->
-        <div class="ct-event-card__tags">
-          <CTTag
-            v-for="tag of tags"
-            :key="tag.id"
-            :value="tag.value"
-          />
-        </div>
-
-        <div
-          v-if="link"
-          class="ct-event-card__icon-wrapper"
-        >
-          <span
-            class="ct-icon ct-icon--right-arrow-2 ct-navigation-card__icon--arrow"
-          />
-        </div>
       </div>
 
       <!-- Slot: Content bottom -->
       <div
         v-if="$scopedSlots.content_bottom"
-        class="ct-event-card__content-bottom"
+        class="ct-navigation-card__content-bottom"
       >
         <slot name="content_bottom" />
       </div>
@@ -109,10 +79,6 @@ export default {
   mixins: [ThemeMixin],
 
   props: {
-    date: {
-      type: String,
-      default: undefined
-    },
     imageAlt: {
       type: String,
       default: undefined
@@ -125,17 +91,9 @@ export default {
       type: String,
       default: undefined
     },
-    location: {
-      type: String,
-      default: undefined
-    },
     summary: {
       type: String,
       default: undefined,
-    },
-    tags: {
-      type: Array,
-      default: () => ([]),
     },
     title: {
       type: String,

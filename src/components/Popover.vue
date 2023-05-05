@@ -37,10 +37,6 @@ export default {
       type: String,
       default: undefined
     }
-  },
-
-  mounted() {
-    require('civictheme/components/01-atoms/popover/popover.js')
   }
 }
 </script>

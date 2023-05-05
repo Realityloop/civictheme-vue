@@ -32,6 +32,7 @@
         [`ct-menu__sub-menu__wrapper--level-${level + 1}`]: true,
       }"
       data-collapsible-panel
+      data-collapsible-trigger-no-icon
     >
       <CTMenu
         class="ct-menu__sub-menu"

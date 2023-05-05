@@ -6,19 +6,19 @@
       'ct-subject-card--no-image': !hasImage
     }"
   >
-    <div class="ct-subject-card__image-wrapper">
+    <div class="ct-subject-card__content">
       <!-- Slot: Image -->
-      <slot
-        v-if="hasImage"
-        name="image"
-      >
-        <div class="ct-subject-card__image">
+      <div class="ct-subject-card__image">
+        <slot
+          v-if="hasImage"
+          name="image"
+        >
           <CTImage
             :alt="imageAlt"
             :src="imageSrc"
           />
-        </div>
-      </slot>
+        </slot>
+      </div>
 
       <div
         v-if="$scopedSlots.image_over"
@@ -28,6 +28,7 @@
         <slot name="image_over" />
       </div>
 
+      <!-- @TODO - CTHeading -->
       <div class="ct-subject-card__title">
         <CTLink
           class="ct-subject-card__title-link"
@@ -35,10 +36,6 @@
           :theme="theme"
           :text="title"
         />
-
-        <div class="ct-subject-card__icon-wrapper">
-          <span class="ct-icon ct-icon--right-arrow-2  ct-subject-card__icon--arrow" />
-        </div>
       </div>
     </div>
   </div>

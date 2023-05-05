@@ -133,20 +133,28 @@
             </div>
           </div>
 
-          <div class="row">
+          <!-- Slot: Content Top 3 -->
+          <div class="row" v-if="$slots['content_top3']">
             <div class="col-xxs-12">
               <div class="ct-banner__content-top3">
-                <div class="story-slot story-slot--content_top3">
-                  <!-- {{ content_top3 }} -->
-                </div>
+                {{ content_top3 }}
               </div>
             </div>
           </div>
+
+          <!-- <div class="row">
+            <div class="col-xxs-12">
+              <h5 class="ct-heading ct-theme-light ct-banner__site-section">
+                Site section name
+              </h5>
+            </div>
+          </div> -->
 
           <div class="row">
             <div class="col-xxs-12 col-m-6">
               <div class="ct-banner__title">
                 <slot name="title">
+                  <!-- @TODO - CTHeading -->
                   <h1
                     :class="`ct-heading ct-theme-${theme}`"
                     v-text="title"
@@ -156,31 +164,20 @@
             </div>
           </div>
 
-          <div class="row">
+          <!-- Slot: Middle -->
+          <div class="row" v-if="$slots['content_middle']">
             <div class="col-xxs-12 col-m-6">
               <div class="ct-banner__content-middle">
-                <div class="story-slot story-slot--content_middle">
-                  <!-- {{ content_middle }} -->
-                </div>
+                {{ content_middle }}
               </div>
             </div>
           </div>
 
-          <div class="row">
+          <!-- Slot: Default -->
+          <div v-if="$slots['default']" class="row">
             <div class="col-xxs-12 col-m-6">
               <div class="ct-banner__content">
-                <div class="ct-banner__content__example">
-                  <div
-                    v-if="updated"
-                    class="ct-banner__content__example-last-updated"
-                  >
-                    <p>Last updated: @TODO</p>
-                  </div>
-
-                  <div class="ct-banner__content__example-summary">
-                    <slot />
-                  </div>
-                </div>
+                <slot />
               </div>
             </div>
           </div>
@@ -189,11 +186,12 @@
 
       <div
         v-if="imageSrc"
-        class="ct-banner__featured-image"
+        class="ct-banner__featured-image__wrapper"
       >
+        <!-- @TODO - CTImage -->
         <img
           :alt="imageAlt"
-          :class="`ct-image ${themeClass}`"
+          :class="`ct-image ${themeClass} ct-banner__featured-image`"
           :src="imageSrc"
         >
       </div>
@@ -244,10 +242,6 @@ export default {
       type: String,
       required: true
     },
-    updated: {
-      type: [Boolean, Date],
-      default: false
-    }
   }
 }
 </script>

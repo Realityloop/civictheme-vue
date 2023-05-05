@@ -62,13 +62,9 @@
       </div>
 
       <!-- Slot: Default/summary -->
-      <!-- @TODO - CTParagraph -->
-      <div
-        class="ct-paragraph ct-paragraph--regularct-promo-card__summary"
-        :class="themeClass"
-      >
+      <CTParagraph class="ct-promo-card__summary" :theme="theme">
         <slot>{{ summary }}</slot>
-      </div>
+      </CTParagraph>
 
       <div class="ct-promo-card__bottom-wrapper">
         <!-- Tags -->

@@ -57,13 +57,9 @@
       </div>
 
       <!-- Slot: Default/summary -->
-      <!-- @TODO - CTParagraph -->
-      <div
-        class="ct-paragraph ct-paragraph--regular ct-navigation-card__summary"
-        :class="themeClass"
-      >
+      <CTParagraph class="ct-navigation-card__summary" :theme="theme">
         <slot>{{ summary }}</slot>
-      </div>
+      </CTParagraph>
 
       <!-- Slot: Content bottom -->
       <div

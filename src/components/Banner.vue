@@ -188,12 +188,12 @@
         v-if="imageSrc"
         class="ct-banner__featured-image__wrapper"
       >
-        <!-- @TODO - CTImage -->
-        <img
+        <CTImage
           :alt="imageAlt"
-          :class="`ct-image ${themeClass} ct-banner__featured-image`"
+          class="ct-banner__featured-image"
           :src="imageSrc"
-        >
+          :theme="theme"
+        />
       </div>
     </div>
 

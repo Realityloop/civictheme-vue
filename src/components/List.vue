@@ -579,22 +579,24 @@
               <div class="col-xxs-12">
                 <div class="ct-item-grid__items">
                   <div class="row">
-                    <div
-                      v-for="item of items"
-                      :key="item.id"
-                      class="ct-item-grid__item col-xxs-12"
-                      :class="itemClasses"
-                    >
-                      <slot
-                        name="item"
-                        :item="item"
+                    <slot>
+                      <div
+                        v-for="item of items"
+                        :key="item.id"
+                        class="ct-item-grid__item col-xxs-12"
+                        :class="itemClasses"
                       >
-                        <component
-                          :is="itemComponent"
-                          v-bind="item"
-                        />
-                      </slot>
-                    </div>
+                        <slot
+                          name="item"
+                          :item="item"
+                        >
+                          <component
+                            :is="itemComponent"
+                            v-bind="item"
+                          />
+                        </slot>
+                      </div>
+                    </slot>
                   </div>
                 </div>
               </div>
@@ -764,7 +766,7 @@ export default {
     },
     items: {
       type: Array,
-      required: true,
+      default: () => ([]),
     },
     title: {
       type: String,

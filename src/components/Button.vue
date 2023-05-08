@@ -1,9 +1,10 @@
 <template>
   <component
     :is="component"
-    class="ct-button ct-button--button"
+    class="ct-button"
     :class="{
       [themeClass]: true,
+      [`ct-button--${kind}`]: kind,
       [`ct-button--${size}`]: true,
       [`ct-button--${type}`]: type,
       [`ct-button--external ct-icon--upper-right-arrow--after--${iconSize}`]: isExternal

@@ -8,7 +8,7 @@
   >
     <div class="ct-banner__wrapper">
       <div
-        class="ct-banner__inner ct-background--normal"
+        :class="`ct-banner__inner ct-background--${blendMode}`"
         :style="{
           backgroundImage: background && `url('${background}')`
         }"
@@ -221,6 +221,10 @@ export default {
     background: {
       type: String,
       default: undefined
+    },
+    blendMode: {
+      type: String,
+      default: 'normal'
     },
     breadcrumbs: {
       type: [Boolean, Array],

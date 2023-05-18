@@ -8,6 +8,7 @@ let mock
 describe('CivicTheme Vue: Nuxt module', () => {
   beforeEach(() => {
     mock = {
+      addModule: jest.fn(),
       addPlugin: jest.fn(),
       nuxt: {
         hook: jest.fn(),

@@ -1,10 +1,11 @@
 <template>
-  <span
-    class="ct-icon"
+  <component
     :class="{
-      [`ct-icon--${symbol}`]: symbol,
+      'ct-icon': true,
       [`ct-icon--size-${size}`]: size
     }"
+    :is="svg"
+    role="img"
   />
 </template>
 
@@ -17,8 +18,12 @@ export default {
     },
     size: {
       type: String,
-      default: 'regular'
+      default: undefined
     }
-  }
+  },
+
+  computed: {
+    svg: ({ symbol }) => () => import(`civictheme/assets/icons/${symbol}.svg?inline`)
+  },
 }
 </script>

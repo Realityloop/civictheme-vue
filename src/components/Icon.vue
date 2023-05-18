@@ -1,5 +1,6 @@
 <template>
   <component
+    :title="alt || symbol"
     :class="{
       'ct-icon': true,
       [`ct-icon--size-${size}`]: size
@@ -12,6 +13,10 @@
 <script>
 export default {
   props: {
+    alt: {
+      Type: String,
+      default: undefined
+    },
     symbol: {
       type: String,
       default: 'account'

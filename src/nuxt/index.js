@@ -21,4 +21,7 @@ export default function () {
   this.nuxt.hook('storybook:config', ({ stories }) => {
     stories.push(join(__dirname, '../components/*.stories.*js'))
   })
+
+  // Enable the SVG module.
+  this.addModule('@nuxtjs/svg')
 }

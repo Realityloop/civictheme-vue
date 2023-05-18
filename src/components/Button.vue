@@ -13,24 +13,25 @@
     data-button="true"
     v-bind="props"
   >
-    <span
+    <CTIcon
       v-if="icon && iconPosition === 'before'"
       class="ct-button__icon"
-    >
-      <span :class="`ct-icon ct-icon--${icon} ct-icon--size-${iconSize}`" />
-    </span>
+      :size="iconSize"
+      :symbol="icon"
+    />
 
     <slot v-if="!text || $slots.default" />
     <template v-else>
       {{ text }}
     </template>
 
-    <span
+    <CTIcon
       v-if="icon && iconPosition === 'after'"
       class="ct-button__icon"
-    >
-      <span :class="`ct-icon ct-icon--${icon} ct-icon--size-${iconSize}`" />
-    </span>
+      :size="iconSize"
+      :symbol="icon"
+    />
+
   </component>
 </template>
 

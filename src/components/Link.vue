@@ -5,7 +5,10 @@
     :class="classes"
     :href="link"
   >
-    <slot>{{ text }}</slot>
+    <slot>
+      {{ text }}
+      <CTIcon v-if="icon" class="ct-link__icon" :symbol="icon" />
+    </slot>
   </a>
 
   <!-- Internal link -->
@@ -15,7 +18,10 @@
     tag="a"
     :to="link"
   >
-    <slot>{{ text }}</slot>
+    <slot>
+      {{ text }}
+      <CTIcon v-if="icon" class="ct-link__icon" :symbol="icon" />
+    </slot>
   </NuxtLink>
 </template>
 
@@ -26,6 +32,10 @@ export default {
   mixins: [ThemeMixin],
 
   props: {
+    icon: {
+      type: String,
+      default: undefined
+    },
     link: {
       type: String,
       default: '#'

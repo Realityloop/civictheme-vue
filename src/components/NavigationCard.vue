@@ -39,13 +39,12 @@
         :level="4"
       >
         <CTLink
-          class="ct-navigation-card__title-link"
+          class="ct-navigation-card__title__link"
           :link="link"
+          :text="title"
           :theme="theme"
-        >
-          {{ title }}
-          <CTIcon symbol="right-arrow-2" />
-        </CTLink>
+          icon="right-arrow-2"
+        />
       </CTHeading>
 
       <!-- Slot: Content middle -->
@@ -89,7 +88,7 @@ export default {
     },
     link: {
       type: String,
-      default: undefined
+      default: '#'
     },
     summary: {
       type: String,

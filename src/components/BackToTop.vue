@@ -6,16 +6,13 @@
     data-scrollspy-offset="400"
   >
     <CTButton
+      class="ct-back-to-top__button"
       kind="link"
       :theme="theme"
+      type="primary"
       url="#top"
-    >
-      <CTIcon
-        class="ct-button__icon"
-        symbol="up-arrow"
-        :theme="theme"
-      />
-    </CTButton>
+      icon="up-arrow"
+    />
   </div>
 </template>
 

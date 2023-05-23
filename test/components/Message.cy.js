@@ -1,8 +1,8 @@
 /* global cy, describe, it */
 import Message from '../../src/components/Message.vue'
-import CTIcon from '../../src/components/Icon.vue'
+// import CTIcon from '../../src/components/Icon.vue'
 
-Message.components = { CTIcon }
+// Message.components = { CTIcon }
 
 const propsData = {
   title: 'The information on this page is currently being updated.',
@@ -18,6 +18,9 @@ describe('Organisms/Message', () => {
       mountOptions: {
         propsData,
         slots
+      },
+      options: {
+        dark: false
       }
     })
   })

@@ -48,7 +48,7 @@ export default {
 
   computed: {
     classes: ({ themeClass }) => ['ct-link', themeClass],
-    isExternal: ({ link }) => !link.startsWith('/')
+    isExternal: ({ link }) => !(link || '').startsWith('/')
   }
 }
 </script>

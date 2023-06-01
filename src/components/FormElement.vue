@@ -38,7 +38,7 @@
             <!-- Select -->
             <CTSelect
               v-else-if="type === 'select'"
-              v-bind="{ id: `input-${id}`, options, placeholder, required }"
+              v-bind="{ error: !!error, id: `input-${id}`, options, placeholder, required }"
               v-model="model"
             />
 
@@ -52,7 +52,7 @@
             <!-- Checkbox -->
             <CTCheckbox
               v-else-if="type === 'checkbox'"
-              v-bind="{ id: `input-${id}`, placeholder, required }"
+              v-bind="{ id: `input-${id}`, label, placeholder, required }"
               v-model="model"
             />
           </div>
@@ -122,7 +122,7 @@ export default {
       default: 'text'
     },
     value: {
-      type: String,
+      type: [Boolean, String],
       default: undefined
     },
   },
@@ -132,8 +132,8 @@ export default {
   }),
 
   computed: {
-    isLabelAfter: ({ label, labelPosition, type }) => (label && labelPosition === 'after') || ['radio', 'checkbox'].includes(type),
-    isLabelBefore: ({ label, labelPosition, type }) => !(!label || labelPosition !== 'before' || ['radio', 'checkbox'].includes(type))
+    isLabelAfter: ({ label, labelPosition, type }) => (label && labelPosition === 'after') && !['radio', 'checkbox'].includes(type),
+    isLabelBefore: ({ label, labelPosition, type }) => !(!label || labelPosition !== 'before') && !['radio', 'checkbox'].includes(type)
   },
 
   watch: {

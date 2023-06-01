@@ -1,7 +1,12 @@
 <template>
   <input
     v-model="model"
-    :class="`ct-textfield ct-input__element ${themeClass}`"
+    class="ct-textfield ct-input__element"
+    :class="{
+      [themeClass]: true,
+      'ct-input--required required': required
+    }"
+    :required="required"
     :placeholder="placeholder"
     :type="type"
   >

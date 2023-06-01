@@ -13,7 +13,7 @@
       :required="required"
     >
     <span class="ct-checkbox__state" />
-    <label class="ct-checkbox__label"><slot /></label>
+    <label class="ct-checkbox__label"><slot>{{ label }}</slot></label>
   </div>
 </template>
 
@@ -28,9 +28,17 @@ export default {
       type: Boolean,
       default: false
     },
+    label: {
+      type: String,
+      default: undefined
+    },
     required: {
       type: Boolean,
       default: false
+    },
+    value: {
+      type: Boolean,
+      default: undefined
     }
   },
 

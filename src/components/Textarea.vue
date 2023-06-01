@@ -1,7 +1,12 @@
 <template>
   <textarea
     v-model="model"
-    :class="`ct-textarea ct-input__element ${themeClass}`"
+    class="ct-textarea ct-input__element"
+    :class="{
+      [themeClass]: true,
+      'ct-input--required required': required
+    }"
+    :required="required"
     :rows="rows"
     :placeholder="placeholder"
   />

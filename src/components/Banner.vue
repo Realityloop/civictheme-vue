@@ -154,11 +154,7 @@
             <div class="col-xxs-12 col-m-6">
               <div class="ct-banner__title">
                 <slot name="title">
-                  <!-- @TODO - CTHeading -->
-                  <h1
-                    :class="`ct-heading ct-theme-${theme}`"
-                    v-text="title"
-                  />
+                  <CTHeading :level="1" :text="title" :theme="theme" />
                 </slot>
               </div>
             </div>

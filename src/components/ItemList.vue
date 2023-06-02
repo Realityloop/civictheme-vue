@@ -3,7 +3,7 @@
     class="ct-item-list"
     :class="{
       [`ct-item-list--${type}`]: true,
-      'ct-item-list--no-gutter': noGutter
+      'ct-item-list--no-gap': noGap
     }">
     <li
       v-for="(item, delta) of items"
@@ -23,7 +23,7 @@ export default {
       type: Array,
       required: true
     },
-    noGutter: {
+    noGap: {
       type: Boolean,
       default: false
     },

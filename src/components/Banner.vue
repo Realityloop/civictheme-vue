@@ -14,121 +14,30 @@
         }"
       >
         <div class="container">
-          <div class="row">
+          <!-- Slot: Content Top 1 -->
+          <div v-if="$slots['content_top1']" class="row">
             <div class="col-xxs-12">
               <div class="ct-banner__content-top">
-                <slot name="content_top" />
+                <slot name="content_top1" />
               </div>
             </div>
           </div>
 
           <!-- Breadcrumb -->
           <div
-            v-if="breadcrumbs"
+            v-if="hasBreadcrumbs || $slots['content_top2']"
             class="row"
           >
             <div class="col-xxs-12 col-m-6">
-              <div class="ct-banner__breadcrumb">
-                <!-- @TODO -->
-                <!-- <nav
-                  class="ct-breadcrumb ct-theme-light"
-                  aria-label="breadcrumb"
-                >
-                  <div
-                    class="
-                      ct-item-list ct-item-list--horizontal
-                      ct-breadcrumb__links
-                      show-xxs-flex
-                      hide-l
-                    "
-                  >
-                    <ul class="ct-item-list__list">
-                      <li class="ct-item-list__list__item">
-                        <a
-                          class="ct-link ct-theme-light"
-                          href="http://example.com"
-                        >
-                          <span
-                            class="
-                              ct-icon ct-icon--left-arrow ct-icon--size-small
-                            "
-                          ></span>
-
-                          Sub Page
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div
-                    class="
-                      ct-item-list
-                      ct-item-list--horizontal
-                      ct-item-list--no-gutter
-                      ct-breadcrumb__links
-                      hide-xxs
-                      show-l
-                    "
-                  >
-                    <ul class="ct-item-list__list">
-                      <li class="ct-item-list__list__item">
-                        <a
-                          class="
-                            ct-link ct-theme-light
-                            ct-breadcrumb__links__link
-                          "
-                          href="http://example.com"
-                        >
-                          Home
-                        </a>
-                      </li>
-                      <li class="ct-item-list__list__item">
-                        <span
-                          class="
-                            ct-icon ct-icon--right-arrow-1 ct-icon--size-small
-                          "
-                        ></span>
-                      </li>
-                      <li class="ct-item-list__list__item">
-                        <a
-                          class="
-                            ct-link ct-theme-light
-                            ct-breadcrumb__links__link
-                          "
-                          href="http://example.com"
-                        >
-                          Sub Page
-                        </a>
-                      </li>
-                      <li class="ct-item-list__list__item">
-                        <span
-                          class="
-                            ct-icon ct-icon--right-arrow-1 ct-icon--size-small
-                          "
-                        ></span>
-                      </li>
-                      <li class="ct-item-list__list__item">
-                        <span
-                          class="
-                            ct-breadcrumb__links__link
-                            ct-breadcrumb__links__link--active
-                          "
-                          aria-current="location"
-                        >
-                          Active Page
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                </nav> -->
-              </div>
+              <slot v-if="hasBreadcrumbs" name="breadcrumbs">
+                <CTBreadcrumbs :breadcrumbs="breadcrumbs" />
+              </slot>
             </div>
 
-            <div class="col-xxs-12 col-m-6">
+            <!-- Slot: Content Top 2 -->
+            <div v-if="$slots['content_top2']" class="col-xxs-12 col-m-6">
               <div class="ct-banner__content-top2">
-                <div class="story-slot story-slot--content_top2">
-                  <!-- {{ content_top2 }} -->
-                </div>
+                <slot name="content_top2" />
               </div>
             </div>
           </div>
@@ -142,19 +51,27 @@
             </div>
           </div>
 
-          <!-- <div class="row">
+          <!-- Section -->
+          <div v-if="section" class="row">
             <div class="col-xxs-12">
-              <h5 class="ct-heading ct-theme-light ct-banner__site-section">
-                Site section name
-              </h5>
+              <CTHeading
+                class="ct-banner__site-section"
+                :level="5"
+                :text="section"
+                :theme="theme"
+              />
             </div>
-          </div> -->
+          </div>
 
           <div class="row">
             <div class="col-xxs-12 col-m-6">
               <div class="ct-banner__title">
                 <slot name="title">
-                  <CTHeading :level="1" :text="title" :theme="theme" />
+                  <CTHeading
+                    :level="1"
+                    :text="title"
+                    :theme="theme"
+                  />
                 </slot>
               </div>
             </div>
@@ -164,7 +81,7 @@
           <div class="row" v-if="$slots['content_middle']">
             <div class="col-xxs-12 col-m-6">
               <div class="ct-banner__content-middle">
-                {{ content_middle }}
+                <slot name="content_middle" />
               </div>
             </div>
           </div>
@@ -238,10 +155,18 @@ export default {
       type: String,
       default: undefined,
     },
+    section: {
+      type: String,
+      default: undefined,
+    },
     title: {
       type: String,
       required: true
     },
+  },
+
+  computed: {
+    hasBreadcrumbs: ({ $slots, breadcrumbs }) => breadcrumbs || $slots['breadcrumbs']
   }
 }
 </script>

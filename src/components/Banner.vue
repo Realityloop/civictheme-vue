@@ -23,14 +23,14 @@
             </div>
           </div>
 
-          <!-- Breadcrumb -->
+          <!-- Breadcrumbs -->
           <div
             v-if="hasBreadcrumbs || $slots['content_top2']"
             class="row"
           >
             <div class="col-xxs-12 col-m-6">
               <slot v-if="hasBreadcrumbs" name="breadcrumbs">
-                <CTBreadcrumbs :breadcrumbs="breadcrumbs" />
+                <CTBreadcrumb :breadcrumbs="breadcrumbs" class="ct-banner__breadcrumb" :theme="theme" />
               </slot>
             </div>
 
@@ -63,6 +63,7 @@
             </div>
           </div>
 
+          <!-- Title -->
           <div class="row">
             <div class="col-xxs-12 col-m-6">
               <div class="ct-banner__title">
@@ -97,6 +98,7 @@
         </div>
       </div>
 
+      <!-- Featured image -->
       <div
         v-if="imageSrc"
         class="ct-banner__featured-image__wrapper"
@@ -110,13 +112,12 @@
       </div>
     </div>
 
-    <div class="container">
+    <!-- Slot: Content bottom -->
+    <div class="container" v-if="$slots['content_middle']">
       <div class="row">
         <div class="col-xxs-12">
           <div class="ct-banner__content-bottom">
-            <div class="story-slot story-slot--content_bottom">
-              <!-- {{ content_bottom }} -->
-            </div>
+            <slot name="content_bottom" />
           </div>
         </div>
       </div>
@@ -166,7 +167,7 @@ export default {
   },
 
   computed: {
-    hasBreadcrumbs: ({ $slots, breadcrumbs }) => breadcrumbs || $slots['breadcrumbs']
+    hasBreadcrumbs: ({ $slots, breadcrumbs }) => !!(breadcrumbs || $slots['breadcrumbs'])
   }
 }
 </script>

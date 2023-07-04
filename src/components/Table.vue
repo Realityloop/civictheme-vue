@@ -20,7 +20,7 @@
       <tr v-for="(row, rowKey) of body" :key="`row-${rowKey}`">
         <component
           v-for="(col, colKey) of row"
-          :is="colKey === 0 ? 'th' : 'td'"
+          :is="headerColumn && colKey === 0 ? 'th' : 'td'"
           :key="`col-${colKey}`"
           :data-title="(header || [])[colKey] || undefined">
           {{ col }}
@@ -62,6 +62,10 @@ export default {
     header: {
       type: Array,
       default: undefined,
+    },
+    headerColumn: {
+      type: Boolean,
+      default: false
     },
     striped: {
       type: Boolean,

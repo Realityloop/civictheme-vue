@@ -1,9 +1,9 @@
 /* global cy, describe, it */
-import Button from '../../src/components/Map.vue'
+import Map from '../../src/components/Map.vue'
 
 describe('Molecules/Map', () => {
   it('Default', () => {
-    cy.standardComponentTest(Button, {
+    cy.standardComponentTest(Map, {
       mountOptions: {
         propsData: {
           address: 'Australia',

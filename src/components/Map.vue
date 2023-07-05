@@ -34,8 +34,8 @@ export default {
   mixins: [ThemeMixin],
 
   props: {
-    url: {
-      address: String,
+    address: {
+      type: String,
       default: undefined
     },
     url: {
@@ -47,14 +47,5 @@ export default {
       default: undefined
     }
   },
-
-  // computed: {
-  //   icon: ({ type }) => ({
-  //     error: 'close-outline',
-  //     information: 'information-mark',
-  //     warning: 'exclamation-mark-1',
-  //     success: 'approve'
-  //   }[type] || 'information-mark')
-  // }
 }
 </script>

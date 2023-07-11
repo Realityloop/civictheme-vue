@@ -89,6 +89,7 @@
           v-for="tag of tags"
           :key="tag.id"
           :value="tag.value"
+          :theme="theme"
         />
 
         <CTLink

@@ -9,14 +9,16 @@
     :title="model"
     :aria-label="model"
   >
-    <span
+    <CTIcon
       v-if="iconPosition === 'before'"
-      :class="`ct-icon ct-icon--${icon} ct-icon--size-small`"
+      :symbol="icon"
+      size="small"
     />
     {{ model }}
-    <span
+    <CTIcon
       v-if="iconPosition === 'after'"
-      :class="`ct-icon ct-icon--${icon} ct-icon--size-small`"
+      :symbol="icon"
+      size="small"
     />
   </span>
 </template>

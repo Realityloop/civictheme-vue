@@ -1,5 +1,12 @@
 <template>
-  <div :class="`ct-event-card ${themeClass}`">
+  <div
+    class="ct-event-card"
+    :class="{
+      [`${themeClass}`]: true,
+      'ct-event-card--with-image': hasImage,
+      'ct-event-card--image-over': $scopedSlots.image_over,
+    }"
+  >
     <div
       v-if="hasImage"
       class="ct-event-card__image"
@@ -11,9 +18,10 @@
           :src="imageSrc"
         />
       </slot>
+
       <div
         v-if="$scopedSlots.image_over"
-        class="ct-event-card__image-over"
+        class="ct-event-card__image__over"
       >
         <!-- Slot: Image over -->
         <slot name="image_over" />
@@ -39,56 +47,58 @@
       />
 
       <!-- Title -->
-      <div
+      <CTHeading
         v-if="title"
         class="ct-event-card__title"
+        :level="4"
+        :theme="theme"
       >
         <CTLink
-          class="ct-event-card__title-link"
+          class="ct-event-card__title__link"
           :link="link"
           :theme="theme"
           :text="title"
         />
-      </div>
+      </CTHeading>
 
       <!-- Slot: Content middle -->
       <div
         v-if="$scopedSlots.content_middle"
-        class="ct-event-card__content-middle"
+        class="ct-event-card__middle"
       >
         <slot name="content_middle" />
       </div>
 
       <!-- Location -->
-      <div
+      <CTParagraph
         v-if="location"
         class="ct-event-card__location"
-        v-text="location"
-      />
+        :theme="theme"
+      >
+        {{ location }}
+      </CTParagraph>
 
       <!-- Slot: Default/summary -->
-      <div class="ct-event-card__summary">
+      <CTParagraph class="ct-event-card__summary" :theme="theme">
         <slot>{{ summary }}</slot>
-      </div>
+      </CTParagraph>
 
-      <div class="ct-event-card__bottom-wrapper">
-        <!-- Tags -->
-        <div class="ct-event-card__tags">
-          <CTTag
-            v-for="tag of tags"
-            :key="tag.id"
-            :value="tag.value"
-          />
-        </div>
+      <!-- Tags -->
+      <div class="ct-event-card__tags">
+        <CTTag
+          v-for="tag of tags"
+          :key="tag.id"
+          :value="tag.value"
+        />
 
-        <div
+        <CTLink
           v-if="link"
-          class="ct-event-card__icon-wrapper"
-        >
-          <span
-            class="ct-icon ct-icon--right-arrow-2 ct-navigation-card__icon--arrow"
-          />
-        </div>
+          class="ct-event-card__tags__link ct-link--only-icon"
+          icon="right-arrow-2"
+          :link="link"
+          text=""
+          :theme="theme"
+        />
       </div>
 
       <!-- Slot: Content bottom -->

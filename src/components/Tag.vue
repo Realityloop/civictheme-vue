@@ -10,13 +10,13 @@
     :aria-label="model"
   >
     <CTIcon
-      v-if="iconPosition === 'before'"
+      v-if="icon && iconPosition === 'before'"
       :symbol="icon"
       size="small"
     />
     {{ model }}
     <CTIcon
-      v-if="iconPosition === 'after'"
+      v-if="icon && iconPosition === 'after'"
       :symbol="icon"
       size="small"
     />

@@ -85,12 +85,16 @@
 
       <!-- Tags -->
       <div class="ct-event-card__tags">
-        <CTTag
-          v-for="tag of tags"
-          :key="tag.id"
-          :value="tag.value"
-          :theme="theme"
-        />
+        <CTItemList
+          class="ct-tag-list__content"
+          :items="tags"
+          size="small"
+          type="horizontal"
+        >
+          <template #default="{ item }">
+            <CTTag :value="item.value" :theme="theme" />
+          </template>
+        </CTItemList>
 
         <CTLink
           v-if="link"

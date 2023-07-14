@@ -3,7 +3,8 @@
     class="ct-item-list"
     :class="{
       [`ct-item-list--${type}`]: true,
-      'ct-item-list--no-gap': noGap
+      [`ct-item-list--${size}`]: size,
+      'ct-item-list--no-gap': noGap,
     }">
     <li
       v-for="(item, delta) of items"
@@ -26,6 +27,10 @@ export default {
     noGap: {
       type: Boolean,
       default: false
+    },
+    size: {
+      type: String,
+      default: 'regular'
     },
     type: {
       type: String,

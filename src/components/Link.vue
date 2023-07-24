@@ -3,25 +3,57 @@
   <a
     v-if="isExternal"
     :class="classes"
+    :disabled="disabled"
     :href="link"
+    :title="title"
   >
-    <slot>
+    <CTIcon
+      v-if="icon && iconPosition === 'before'"
+      class="ct-button__icon"
+      :size="iconSize"
+      :symbol="icon"
+    />
+
+    <slot v-if="!text || $slots.default" />
+    <template v-else>
       {{ text }}
-      <CTIcon v-if="icon" class="ct-link__icon" :symbol="icon" />
-    </slot>
+    </template>
+
+    <CTIcon
+      v-if="icon && iconPosition === 'after'"
+      class="ct-button__icon"
+      :size="iconSize"
+      :symbol="icon"
+    />
   </a>
 
   <!-- Internal link -->
   <NuxtLink
     v-else
     :class="classes"
+    :disabled="disabled"
     tag="a"
+    :title="title"
     :to="link"
   >
-    <slot>
+    <CTIcon
+      v-if="icon && iconPosition === 'before'"
+      class="ct-button__icon"
+      :size="iconSize"
+      :symbol="icon"
+    />
+
+    <slot v-if="!text || $slots.default" />
+    <template v-else>
       {{ text }}
-      <CTIcon v-if="icon" class="ct-link__icon" :symbol="icon" />
-    </slot>
+    </template>
+
+    <CTIcon
+      v-if="icon && iconPosition === 'after'"
+      class="ct-button__icon"
+      :size="iconSize"
+      :symbol="icon"
+    />
   </NuxtLink>
 </template>
 
@@ -32,9 +64,21 @@ export default {
   mixins: [ThemeMixin],
 
   props: {
+    disabled: {
+      type: Boolean,
+      default: undefined
+    },
     icon: {
       type: String,
       default: undefined
+    },
+    iconPosition: {
+      type: String,
+      default: 'after'
+    },
+    iconSize: {
+      type: String,
+      default: 'regular'
     },
     link: {
       type: String,
@@ -43,11 +87,19 @@ export default {
     text: {
       type: String,
       default: 'link'
+    },
+    title: {
+      type: String,
+      default: undefined
     }
   },
 
   computed: {
-    classes: ({ themeClass }) => ['ct-link', themeClass],
+    classes: ({ disabled, themeClass }) => ({
+      'ct-link': true,
+      'ct-link--disabled': disabled,
+      [themeClass]: true
+    }),
     isExternal: ({ link }) => !(link || '').startsWith('/')
   }
 }

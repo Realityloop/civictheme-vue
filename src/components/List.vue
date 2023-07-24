@@ -68,12 +68,17 @@
       </div>
 
       <!-- Pager -->
-      <div class="ct-list__results-below">
+      <div v-if="(pager && pages) || $scopedSlots.pager" class="ct-list__results-below">
         <div class="container">
           <div class="row">
             <div class="col-xxs-12">
               <slot class="ct-list__pager" name="pager">
-                <CTPager />
+                <CTPager
+                  v-model="page"
+                  :pages="pages"
+                  @previous="$emit('previous')"
+                  @next="$emit('next')"
+                />
               </slot>
             </div>
           </div>
@@ -106,9 +111,27 @@ export default {
       type: Array,
       default: () => ([]),
     },
+    pager: {
+      type: Boolean,
+      default: true
+    },
+    pages: {
+      type: Number,
+      default: undefined
+    },
     title: {
       type: String,
       default: undefined
+    }
+  },
+
+  data: () => ({
+    page: 1
+  }),
+
+  watch: {
+    page() {
+      this.$emit('page', this.page)
     }
   }
 }

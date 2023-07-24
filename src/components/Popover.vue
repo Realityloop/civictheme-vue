@@ -1,27 +1,30 @@
 <template>
-  <div>
+  <div
+    :class="`ct-popover ${themeClass}`"
+    data-collapsible="1"
+    data-collapsible-collapsed=""
+    data-collapsible-group=""
+    data-collapsible-duration="250"
+  >
     <a
-      :class="`ct-link ${themeClass}`"
-      data-popover-trigger=""
-      data-popover-trigger-event="click"
-      data-popover-trigger-id="data-popover-1"
-      aria-live="polite"
+      :class="`ct-link ${themeClass} ct-popover__link`"
+      :data-collapsible-trigger="true"
     >
       <slot name="trigger">
-        {{ trigger || 'Trigger me' }}
+        {{ trigger }}
+
+        <CTIcon symbol="down-arrow-large" />
       </slot>
     </a>
 
     <div
-      :class="`ct-popover ${themeClass}`"
-      data-popover=""
-      data-popover-id="data-popover-1"
+      class="ct-popover__content"
+      data-collapsible-panel
+      data-collapsible-trigger-no-icon
     >
-      <slot>
-        <div class="story-placeholder">
-          Content placeholder
-        </div>
-      </slot>
+      <div class="ct-popover__content__inner">
+        <slot />
+      </div>
     </div>
   </div>
 </template>
@@ -35,7 +38,17 @@ export default {
   props: {
     trigger: {
       type: String,
-      default: undefined
+      default: 'Click me'
+    }
+  },
+
+  created() {
+    try {
+      if (process.client) require('civictheme/components/00-base/collapsible/collapsible')
+    }
+    catch(e) {
+      // eslint-disable-next-line
+      console.error(e)
     }
   }
 }

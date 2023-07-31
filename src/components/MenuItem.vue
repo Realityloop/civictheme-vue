@@ -106,16 +106,27 @@ export default {
     isFlyout: ({ type }) => type === 'flyout',
   },
 
-  created() {
-    // @TODO - Do this elsewhere?
+  mounted() {
     try {
-      if (process.client && this.isCollapsible) require('civictheme/components/00-base/collapsible/collapsible')
-      if (process.client && this.isFlyout) require('civictheme/components/00-base/flyout/flyout')
+      if (process.client && this.isCollapsible) {
+        delete require.cache[require.resolve('civictheme/components/00-base/collapsible/collapsible')]
+        require('civictheme/components/00-base/collapsible/collapsible')
+      }
+
+      if (process.client && this.isFlyout) {
+        delete require.cache[require.resolve('civictheme/components/00-base/flyout/flyout')]
+        require('civictheme/components/00-base/flyout/flyout')
+      }
     }
     catch(e) {
       // eslint-disable-next-line
       console.error(e)
     }
+  },
+
+  beforeDestroy() {
+    if (this.isCollapsible) delete require.cache[require.resolve('civictheme/components/00-base/collapsible/collapsible')]
+    if (this.isFlyout) delete require.cache[require.resolve('civictheme/components/00-base/flyout/flyout')]
   }
 }
 </script>

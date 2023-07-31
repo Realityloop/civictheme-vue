@@ -108,12 +108,12 @@ export default {
 
   mounted() {
     try {
-      if (process.client && this.isCollapsible) {
+      if (this.isCollapsible) {
         delete require.cache[require.resolve('civictheme/components/00-base/collapsible/collapsible')]
         require('civictheme/components/00-base/collapsible/collapsible')
       }
 
-      if (process.client && this.isFlyout) {
+      if (this.isFlyout) {
         delete require.cache[require.resolve('civictheme/components/00-base/flyout/flyout')]
         require('civictheme/components/00-base/flyout/flyout')
       }

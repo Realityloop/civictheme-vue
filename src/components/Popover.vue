@@ -45,7 +45,7 @@ export default {
 
   mounted() {
     try {
-      if (process.client && this.$el) {
+      if (this.$el) {
         delete require.cache[require.resolve('civictheme/components/00-base/collapsible/collapsible')]
         require('civictheme/components/00-base/collapsible/collapsible')
       }

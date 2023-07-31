@@ -9,6 +9,7 @@
     <a
       :class="`ct-link ${themeClass} ct-popover__link`"
       :data-collapsible-trigger="true"
+      @click="$emit('trigger')"
     >
       <slot name="trigger">
         {{ trigger }}
@@ -42,14 +43,21 @@ export default {
     }
   },
 
-  created() {
+  mounted() {
     try {
-      if (process.client) require('civictheme/components/00-base/collapsible/collapsible')
+      if (process.client && this.$el) {
+        delete require.cache[require.resolve('civictheme/components/00-base/collapsible/collapsible')]
+        require('civictheme/components/00-base/collapsible/collapsible')
+      }
     }
     catch(e) {
       // eslint-disable-next-line
       console.error(e)
     }
+  },
+
+  beforeDestroy() {
+    delete require.cache[require.resolve('civictheme/components/00-base/collapsible/collapsible')]
   }
 }
 </script>

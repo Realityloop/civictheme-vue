@@ -106,8 +106,10 @@ export default {
     isFlyout: ({ type }) => type === 'flyout',
   },
 
-  mounted() {
+  created() {
     try {
+      // Attach client side only javascript.
+      if (!process.client) return
       if (this.isCollapsible) {
         delete require.cache[require.resolve('civictheme/components/00-base/collapsible/collapsible')]
         require('civictheme/components/00-base/collapsible/collapsible')

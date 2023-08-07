@@ -40,10 +40,11 @@
       >
         <CTLink
           class="ct-navigation-card__title__link"
+          :external="linkExternal"
           :link="link"
           :text="title"
           :theme="theme"
-          icon="right-arrow-2"
+          :icon="linkIcon"
         />
       </CTHeading>
 
@@ -90,6 +91,10 @@ export default {
       type: String,
       default: '#'
     },
+    linkExternal: {
+      type: Boolean,
+      default: undefined,
+    },
     summary: {
       type: String,
       default: undefined,
@@ -101,7 +106,8 @@ export default {
   },
 
   computed: {
-    hasImage: ({ $scopedSlots, imageSrc }) => imageSrc || $scopedSlots.image
+    hasImage: ({ $scopedSlots, imageSrc }) => imageSrc || $scopedSlots.image,
+    linkIcon: ({ linkExternal }) => linkExternal ? 'upper-right-arrow' : 'right-arrow-2',
   }
 }
 </script>

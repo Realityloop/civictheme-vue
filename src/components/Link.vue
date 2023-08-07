@@ -1,15 +1,12 @@
 <template>
-  <!-- External link -->
-  <a
-    v-if="isExternal"
+  <component
+    :is="component"
     :class="classes"
-    :disabled="disabled"
-    :href="link"
-    :title="title"
+    v-bind="props"
   >
     <CTIcon
       v-if="icon && iconPosition === 'before'"
-      class="ct-button__icon"
+      class="ct-link__icon"
       :size="iconSize"
       :symbol="icon"
     />
@@ -21,40 +18,16 @@
 
     <CTIcon
       v-if="icon && iconPosition === 'after'"
-      class="ct-button__icon"
-      :size="iconSize"
-      :symbol="icon"
-    />
-  </a>
-
-  <!-- Internal link -->
-  <NuxtLink
-    v-else
-    :class="classes"
-    :disabled="disabled"
-    tag="a"
-    :title="title"
-    :to="link"
-  >
-    <CTIcon
-      v-if="icon && iconPosition === 'before'"
-      class="ct-button__icon"
+      class="ct-link__icon"
       :size="iconSize"
       :symbol="icon"
     />
 
-    <slot v-if="!text || $slots.default" />
-    <template v-else>
-      {{ text }}
-    </template>
-
-    <CTIcon
-      v-if="icon && iconPosition === 'after'"
-      class="ct-button__icon"
-      :size="iconSize"
-      :symbol="icon"
-    />
-  </NuxtLink>
+    <span
+      v-if="props.target === '_blank'"
+      class="ct-visually-hidden"
+    >(Opens in a new tab/window)</span>
+  </component>
 </template>
 
 <script>
@@ -65,6 +38,10 @@ export default {
 
   props: {
     disabled: {
+      type: Boolean,
+      default: undefined
+    },
+    external: {
       type: Boolean,
       default: undefined
     },
@@ -84,6 +61,10 @@ export default {
       type: String,
       default: '#'
     },
+    target: {
+      type: String,
+      default: undefined
+    },
     text: {
       type: String,
       default: 'link'
@@ -95,12 +76,29 @@ export default {
   },
 
   computed: {
-    classes: ({ disabled, themeClass }) => ({
+    classes: ({ disabled, isExternal, themeClass }) => ({
       'ct-link': true,
       'ct-link--disabled': disabled,
+      'ct-link--external': isExternal,
       [themeClass]: true
     }),
-    isExternal: ({ link }) => !(link || '').startsWith('/')
+    component: ({ isExternal }) => isExternal ? 'a': 'NuxtLink',
+    isExternal: ({ external, link }) => external || !['/', '#'].includes(link[0]),
+    props: ({ component, disabled, link, target, title }) => ({
+      disabled,
+      title,
+      ...{
+        a: {
+          href: link,
+          target: target || '_blank'
+        },
+        NuxtLink: {
+          tag: 'a',
+          target,
+          to: link
+        }
+      }[component]
+    })
   }
 }
 </script>

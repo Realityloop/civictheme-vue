@@ -73,10 +73,11 @@
 </template>
 
 <script>
+import ThemeLink from '../mixins/link'
 import ThemeMixin from '../mixins/theme'
 
 export default {
-  mixins: [ThemeMixin],
+  mixins: [ThemeLink, ThemeMixin],
 
   props: {
     imageAlt: {
@@ -85,14 +86,6 @@ export default {
     },
     imageSrc: {
       type: String,
-      default: undefined,
-    },
-    link: {
-      type: String,
-      default: '#'
-    },
-    linkExternal: {
-      type: Boolean,
       default: undefined,
     },
     summary: {

@@ -31,8 +31,20 @@
         <slot name="content_top" />
       </div>
 
+
+      <!-- Subtitle -->
+      <div
+        v-if="subtitle"
+        class="ct-promo-card__subtitle"
+      >
+        <span :class="'ct-tag ct-theme-'+ theme + ' ct-tag--tertiary'">
+          {{ subtitle }}
+        </span>
+      </div>
+
       <!-- Date -->
       <CTTag
+        v-if="date"
         class="ct-promo-card__date"
         icon="calendar-2"
         :theme="theme"
@@ -119,6 +131,10 @@ export default {
     link: {
       type: String,
       default: undefined
+    },
+    subtitle: {
+      type: String,
+      default: undefined,
     },
     summary: {
       type: String,

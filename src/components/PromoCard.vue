@@ -3,21 +3,23 @@
     class="ct-promo-card"
     :class="{
       [themeClass]: true,
+      'ct-promo-card--with-image': hasImage,
       'ct-promo-card--image-over': hasImage && $scopedSlots.image_over
     }"
   >
     <div
       v-if="hasImage"
-      class="ct-promo-card__image-wrapper"
+      class="ct-promo-card__image"
     >
       <!-- Slot: Image -->
       <slot name="image">
         <CTImage
           :alt="imageAlt"
           :src="imageSrc"
+          :theme="theme"
         />
       </slot>
-      <div class="ct-promo-card__image-over">
+      <div class="ct-promo-card__image__over">
         <!-- Slot: Image over -->
         <slot name="image_over" />
       </div>
@@ -31,8 +33,18 @@
         <slot name="content_top" />
       </div>
 
+
+      <!-- Subtitle -->
+      <div
+        v-if="subtitle"
+        class="ct-promo-card__subtitle"
+      >
+        <CTTag :value="subtitle" :theme="theme" type="tertiary" />
+      </div>
+
       <!-- Date -->
       <CTTag
+        v-if="date"
         class="ct-promo-card__date"
         icon="calendar-2"
         :theme="theme"
@@ -119,6 +131,10 @@ export default {
     link: {
       type: String,
       default: undefined
+    },
+    subtitle: {
+      type: String,
+      default: undefined,
     },
     summary: {
       type: String,

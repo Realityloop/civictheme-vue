@@ -34,16 +34,28 @@ export default {
     type: {
       type: String,
       default: 'text'
+    },
+    value: {
+      type: [Boolean, String],
+      default: undefined
     }
   },
 
   data: ({ value }) => ({
-    model: value
+    model: typeof value === 'string' ? value : undefined
   }),
 
   watch: {
     model() {
-      this.$emit('input', this.model)
+      if (typeof this.model === 'string') {
+        this.$emit('input', this.model)
+      }
+    },
+
+    value() {
+      if (typeof this.value === 'string') {
+        this.model = this.value
+      }
     }
   }
 }

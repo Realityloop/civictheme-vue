@@ -30,6 +30,8 @@
 </template>
 
 <script>
+import CivicThemeFlyout from 'civictheme/components/00-base/flyout/flyout'
+
 export default {
   props: {
     closeButtonText: {
@@ -71,13 +73,12 @@ export default {
   },
 
   mounted() {
-    try {
-      // eslint-disable-next-line nuxt/no-env-in-hooks
-      if (process.client) require('civictheme/components/00-base/flyout/flyout')
-    }
-    catch(e) {
-      // eslint-disable-next-line
-      console.error(e)
+    if (typeof document !== 'undefined') {
+      // @TODO - Only target this instance.
+      document.querySelectorAll('[data-flyout]').forEach((flyout) => {
+        // eslint-disable-next-line no-new
+        new CivicThemeFlyout(flyout)
+      })
     }
   },
 

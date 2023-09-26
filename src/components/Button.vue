@@ -62,7 +62,15 @@ export default {
       type: String,
       default: 'regular'
     },
+    target: {
+      type: String,
+      default: undefined
+    },
     text: {
+      type: String,
+      default: undefined
+    },
+    title: {
       type: String,
       default: undefined
     },
@@ -84,11 +92,15 @@ export default {
       submit: 'input'
     }[kind]),
 
-    props: ({ component, kind, url }) => ({
+    props: ({ component, kind, target, title, url }) => ({
       button: {},
       link: component === 'nuxt-link'
         ? { to: url || '#' }
-        : { href: url || '#' },
+        : {
+          href: url || '#',
+          target,
+          title
+        },
       reset: {},
       submit: {}
     }[kind]),

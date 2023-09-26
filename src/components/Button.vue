@@ -11,6 +11,8 @@
     }"
     data-component-name="button"
     data-button="true"
+    :target="target"
+    :title="title"
     v-bind="props"
   >
     <CTIcon
@@ -62,7 +64,15 @@ export default {
       type: String,
       default: 'regular'
     },
+    target: {
+      type: String,
+      default: undefined
+    },
     text: {
+      type: String,
+      default: undefined
+    },
+    title: {
       type: String,
       default: undefined
     },

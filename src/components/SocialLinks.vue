@@ -1,25 +1,27 @@
 <template>
-  <div :class="`ct-social-links ${themeClass} ${border ? 'ct-social-links--with-border': ''}`">
-    <ul class="ct-item-list ct-item-list--horizontal ct-item-list--regular ct-social-links__list">
-
-      <li
-        v-for="(link, title) in items"
-        :key="link"
-        class="ct-item-list__item"
-      >
+  <div
+    class="ct-social-links"
+    :class="{
+      [themeClass]: true,
+      'ct-social-links--with-border': border
+    }"
+  >
+    <CTItemList class="ct-social-links__list" :items="items" type="horizontal">
+      <template #default="{ item }">
         <CTButton
-          class="ct-icon ct-button__icon"
-          :icon="title.toLowerCase()"
+          class="ct-social-links__button"
+          :icon="item.icon"
           kind="link"
           target="_blank"
-          :title="title"
+          :title="item.title"
           type="tertiary"
-          :url="link"
+          :theme="theme"
+          :url="item.link"
         >
           <span class="ct-visually-hidden">(Opens in a new tab/window)</span>
         </CTButton>
-      </li>
-    </ul>
+      </template>
+    </CTItemList>
   </div>
 </template>
 
@@ -38,10 +40,6 @@ export default {
       type: Array,
       default: () => ([]),
     },
-    themeClass: {
-      type: String,
-      default: "ct-theme-light"
-    }
   },
 
   data: () => ({

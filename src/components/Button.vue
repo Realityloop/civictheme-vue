@@ -11,8 +11,6 @@
     }"
     data-component-name="button"
     data-button="true"
-    :target="target"
-    :title="title"
     v-bind="props"
   >
     <CTIcon
@@ -94,11 +92,15 @@ export default {
       submit: 'input'
     }[kind]),
 
-    props: ({ component, kind, url }) => ({
+    props: ({ component, kind, target, title, url }) => ({
       button: {},
       link: component === 'nuxt-link'
         ? { to: url || '#' }
-        : { href: url || '#' },
+        : {
+          href: url || '#',
+          target,
+          title
+        },
       reset: {},
       submit: {}
     }[kind]),

@@ -30,5 +30,24 @@ Default.storyName = 'Social Links'
 Default.args = {
   border: true,
   theme: 'light',
-  items: {'Facebook': 'https://facebook.com', 'Twitter': 'https://twitter.com', 'LinkedIn': 'https://linkedin.com'}
+  items: [
+    {
+      id: 'facebook',
+      icon: 'facebook',
+      link: 'https://facebook.com',
+      title: 'Facebook'
+    },
+    {
+      id: 'twitter',
+      icon: 'twitter',
+      link: 'https://twitter.com',
+      title: 'Twitter'
+    },
+    {
+      id: 'linkedin',
+      icon: 'linkedin',
+      link: 'https://linkedin.com',
+      title: 'LinkedIn'
+    }
+  ]
 }

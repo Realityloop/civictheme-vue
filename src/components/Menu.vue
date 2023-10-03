@@ -11,7 +11,9 @@
         :level="level"
         :theme="theme"
         :type="type"
-      />
+      >
+        <slot :name="`item-${item.id}`" v-bind="{ item, level, theme, type }" />
+      </CTMenuItem>
     </slot>
   </ul>
 </template>

@@ -7,11 +7,13 @@
       :text="title"
     />
     <div class="ct-navigation__items">
-      <CTMenu
-        class="ct-navigation__menu"
-        :theme="theme"
-        :items="items"
-      />
+      <slot>
+        <CTMenu
+          class="ct-navigation__menu"
+          :theme="theme"
+          :items="items"
+        />
+      </slot>
     </div>
   </div>
 </template>

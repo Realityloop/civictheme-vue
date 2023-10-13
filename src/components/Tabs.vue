@@ -47,8 +47,8 @@ import ThemeMixin from '../mixins/theme'
 export default {
   mixins: [ThemeMixin],
 
-  data: ({ tabs, tabId }) => ({
-    model: tabId(tabs[0]),
+  data: ({ hashTab, tabs, tabId }) => ({
+    model: hashTab || tabId(tabs[0]),
   }),
 
   props: {
@@ -56,6 +56,13 @@ export default {
       type: Array,
       required: true
     },
+  },
+
+  computed: {
+    hashTab: ({ $route }) =>
+      $route.hash
+        ? $route.hash.slice(1).split('-').slice(0, -1).join('-')
+        : undefined
   },
 
   methods: {
@@ -70,6 +77,10 @@ export default {
     tabId(tab, delta = 0) {
       return tab.id || `tab-${delta}`
     }
+  },
+
+  mounted() {
+    if (this.hashTab) this.model = this.hashTab
   },
 
   watch: {

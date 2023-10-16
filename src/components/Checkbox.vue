@@ -9,7 +9,7 @@
   >
     <input
       v-model="model"
-      :disable="disabled"
+      :disabled="disabled"
       class="ct-checkbox__element"
       :required="required"
       type="checkbox"

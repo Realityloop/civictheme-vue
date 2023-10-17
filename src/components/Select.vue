@@ -41,6 +41,10 @@ export default {
     required: {
       type: Boolean,
       default: false
+    },
+    value: {
+      type: String,
+      default: undefined
     }
   },
 

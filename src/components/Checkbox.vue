@@ -3,17 +3,26 @@
     class="ct-checkbox"
     :class="{
       [themeClass]: true,
+      'ct-checkbox--disabled': disabled,
       'ct-checkbox--error': error
     }"
   >
     <input
       v-model="model"
-      type="checkbox"
+      :disabled="disabled"
       class="ct-checkbox__element"
       :required="required"
+      type="checkbox"
     >
     <span class="ct-checkbox__state" />
-    <label class="ct-checkbox__label"><slot>{{ label }}</slot></label>
+    <label
+      :class="{
+        'ct-checkbox__label': true,
+        'ct-checkbox__label--disabled': disabled,
+      }"
+    >
+      <slot>{{ label }}</slot>
+    </label>
   </div>
 </template>
 
@@ -24,6 +33,10 @@ export default {
   mixins: [ThemeMixin],
 
   props: {
+    disabled: {
+      type: Boolean,
+      default: false
+    },
     error: {
       type: Boolean,
       default: false

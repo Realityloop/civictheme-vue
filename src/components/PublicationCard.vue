@@ -58,6 +58,7 @@
         :link="linkUrl"
         :text="linkText || title"
         :theme="theme"
+        target="_blank"
       />
 
       <!-- Slot: Content bottom -->

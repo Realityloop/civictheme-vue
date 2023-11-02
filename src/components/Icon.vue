@@ -5,7 +5,7 @@
       'ct-icon': true,
       [`ct-icon--size-${size}`]: size
     }"
-    :is="svg"
+    :is="svgData"
     role="img"
   />
 </template>
@@ -15,6 +15,10 @@ export default {
   props: {
     alt: {
       Type: String,
+      default: undefined
+    },
+    svg: {
+      type: Object,
       default: undefined
     },
     symbol: {
@@ -28,7 +32,9 @@ export default {
   },
 
   computed: {
-    svg: ({ symbol }) => () => import(`civictheme/assets/icons/${symbol}.svg?inline`)
+    svgData: ({ svg, symbol }) => () => svg
+      ? svg
+      : import(`civictheme/assets/icons/${symbol}.svg?inline`)
   },
 }
 </script>

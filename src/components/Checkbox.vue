@@ -62,6 +62,10 @@ export default {
   watch: {
     model() {
       this.$emit('input', this.model)
+    },
+
+    value() {
+      this.model = this.value
     }
   }
 }

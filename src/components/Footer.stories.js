@@ -26,7 +26,8 @@ const Template = (args, { argTypes }) => {
   <template v-if="$props.content_middle2" #content_middle2>{{ $props.content_middle2 }}</template>
   <template v-if="$props.content_middle3" #content_middle3>{{ $props.content_middle3 }}</template>
   <template v-if="$props.content_middle4" #content_middle4>{{ $props.content_middle4 }}</template>
-  <template v-if="$props.copyright" #copyright>{{ $props.copyright }}</template>
+  <template v-if="$props.content_bottom1" #content_bottom1>{{ $props.content_bottom1 }}</template>
+  <template v-if="$props.content_bottom2" #content_bottom2>{{ $props.content_bottom2 }}</template>
 </CTFooter>`,
   }
 }

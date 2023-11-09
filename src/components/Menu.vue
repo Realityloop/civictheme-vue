@@ -35,7 +35,7 @@ export default {
     },
     type: {
       type: String,
-      default: 'collapsible'
+      default: undefined
     }
   }
 }

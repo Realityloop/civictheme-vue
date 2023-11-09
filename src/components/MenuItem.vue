@@ -26,23 +26,24 @@
 
     <!-- Children - Collapsible -->
     <div
-      v-if="isCollapsible && hasChildren"
+      v-if="!isFlyout && hasChildren"
       class="ct-menu__sub-menu__wrapper"
       :class="{
         [`ct-menu__sub-menu__wrapper--level-${level + 1}`]: true,
       }"
-      data-collapsible-panel
-      data-collapsible-trigger-no-icon
+      :data-collapsible-panel="isCollapsible"
+      :data-collapsible-trigger-no-icon="isCollapsible"
     >
       <CTMenu
         class="ct-menu__sub-menu"
         :level="level + 1"
         :items="item.children"
+        :theme="theme"
       />
     </div>
 
     <!-- Children - Flyout -->
-    <CTFlyout v-if="isFlyout && hasChildren">
+    <CTFlyout v-else-if="isFlyout && hasChildren">
       <template #open-button>
         <CTButton
           class="ct-mobile-navigation__open-subsection-trigger"
@@ -73,6 +74,7 @@
           :items="item.children"
           :level="level + 1"
           type="flyout"
+          :theme="theme"
         />
       </div>
     </CTFlyout>
@@ -96,7 +98,7 @@ export default {
     },
     type: {
       type: String,
-      default: 'collapsible'
+      default: undefined
     }
   },
 

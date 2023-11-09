@@ -76,22 +76,13 @@
       <div class="row">
         <div class="col-xs-12 col-m-7">
           <div class="ct-footer__bottom__content-bottom1">
-            <div
-              class="ct-footer__acknowledgement ct-text-regular"
-            >
-              We acknowledge the traditional owners of the country throughout
-              Australia and their continuing connection to land, sea and
-              community. We pay our respect to them and their cultures and to
-              the elders past and present.
-            </div>
+            <slot name="content_bottom1" />
           </div>
         </div>
 
         <div class="col-xs-12 col-m-5">
           <div class="ct-footer__bottom__content-bottom2">
-            <div class="copyright ct-text-regular">
-              <slot name="copyright" />
-            </div>
+            <slot name="content_bottom2" />
           </div>
         </div>
       </div>

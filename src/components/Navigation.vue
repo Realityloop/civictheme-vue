@@ -12,6 +12,7 @@
           class="ct-navigation__menu"
           :theme="theme"
           :items="items"
+          :type="type"
         />
       </slot>
     </div>
@@ -40,7 +41,9 @@ export default {
   },
 
   computed: {
-    dropdownClass: ({ dropdown }) => `ct-navigation--${dropdown}`
+    dropdownClass: ({ dropdown }) => `ct-navigation--${dropdown}`,
+
+    type: ({ dropdown }) => dropdown === 'dropdown' ? 'collapsible' : undefined,
   }
 }
 </script>

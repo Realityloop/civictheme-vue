@@ -35,7 +35,12 @@
         :level="4"
         :theme="theme"
       >
-        <CTLink class="ct-publication-card__title__link" :link="linkUrl" :theme="theme">
+        <CTLink
+          class="ct-publication-card__title__link"
+          :link="linkUrl"
+          :theme="theme"
+          target="_blank"
+        >
           {{ title }} <CTIcon class="ct-link__icon" symbol="download" />
         </CTLink>
       </CTHeading>

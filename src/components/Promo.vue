@@ -28,15 +28,17 @@
             </div>
 
             <div class="ct-promo__links">
-              <CTButton
-                class="ct-promo__button"
-                kind="link"
-                :theme="theme"
-                size="large"
-                :text="linkText"
-                type="secondary"
-                :url="linkUrl"
-              />
+              <slot name="links">
+                <CTButton
+                  class="ct-promo__button"
+                  kind="link"
+                  :theme="theme"
+                  size="large"
+                  :text="linkText"
+                  :type="linkButtonType"
+                  :url="linkUrl"
+                />
+              </slot>
             </div>
           </div>
 
@@ -56,6 +58,10 @@ export default {
   mixins: [ThemeMixin],
 
   props: {
+    linkButtonType: {
+      type: String,
+      default: 'secondary'
+    },
     linkText: {
       type: String,
       default: undefined

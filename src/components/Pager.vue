@@ -29,7 +29,7 @@
 
     <ul class="ct-pager__items">
       <li class="ct-pager__item ct-pager__item--previous">
-        <CTLink
+        <CTButton
           class="ct-pager__link"
           :disabled="!previous"
           icon="left-arrow"
@@ -37,6 +37,7 @@
           text="Previous"
           :theme="theme"
           title="Go to previous page"
+          type="tertiary"
           @click.native.prevent="onPrevious"
         />
       </li>
@@ -93,13 +94,14 @@
       </li> -->
 
       <li class="ct-pager__item ct-pager__item--next">
-        <CTLink
+        <CTButton
           class="ct-pager__link"
           :disabled="!next"
           icon="right-arrow-2"
           text="Next"
           :theme="theme"
           title="Go to next page"
+          type="tertiary"
           @click.native.prevent="onNext"
         />
       </li>

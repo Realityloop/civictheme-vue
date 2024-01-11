@@ -21,35 +21,35 @@
       <!-- Textfield: text, email, tel, password -->
       <CTTextfield
         v-if="['date', 'email', 'number', 'password', 'tel', 'text'].includes(type)"
-        v-bind="{ id: `input-${id}`, placeholder, required, type }"
+        v-bind="{ id: `input-${id}`, name, placeholder, required, type, ...$attrs }"
         v-model="model"
       />
 
       <!-- Textarea -->
       <CTTextarea
         v-else-if="type === 'textarea'"
-        v-bind="{ id: `input-${id}`, placeholder, required }"
+        v-bind="{ id: `input-${id}`, name, placeholder, required, ...$attrs }"
         v-model="model"
       />
 
       <!-- Select -->
       <CTSelect
         v-else-if="type === 'select'"
-        v-bind="{ error: !!error, id: `input-${id}`, options, placeholder, required }"
+        v-bind="{ error: !!error, id: `input-${id}`, name, options, placeholder, required, ...$attrs }"
         v-model="model"
       />
 
       <!-- Radio -->
       <CTRadio
         v-else-if="type === 'radio'"
-        v-bind="{ id: `input-${id}`, placeholder, required }"
+        v-bind="{ id: `input-${id}`, name, placeholder, required, ...$attrs }"
         v-model="model"
       />
 
       <!-- Checkbox -->
       <CTCheckbox
         v-else-if="type === 'checkbox'"
-        v-bind="{ id: `input-${id}`, label, placeholder, required }"
+        v-bind="{ id: `input-${id}`, label, name, placeholder, required, ...$attrs }"
         v-model="model"
       />
     </div>
@@ -98,6 +98,10 @@ export default {
     labelPosition: {
       type: String,
       default: 'before'
+    },
+    name: {
+      type: String,
+      default: undefined,
     },
     options: {
       type: Array,

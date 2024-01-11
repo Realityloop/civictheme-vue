@@ -1,11 +1,13 @@
 <template>
   <textarea
     v-model="model"
+    v-bind="$attrs"
     class="ct-textarea ct-input__element"
     :class="{
       [themeClass]: true,
       'ct-input--required required': required
     }"
+    :name="name"
     :required="required"
     :rows="rows"
     :placeholder="placeholder"
@@ -23,6 +25,10 @@ export default {
   //     type: Boolean,
   //     default: false
   //   },
+    name: {
+      type: String,
+      default: undefined
+    },
     placeholder: {
       type: String,
       default: ''

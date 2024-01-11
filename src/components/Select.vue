@@ -1,6 +1,7 @@
 <template>
   <select
     v-model="model"
+    v-bind="$attrs"
     class="ct-select ct-input__element"
     :class="{
       [themeClass]: true,
@@ -8,6 +9,7 @@
       'ct-input--required required': required
     }"
     :multiple="multiple"
+    :name="name"
     :required="required"
   >
     <option
@@ -29,6 +31,10 @@ export default {
     error: {
       type: Boolean,
       default: false
+    },
+    name: {
+      type: String,
+      default: undefined
     },
     multiple: {
       type: Boolean,

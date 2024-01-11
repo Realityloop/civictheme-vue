@@ -8,9 +8,11 @@
   >
     <input
       v-model="model"
-      type="radio"
+      v-bind="$attrs"
       class="ct-radio__element"
+      :name="name"
       :required="required"
+      type="radio"
     >
     <span class="ct-radio__state" />
     <label class="ct-radio__label"><slot /></label>
@@ -27,6 +29,10 @@ export default {
     error: {
       type: Boolean,
       default: false
+    },
+    name: {
+      type: String,
+      default: undefined
     },
     required: {
       type: Boolean,

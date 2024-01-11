@@ -9,8 +9,10 @@
   >
     <input
       v-model="model"
-      :disabled="disabled"
+      v-bind="$attrs"
       class="ct-checkbox__element"
+      :disabled="disabled"
+      :name="name"
       :required="required"
       type="checkbox"
     >
@@ -42,6 +44,10 @@ export default {
       default: false
     },
     label: {
+      type: String,
+      default: undefined
+    },
+    name: {
       type: String,
       default: undefined
     },

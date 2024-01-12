@@ -1,5 +1,5 @@
 import CTMboileNavigation from './MobileNavigation.vue'
-import 'civictheme/components/00-base/flyout/flyout'
+import '@civictheme/uikit/components/00-base/flyout/flyout'
 
 export default {
   title: 'CivicTheme/Organisms/Mobile Navigation',

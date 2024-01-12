@@ -6,7 +6,7 @@
     <div class="container" data-ct-group-filter-element="">
       <div class="row">
         <div class="col-xxs-12">
-          <div class="row row--no-wrap">
+          <div class="row row--no-wrap ct-group-filter__row">
             <div class="col col--no-grow">
               <div class="ct-align-middle">
                 <CTLabel class="ct-group-filter__title" :theme="theme">
@@ -21,7 +21,6 @@
                   class="ct-group-filter__filters"
                   data-ct-group-filter-filters=""
                   :items="filters"
-                  size="large"
                   :theme="theme"
                   type="horizontal"
                 >

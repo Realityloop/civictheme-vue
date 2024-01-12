@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import CivicThemeFlyout from 'civictheme/components/00-base/flyout/flyout'
+import CivicThemeFlyout from '@civictheme/uikit/components/00-base/flyout/flyout'
 
 export default {
   props: {

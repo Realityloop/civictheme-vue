@@ -113,13 +113,13 @@ export default {
       // Attach client side only javascript.
       if (!process.client) return
       if (this.isCollapsible) {
-        delete require.cache[require.resolve('civictheme/components/00-base/collapsible/collapsible')]
-        require('civictheme/components/00-base/collapsible/collapsible')
+        delete require.cache[require.resolve('@civictheme/uikit/components/00-base/collapsible/collapsible')]
+        require('@civictheme/uikit/components/00-base/collapsible/collapsible')
       }
 
       if (this.isFlyout) {
-        delete require.cache[require.resolve('civictheme/components/00-base/flyout/flyout')]
-        require('civictheme/components/00-base/flyout/flyout')
+        delete require.cache[require.resolve('@civictheme/uikit/components/00-base/flyout/flyout')]
+        require('@civictheme/uikit/components/00-base/flyout/flyout')
       }
     }
     catch(e) {
@@ -129,8 +129,8 @@ export default {
   },
 
   beforeDestroy() {
-    if (this.isCollapsible) delete require.cache[require.resolve('civictheme/components/00-base/collapsible/collapsible')]
-    if (this.isFlyout) delete require.cache[require.resolve('civictheme/components/00-base/flyout/flyout')]
+    if (this.isCollapsible) delete require.cache[require.resolve('@civictheme/uikit/components/00-base/collapsible/collapsible')]
+    if (this.isFlyout) delete require.cache[require.resolve('@civictheme/uikit/components/00-base/flyout/flyout')]
   }
 }
 </script>

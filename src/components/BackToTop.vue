@@ -24,7 +24,7 @@ export default {
 
   created() {
     try {
-      if (process.client) require('civictheme/components/00-base/scrollspy/scrollspy')
+      if (process.client) require('@civictheme/uikit/components/00-base/scrollspy/scrollspy')
     }
     catch(e) {
       // eslint-disable-next-line

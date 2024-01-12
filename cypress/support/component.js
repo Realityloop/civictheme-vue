@@ -28,8 +28,8 @@ Cypress.Commands.add('standardComponentTest', (component, context) => {
   const { axeRules, imageMatchOptions, mountOptions, options } = context
 
   // Add CSS assets.
-  require('civictheme/dist/civictheme.css')
-  require('civictheme/dist/civictheme.variables.css')
+  require('@civictheme/uikit/dist/civictheme.css')
+  require('@civictheme/uikit/dist/civictheme.variables.css')
 
   // see: https://test-utils.vuejs.org/guide/
   cy.mount(component, mountOptions)

@@ -4,7 +4,7 @@ import CTMenu from '../../src/components/Menu.vue'
 import CTMenuItem from '../../src/components/MenuItem.vue'
 CTMenuItem.components = { CTLink }
 
-import 'civictheme/components/00-base/collapsible/collapsible'
+import '@civictheme/uikit/components/00-base/collapsible/collapsible'
 
 const propsData = {
   items: [

@@ -28,7 +28,7 @@ export default {
   },
 
   computed: {
-    svg: ({ symbol }) => () => import(`civictheme/assets/icons/${symbol}.svg?inline`)
+    svg: ({ symbol }) => () => import(`@civictheme/uikit/assets/icons/${symbol}.svg?inline`)
   },
 }
 </script>

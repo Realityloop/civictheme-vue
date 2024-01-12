@@ -1,1 +1,1 @@
-import 'civictheme/dist/civictheme.js'
+import '@civictheme/uikit/dist/civictheme.js'

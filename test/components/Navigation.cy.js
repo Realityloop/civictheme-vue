@@ -7,7 +7,7 @@ import CTNavigation from '../../src/components/Navigation.vue'
 CTMenu.components = { CTMenuItem }
 CTMenuItem.components = { CTLink }
 
-import 'civictheme/components/00-base/collapsible/collapsible'
+import '@civictheme/uikit/components/00-base/collapsible/collapsible'
 
 const propsData = {
   items: [

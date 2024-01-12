@@ -3,8 +3,8 @@ import { join } from 'path'
 export default function () {
   // Add CivicTheme CSS.
   this.nuxt.options.css = this.nuxt.options.css || []
-  this.nuxt.options.css.push('civictheme/dist/civictheme.css')
-  this.nuxt.options.css.push('civictheme/dist/civictheme.variables.css')
+  this.nuxt.options.css.push('@civictheme/uikit/dist/civictheme.css')
+  this.nuxt.options.css.push('@civictheme/uikit/dist/civictheme.variables.css')
 
   // Add plugin.
   this.addPlugin(join(__dirname, 'plugin.client.mjs'))

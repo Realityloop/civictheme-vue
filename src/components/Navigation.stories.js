@@ -1,5 +1,5 @@
 import CTNavigation from './Navigation.vue'
-import 'civictheme/components/00-base/collapsible/collapsible'
+import '@civictheme/uikit/components/00-base/collapsible/collapsible'
 
 export default {
   title: 'CivicTheme/Organisms/Navigation',

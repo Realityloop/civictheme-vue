@@ -32,10 +32,10 @@ export default {
       // If the component has been mounted and $el is available
       if (this.$el) {
         // Delete the cached module for collapsible
-        delete require.cache[require.resolve('civictheme/components/00-base/collapsible/collapsible')]
+        delete require.cache[require.resolve('@civictheme/uikit/components/00-base/collapsible/collapsible')]
 
         // Require the collapsible module again
-        require('civictheme/components/00-base/collapsible/collapsible')
+        require('@civictheme/uikit/components/00-base/collapsible/collapsible')
       }
     }
     catch(e) {
@@ -47,7 +47,7 @@ export default {
 
   // Delete require cache for collapsible component
   beforeDestroy() {
-    delete require.cache[require.resolve('civictheme/components/00-base/collapsible/collapsible')]
+    delete require.cache[require.resolve('@civictheme/uikit/components/00-base/collapsible/collapsible')]
   },
 
   methods: {

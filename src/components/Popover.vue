@@ -46,8 +46,8 @@ export default {
   mounted() {
     try {
       if (this.$el) {
-        delete require.cache[require.resolve('civictheme/components/00-base/collapsible/collapsible')]
-        require('civictheme/components/00-base/collapsible/collapsible')
+        delete require.cache[require.resolve('@civictheme/uikit/components/00-base/collapsible/collapsible')]
+        require('@civictheme/uikit/components/00-base/collapsible/collapsible')
       }
     }
     catch(e) {
@@ -57,7 +57,7 @@ export default {
   },
 
   beforeDestroy() {
-    delete require.cache[require.resolve('civictheme/components/00-base/collapsible/collapsible')]
+    delete require.cache[require.resolve('@civictheme/uikit/components/00-base/collapsible/collapsible')]
   }
 }
 </script>

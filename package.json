@@ -47,7 +47,7 @@
     "*.{css,scss,vue}": "stylelint"
   },
   "dependencies": {
-    "civictheme": "git+https://github.com/Realityloop/civictheme_library.git"
+    "@civictheme/uikit": "git+https://github.com/Realityloop/civictheme_library.git"
   },
   "devDependencies": {
     "@babel/core": "7.20.2",

@@ -74,7 +74,7 @@
     "siroc": "0.16.0",
     "stylelint": "^14.16.1",
     "vue-jest": "3.0.7",
-    "vue-template-compiler": "2.7.14"
+    "vue-template-compiler": "2.7.16"
   },
   "peerDependencies": {
     "@nuxtjs/svg": "^0.4.0"

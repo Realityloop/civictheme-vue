@@ -106,18 +106,13 @@ export default {
     }[kind]),
 
     isExternal: ({ url }) => {
+      if (!url) return false
       try {
-        if (url) {
-          const protocol = new URL(url).protocol;
-          return protocol.startsWith('http') || protocol.startsWith('https');
-        }
-      } catch (error) {
-        console.error("Not an external URL:", url);
-      }
-
-      // Return false for invalid or empty URLs
-      return false;
-    }
+        const urlObj = new URL(url)
+        if (typeof window !== undefiend && window?.location?.host === urlObj?.host) return false
+        return ['http:', 'https:'].includes(urlObj?.protocol)
+      } catch(err) { return false }
+    },
   }
 }
 </script>

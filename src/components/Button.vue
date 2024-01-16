@@ -105,8 +105,19 @@ export default {
       submit: {}
     }[kind]),
 
-    // @TODO - Determine if URL is external.
-    isExternal: () => false,
+    isExternal: ({ url }) => {
+      try {
+        if (url) {
+          const protocol = new URL(url).protocol;
+          return protocol.startsWith('http') || protocol.startsWith('https');
+        }
+      } catch (error) {
+        console.error("Not an external URL:", url);
+      }
+
+      // Return false for invalid or empty URLs
+      return false;
+    }
   }
 }
 </script>

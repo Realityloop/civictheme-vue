@@ -40,7 +40,7 @@
       >
         <CTLink
           class="ct-navigation-card__title__link"
-          :external="linkExternal"
+          :external="isExternal"
           :link="link"
           :text="title"
           :theme="theme"
@@ -100,7 +100,16 @@ export default {
 
   computed: {
     hasImage: ({ $scopedSlots, imageSrc }) => imageSrc || $scopedSlots.image,
-    linkIcon: ({ linkExternal }) => linkExternal ? 'upper-right-arrow' : 'right-arrow-2',
+    linkIcon: ({ isExternal }) => isExternal ? 'upper-right-arrow' : 'right-arrow-2',
+    isExternal: ({ link, linkExternal }) => {
+      if (linkExternal) return true
+      if (!link) return false
+      try {
+        const urlObj = new URL(link)
+        if (typeof window !== 'undefined' && window?.location?.host === urlObj?.host) return false
+        return ['http:', 'https:'].includes(urlObj?.protocol)
+      } catch(err) { return false }
+    },
   }
 }
 </script>

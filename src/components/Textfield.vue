@@ -53,13 +53,13 @@ export default {
 
   watch: {
     model() {
-      if (typeof this.model === 'string') {
+      if (['string', 'undefined'].includes(typeof this.model)) {
         this.$emit('input', this.model)
       }
     },
 
     value() {
-      if (typeof this.value === 'string') {
+      if (['string', 'undefined'].includes(typeof this.value)) {
         this.model = this.value
       }
     }

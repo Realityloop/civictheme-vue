@@ -5,10 +5,13 @@
     "dev": "nuxt dev"
   },
   "dependencies": {
+    "@nuxtjs/svg": "^0.4.1",
+    "@storybook/core-server": "^7.6.10",
     "civictheme-vue": "link:../..",
     "druxt-site": "latest",
     "ellipsize": "^0.5.1",
-    "nuxt": "2"
+    "nuxt": "2",
+    "vue2-teleport": "^1.0.1"
   },
   "devDependencies": {
     "@etchteam/storybook-addon-status": "^4.2.2",

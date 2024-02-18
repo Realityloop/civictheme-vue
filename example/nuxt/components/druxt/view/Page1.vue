@@ -1,43 +1,54 @@
 <template>
-  <div>
-    <CTList :items="items">
+  <CTLayout v-if="!$fetchState?.pending" container>
+    <CTList class="ct-vertical-spacing--both" :items="items">
       <template #item="{ item }">
-        <CTCardPromo v-bind="item">
-          <template #image>
-            <DruxtEntity
-              :class="`ct-image ${themeClass}`"
-              :type="item.media.type"
-              :uuid="item.media.id"
-            />
-          </template>
-        </CTCardPromo>
+        <CTPromoCard v-bind="item" />
       </template>
     </CTList>
-  </div>
+  </CTLayout>
 </template>
 
 <script>
-import Theme from 'civictheme-vue/dist/mixins/theme.mjs'
 import { DruxtViewsViewMixin } from 'druxt-views'
 import ellipsize from 'ellipsize'
 
 export default {
-  mixins: [DruxtViewsViewMixin, Theme],
+  mixins: [DruxtViewsViewMixin],
+
+  data: () => ({
+    includes: {}
+  }),
+
+  async fetch() {
+    this.includes.media = await Promise.all(this.results?.map((item) => this.$druxt.getRelated(item.type, item.id, 'field_media_image')))
+    this.includes.image = await Promise.all(this.includes.media.map(({ data }) => this.$druxt.getRelated(data.type, data.id, 'field_media_image')))
+  },
 
   computed: {
-    items: ({ results }) => results.map((item) => ({
+    items: ({ getMedia, getImage, results }) => results.map((item) => ({
       id: item.id,
-      summary: ellipsize((item.attributes.body || {}).processed, 100),
       link: item.attributes.path.alias,
+      summary: ellipsize((item.attributes.body || {}).processed, 100),
       title: item.attributes.title,
-      media: item.relationships.field_media_image.data
+      imageSrc: getImage(item)?.attributes?.uri?.url
     })),
+  },
+
+  methods: {
+    getMedia(entity) {
+      return this.includes.media?.find(({ data }) => data.id === entity?.relationships?.field_media_image?.data?.id)?.data
+    },
+
+    getImage(entity) {
+      const media = this.getMedia(entity)
+      return this.includes.image.find(({ data }) => data.id === media?.relationships?.field_media_image?.data?.id)?.data
+    }
   },
 
   druxt: {
     query: {
       // fields: [['node--article', ['path', 'title']]]
-      include: ['field_media_image']
+      // include: ['']
     }
   }
 }

@@ -8,8 +8,24 @@ export default {
     'civictheme-vue/nuxt',
     'druxt-site',
   ],
-  druxt: { baseUrl },
+  druxt: {
+    baseUrl,
+    // @TODO - remove this after druxt-entity@0.29.0
+    entity: {
+      components: {
+        fields: false
+      }
+    }
+  },
   storybook: {
     addons: ['@etchteam/storybook-addon-status']
+  },
+  build: {
+    transpile: [
+      'axios',
+    ]
+  },
+  proxy: {
+    '/core/profiles/demo_umami/themes/umami/': baseUrl
   }
 }

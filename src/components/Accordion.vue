@@ -3,61 +3,51 @@
     class="ct-accordion"
     :class="{
       [themeClass]: true,
-      [backgroundClass]: true,
+      'ct-accordion--with-background': background
     }"
   >
     <div class="container">
       <div class="row">
         <div class="col-xxs-12">
+          <!-- Slot: Content Top -->
+          <div v-if="$slots['content_top']" class="ct-accordion__content-top">
+            {{ content_top }}
+          </div>
+
           <div class="ct-accordion__content">
             <ul class="ct-accordion__panels">
-
-              <li
-                v-for="item of items"supplie
-                :key="item.id"
+              <CTCollapsible
+                v-for="(panel, delta) of panels"
+                :collapsed="!expandAll && !panel.expanded"
                 class="ct-accordion__panels__panel"
-                data-collapsible="true"
-                data-collapsible-collapsed=""
                 data-collapsible-duration="250"
-                data-collapsible-trigger-wide="">
-                <div class="ct-accordion__panels__panel__header">
-                  <CTButton
-                    :aria-expanded="expanded"
-                    class="ct-accordion__panels__panel__header__button"
-                    data-collapsible-trigger=""
-                    kind="link"
-                    icon="arrow-right"
-                    icon-class="ct-icon ct-collapsible__icon"
-                    icon-position="after"
-                    :text="title"
-                  />
-                </div>
-                <div class="ct-accordion__panels__panel__content" data-collapsible-panel="" aria-hidden="true">
-                  <slot
-                    class="ct-accordion__panels__panel__content__inner"
-                    name="item"
-                    :item="item"
-                  >
-                    <component
-                      :is="itemComponent"
-                      v-bind="item"
+                data-collapsible-trigger-wide=""
+                :key="`panel-${delta}`"
+                panel-class="ct-accordion__panels__panel__content"
+                tag="li"
+              >
+                <template #trigger>
+                  <div class="ct-accordion__panels__panel__header">
+                    <CTButton
+                      class="ct-accordion__panels__panel__header__button"
+                      data-collapsible-trigger=""
+                      :text="panel.title"
                     />
-                  </slot>
-                  <!-- <div
-                    class="
-                      ct-paragraph
-                      ct-paragraph--regular
-                      ct-accordion__panels__panel__content__inner"
-                      :class="{
-                        [themeClass]: true,
-                      }"
-                    >
-                    {{ content }}
-                  </div> -->
-                </div>
-              </li>
+                  </div>
+                </template>
 
+                <CTParagraph class="ct-accordion__panels__panel__content__inner">
+                  <slot name="panel" :panel="{ panel }">
+                    {{ panel.content }}
+                  </slot>
+                </CTParagraph>
+              </CTCollapsible>
             </ul>
+          </div>
+
+          <!-- Slot: Content Top -->
+          <div v-if="$slots['content_bottom']" class="ct-accordion__content-bottom">
+            {{ content_bottom }}
           </div>
         </div>
       </div>
@@ -66,32 +56,23 @@
 </template>
 
 <script>
-import ThemeMixin from "../mixins/theme";
+import ThemeMixin from '../mixins/theme'
 
 export default {
   mixins: [ThemeMixin],
 
   props: {
-    id: {
-      type: String,
-      default: '0'
-    },
     background: {
       type: Boolean,
       default: false,
     },
-    expanded: {
+    expandAll: {
       type: Boolean,
       default: false,
     },
-  },
-
-  computed: {
-  },
-
-  methods: {
-    onClick() {
-      this.$emit('toggle', this.id)
+    panels: {
+      type: Array,
+      default: () => ([])
     }
   }
 }

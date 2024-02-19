@@ -1,4 +1,4 @@
-import CTAlert from './Accordion.vue'
+import CTAccordion from './Accordion.vue'
 
 export default {
   title: 'CivicTheme/Molecules/Accordion',
@@ -8,10 +8,6 @@ export default {
       options: ['dark', 'light'],
       control: 'select'
     },
-    type: {
-      options: ['error', 'information', 'warning', 'success'],
-      control: 'select'
-    }
   },
   parameters: {
     status: {
@@ -32,8 +28,9 @@ const Template = (args, { argTypes }) => {
 export const Default = Template.bind({})
 Default.storyName = 'Accordion'
 Default.args = {
-  expanded: true,
-  items: [
+  background: false,
+  expandAll: true,
+  panels: [
     { title: 'Accordion title 1', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur harum magnam modi obcaecati vitae voluptatibus! Accusamus atque deleniti, distinctio esse facere, nam odio officiis omnis porro quibusdam quis repudiandae veritatis.', id: 0 },
     { title: 'Accordion title 2', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur harum magnam modi obcaecati vitae voluptatibus! Accusamus atque deleniti, distinctio esse facere, nam odio officiis omnis porro quibusdam quis repudiandae veritatis.', id: 1 },
     { title: 'Accordion title 3', content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur harum magnam modi obcaecati vitae voluptatibus! Accusamus atque deleniti, distinctio esse facere, nam odio officiis omnis porro quibusdam quis repudiandae veritatis.', id: 2 },

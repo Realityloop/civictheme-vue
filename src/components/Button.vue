@@ -15,7 +15,7 @@
   >
     <CTIcon
       v-if="icon && iconPosition === 'before'"
-      class="ct-button__icon"
+      :class="iconClass"
       :size="iconSize"
       :symbol="icon"
     />
@@ -27,11 +27,10 @@
 
     <CTIcon
       v-if="icon && iconPosition === 'after'"
-      class="ct-button__icon"
+      :class="iconClass"
       :size="iconSize"
       :symbol="icon"
     />
-
   </component>
 </template>
 
@@ -49,6 +48,10 @@ export default {
     icon: {
       type: String,
       default: undefined
+    },
+    iconClass: {
+      type: String,
+      default: 'ct-button__icon'
     },
     iconPosition: {
       type: String,

@@ -37,7 +37,7 @@
                 </template>
 
                 <CTParagraph class="ct-accordion__panels__panel__content__inner">
-                  <slot name="panel" :panel="{ panel }">
+                  <slot name="panel" :panel="panel">
                     {{ panel.content }}
                   </slot>
                 </CTParagraph>

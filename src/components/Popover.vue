@@ -1,5 +1,6 @@
 <template>
-  <div
+  <component
+    :is="tag"
     :class="`ct-popover ${themeClass}`"
     data-collapsible="1"
     data-collapsible-collapsed=""
@@ -18,16 +19,17 @@
       </slot>
     </a>
 
-    <div
+    <component
+      :is="tag"
       class="ct-popover__content"
       data-collapsible-panel
       data-collapsible-trigger-no-icon
     >
-      <div class="ct-popover__content__inner">
+      <component :is="tag" class="ct-popover__content__inner">
         <slot />
-      </div>
-    </div>
-  </div>
+      </component>
+    </component>
+  </component>
 </template>
 
 <script>
@@ -37,6 +39,11 @@ export default {
   mixins: [ThemeMixin],
 
   props: {
+    tag: {
+      type: String,
+      validator: (value) => ['div', 'span'].includes(value),
+      default: 'div'
+    },
     trigger: {
       type: String,
       default: 'Click me'

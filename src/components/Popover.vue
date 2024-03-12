@@ -41,6 +41,7 @@ export default {
   props: {
     tag: {
       type: String,
+      validator: (value) => ['div', 'span'].includes(value),
       default: 'div'
     },
     trigger: {

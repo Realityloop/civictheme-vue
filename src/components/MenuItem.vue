@@ -103,34 +103,53 @@ export default {
   },
 
   computed: {
-    hasChildren: ({ item }) => !!(item.children || []).length,
+    hasChildren: ({ item }) => !!item.children?.length,
     isCollapsible: ({ type }) => type === 'collapsible',
     isFlyout: ({ type }) => type === 'flyout',
   },
 
-  created() {
-    try {
-      // Attach client side only javascript.
-      if (!process.client) return
-      if (this.isCollapsible) {
-        delete require.cache[require.resolve('@civictheme/uikit/components/00-base/collapsible/collapsible')]
-        require('@civictheme/uikit/components/00-base/collapsible/collapsible')
-      }
+  methods: {
+    attachJs() {
+      try {
+        // Attach client side only javascript.
+        if (!process.client) return
+        if (this.isCollapsible) {
+          delete require.cache[require.resolve('@civictheme/uikit/components/00-base/collapsible/collapsible')]
+          require('@civictheme/uikit/components/00-base/collapsible/collapsible')
+        }
 
-      if (this.isFlyout) {
-        delete require.cache[require.resolve('@civictheme/uikit/components/00-base/flyout/flyout')]
-        require('@civictheme/uikit/components/00-base/flyout/flyout')
+        if (this.isFlyout) {
+          delete require.cache[require.resolve('@civictheme/uikit/components/00-base/flyout/flyout')]
+          require('@civictheme/uikit/components/00-base/flyout/flyout')
+        }
       }
-    }
-    catch(e) {
-      // eslint-disable-next-line
-      console.error(e)
+      catch(e) {
+        // eslint-disable-next-line
+        console.error(e)
+      }
+    },
+
+    detachJs() {
+      if (this.isCollapsible) delete require.cache[require.resolve('@civictheme/uikit/components/00-base/collapsible/collapsible')]
+      if (this.isFlyout) delete require.cache[require.resolve('@civictheme/uikit/components/00-base/flyout/flyout')]
     }
   },
 
+  created() {
+    this.attachJs()
+  },
+
   beforeDestroy() {
-    if (this.isCollapsible) delete require.cache[require.resolve('@civictheme/uikit/components/00-base/collapsible/collapsible')]
-    if (this.isFlyout) delete require.cache[require.resolve('@civictheme/uikit/components/00-base/flyout/flyout')]
+    this.detachJs()
+  },
+
+  watch: {
+    item(to) {
+      if (to.children.length) {
+        this.detachJs()
+        this.attachJs()
+      }
+    }
   }
 }
 </script>

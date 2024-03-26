@@ -83,6 +83,8 @@
 
 <script>
 import ThemeMixin from "../mixins/theme"
+import CivicThemeCollapsible from '@civictheme/uikit/components/00-base/collapsible/collapsible'
+import CivicThemeFlyout from '@civictheme/uikit/components/00-base/flyout/flyout'
 
 export default {
   mixins: [ThemeMixin],
@@ -114,13 +116,11 @@ export default {
         // Attach client side only javascript.
         if (!process.client) return
         if (this.isCollapsible) {
-          delete require.cache[require.resolve('@civictheme/uikit/components/00-base/collapsible/collapsible')]
-          require('@civictheme/uikit/components/00-base/collapsible/collapsible')
+          new CivicThemeCollapsible(this.$el)
         }
 
         if (this.isFlyout) {
-          delete require.cache[require.resolve('@civictheme/uikit/components/00-base/flyout/flyout')]
-          require('@civictheme/uikit/components/00-base/flyout/flyout')
+          new CivicThemeFlyout(this.$el)
         }
       }
       catch(e) {
@@ -128,25 +128,15 @@ export default {
         console.error(e)
       }
     },
-
-    detachJs() {
-      if (this.isCollapsible) delete require.cache[require.resolve('@civictheme/uikit/components/00-base/collapsible/collapsible')]
-      if (this.isFlyout) delete require.cache[require.resolve('@civictheme/uikit/components/00-base/flyout/flyout')]
-    }
   },
 
-  created() {
+  mounted() {
     this.attachJs()
-  },
-
-  beforeDestroy() {
-    this.detachJs()
   },
 
   watch: {
     item(to) {
       if (to.children.length) {
-        this.detachJs()
         this.attachJs()
       }
     }

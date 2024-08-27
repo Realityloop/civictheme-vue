@@ -21,7 +21,14 @@
       <!-- Slot: Default -->
       <CTItemList class="ct-service-card__links" :items="links">
         <template #default="{ item }">
-          <CTLink :link="item.url" :text="item.title" :theme="theme" />
+          <CTLink
+            :external="item.external"
+            :icon="item.icon"
+            :link="item.url"
+            :target="item.target"
+            :text="item.title"
+            :theme="theme"
+            />
         </template>
       </CTItemList>
 

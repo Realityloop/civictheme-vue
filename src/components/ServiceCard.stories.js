@@ -30,7 +30,13 @@ Default.args = {
   title: 'Services category title across one or two lines',
   links: [
     { url: '#', title: 'Link 1' },
-    { url: '#', title: 'Link 2' },
+    {
+      url: '#',
+      title: 'Link 2',
+      external: true,
+      target: '_blank',
+      icon: 'upper-right-arrow'
+    },
     { url: '#', title: 'Link 3' },
     { url: '#', title: 'Link 4' },
     { url: '#', title: 'Link 5' },

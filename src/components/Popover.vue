@@ -4,7 +4,7 @@
     :class="`ct-popover ${themeClass}`"
     data-collapsible="1"
     data-collapsible-collapsed=""
-    data-collapsible-group=""
+    :data-collapsible-group="group"
     data-collapsible-duration="250"
   >
     <a
@@ -39,6 +39,10 @@ export default {
   mixins: [ThemeMixin],
 
   props: {
+    group: {
+      type: String,
+      default: undefined
+    },
     tag: {
       type: String,
       validator: (value) => ['div', 'span'].includes(value),

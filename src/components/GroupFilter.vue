@@ -25,7 +25,7 @@
                   type="horizontal"
                 >
                   <template #default="{ item }">
-                    <CTPopover :trigger="item.name">
+                    <CTPopover :trigger="item.name" group="group-filters">
                       <slot :name="`filter-${item.id}`">
                         <!-- @TODO - default filter? -->
                       </slot>

@@ -7,6 +7,7 @@
       <div class="row">
         <div class="col-xxs-12">
           <div class="row row--no-wrap ct-group-filter__row">
+            <!-- Title-->
             <div class="col col--no-grow">
               <div class="ct-align-middle">
                 <CTLabel class="ct-group-filter__title" :theme="theme">
@@ -15,6 +16,7 @@
               </div>
             </div>
 
+            <!-- Filters -->
             <div class="col">
               <div class="ct-align-middle">
                 <CTItemList
@@ -25,28 +27,33 @@
                   type="horizontal"
                 >
                   <template #default="{ item }">
-                    <CTPopover :trigger="item.name" group="group-filters">
-                      <slot :name="`filter-${item.id}`">
-                        <!-- @TODO - default filter? -->
-                      </slot>
-                    </CTPopover>
+                    <slot :name="`filter-wrapper-${item.id}`">
+                      <CTPopover :trigger="item.name" group="group-filters">
+                        <slot :name="`filter-${item.id}`">
+                          <!-- @TODO - default filter? -->
+                        </slot>
+                      </CTPopover>
+                    </slot>
                   </template>
                 </CTItemList>
               </div>
             </div>
 
+            <!-- Apply button -->
             <div class="col col--no-grow">
               <div class="ct-align-middle">
-                <CTButton
-                  @click.native="$emit('apply')"
-                  class="ct-group-filter__submit"
-                  icon="approve"
-                  icon-position="before"
-                  icon-size="small"
-                  size="small"
-                  text="Apply"
-                  type="secondary"
-                />
+                <slot name="apply">
+                  <CTButton
+                    @click.native="$emit('apply')"
+                    class="ct-group-filter__submit"
+                    icon="approve"
+                    icon-position="before"
+                    icon-size="small"
+                    size="small"
+                    text="Apply"
+                    type="secondary"
+                  />
+                </slot>
               </div>
             </div>
           </div>

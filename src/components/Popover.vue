@@ -10,6 +10,7 @@
     <a
       :class="`ct-link ${themeClass} ct-popover__link`"
       :data-collapsible-trigger="true"
+      :disabled="disabled"
       @click="$emit('trigger')"
     >
       <slot name="trigger">
@@ -39,6 +40,10 @@ export default {
   mixins: [ThemeMixin],
 
   props: {
+    disabled: {
+      type: Boolean,
+      default: false
+    },
     group: {
       type: String,
       default: undefined

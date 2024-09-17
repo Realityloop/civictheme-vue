@@ -18,7 +18,7 @@
       </div>
 
       <!-- Filters -->
-      <div v-if="(filters || []).length > 0 || $scopedSlots.filters" class="ct-list__filters">
+      <div v-if="filters?.length > 0 || $scopedSlots.filters" class="ct-list__filters">
         <div class="container">
           <div class="row">
             <div class="col-xxs-12">
@@ -27,6 +27,13 @@
               </slot>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Slot: Body Top -->
+      <div v-if="$slots['body_top']" class="ct-list__body-top">
+        <div class="container">
+          <slot name="body_top" />
         </div>
       </div>
 
@@ -39,6 +46,7 @@
           <div class="container">
             <div class="row">
               <div class="col-xxs-12">
+                <!-- Item Grid -->
                 <div class="ct-item-grid__items">
                   <div class="row">
                     <slot>
@@ -64,6 +72,13 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Slot: Body Bottom -->
+      <div v-if="$slots['body_bottom']" class="ct-list__body-bottom">
+        <div class="container">
+          <slot name="body_bottom" />
         </div>
       </div>
 

@@ -67,6 +67,13 @@ export default {
       [`ct-tag--${type}`]: type,
       [`ct-tag--with-icon ct-tag--icon-${iconPosition}`]: icon && iconPosition,
     })
+  },
+
+  watch: {
+    // Watch the value prop and update the model when it changes.
+    value() {
+      this.model = this.value
+    }
   }
 }
 </script>

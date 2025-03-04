@@ -79,7 +79,7 @@
       </CTParagraph>
 
       <!-- Slot: Default/summary -->
-      <CTParagraph class="ct-event-card__summary" :theme="theme">
+      <CTParagraph v-if="$slots['default'] || summary" class="ct-event-card__summary" :theme="theme">
         <slot>{{ summary }}</slot>
       </CTParagraph>
 

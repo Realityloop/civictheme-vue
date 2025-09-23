@@ -32,21 +32,23 @@
 
       <!-- @TODO - Icon -->
 
-      <!-- Title -->
-      <CTHeading
-        v-if="title"
-        class="ct-navigation-card__title"
-        :level="4"
-      >
-        <CTLink
-          class="ct-navigation-card__title__link"
-          :external="isExternal"
-          :link="link"
-          :text="title"
-          :theme="theme"
-          :icon="linkIcon"
-        />
-      </CTHeading>
+       <!-- Title -->
+       <CTHeading
+         v-if="title"
+         class="ct-navigation-card__title"
+         :level="4"
+       >
+         <CTLink
+           v-if="link"
+           class="ct-navigation-card__title__link"
+           :external="isExternal"
+           :link="link"
+           :text="title"
+           :theme="theme"
+           :icon="linkIcon"
+         />
+         <span v-else :class="['ct-navigation-card__title__link', 'ct-link', themeClass]">{{ title }}<CTIcon v-if="icon" class="ct-link__icon" :symbol="icon" /></span>
+       </CTHeading>
 
       <!-- Slot: Content middle -->
       <div
@@ -93,6 +95,10 @@ export default {
       default: undefined,
     },
     title: {
+      type: String,
+      default: undefined,
+    },
+    icon: {
       type: String,
       default: undefined,
     }

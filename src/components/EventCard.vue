@@ -46,20 +46,22 @@
         :value="date"
       />
 
-      <!-- Title -->
-      <CTHeading
-        v-if="title"
-        class="ct-event-card__title"
-        :level="4"
-        :theme="theme"
-      >
-        <CTLink
-          class="ct-event-card__title__link"
-          :link="link"
-          :theme="theme"
-          :text="title"
-        />
-      </CTHeading>
+       <!-- Title -->
+       <CTHeading
+         v-if="title"
+         class="ct-event-card__title"
+         :level="4"
+         :theme="theme"
+       >
+         <CTLink
+           v-if="link"
+           class="ct-event-card__title__link"
+           :link="link"
+           :theme="theme"
+           :text="title"
+         />
+         <span v-else :class="['ct-event-card__title__link', 'ct-link', themeClass]">{{ title }}</span>
+       </CTHeading>
 
       <!-- Slot: Content middle -->
       <div

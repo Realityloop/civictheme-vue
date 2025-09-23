@@ -52,18 +52,20 @@
         :value="date"
       />
 
-      <!-- Title -->
-      <div
-        v-if="title"
-        class="ct-promo-card__title"
-      >
-        <CTLink
-          class="ct-promo-card__title-link"
-          :link="link || '#'"
-          :text="title"
-          :theme="theme"
-        />
-      </div>
+       <!-- Title -->
+       <div
+         v-if="title"
+         class="ct-promo-card__title"
+       >
+         <CTLink
+           v-if="link"
+           class="ct-promo-card__title-link"
+           :link="link"
+           :text="title"
+           :theme="theme"
+         />
+         <span v-else :class="['ct-promo-card__title-link', 'ct-link', themeClass]">{{ title }}</span>
+       </div>
 
       <!-- Slot: Content middle -->
       <div

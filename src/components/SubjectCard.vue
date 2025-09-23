@@ -28,15 +28,17 @@
         <slot name="image_over" />
       </div>
 
-      <!-- @TODO - CTHeading -->
-      <div class="ct-subject-card__title">
-        <CTLink
-          class="ct-subject-card__title-link"
-          :link="link"
-          :theme="theme"
-          :text="title"
-        />
-      </div>
+       <!-- @TODO - CTHeading -->
+       <div class="ct-subject-card__title">
+         <CTLink
+           v-if="link"
+           class="ct-subject-card__title-link"
+           :link="link"
+           :theme="theme"
+           :text="title"
+         />
+         <span v-else :class="['ct-subject-card__title-link', 'ct-link', themeClass]">{{ title }}</span>
+       </div>
     </div>
   </div>
 </template>

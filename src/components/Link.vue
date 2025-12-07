@@ -61,6 +61,10 @@ export default {
       type: String,
       default: '#'
     },
+    noBaseClasses: {
+      type: Boolean,
+      default: false
+    },
     target: {
       type: String,
       default: undefined
@@ -76,8 +80,8 @@ export default {
   },
 
   computed: {
-    classes: ({ disabled, isExternal, themeClass }) => ({
-      'ct-link': true,
+    classes: ({ disabled, isExternal, noBaseClasses, themeClass }) => ({
+      'ct-link': !noBaseClasses,
       'ct-link--disabled': disabled,
       'ct-link--external': isExternal,
       [themeClass]: true

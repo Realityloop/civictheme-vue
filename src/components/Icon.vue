@@ -1,11 +1,11 @@
 <template>
   <component
+    :is="svg"
     :title="alt || symbol"
     :class="{
       'ct-icon': true,
       [`ct-icon--size-${size}`]: size
     }"
-    :is="svg"
     role="img"
   />
 </template>
@@ -14,7 +14,7 @@
 export default {
   props: {
     alt: {
-      Type: String,
+      type: String,
       default: undefined
     },
     symbol: {
@@ -28,7 +28,19 @@ export default {
   },
 
   computed: {
-    svg: ({ symbol }) => () => import(`@civictheme/uikit/assets/icons/${symbol}.svg?inline`)
+    svg() {
+      const symbol = this.symbol
+      return () => import(`@civictheme/uikit/assets/icons/${symbol}.svg?inline`)
+        .then((m) => {
+          if (m.default && (m.default.render || m.default.template)) {
+            return m.default
+          }
+          return { render: (h) => h('span', { class: 'ct-icon__fallback' }) }
+        })
+        .catch(() => ({
+          render: (h) => h('span', { class: 'ct-icon__fallback' })
+        }))
+    }
   },
 }
 </script>

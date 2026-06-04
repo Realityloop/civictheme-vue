@@ -3,14 +3,20 @@
     :class="`ct-group-filter ${themeClass}`"
     data-component-name="ct-group-filter"
   >
-    <div class="container" data-ct-group-filter-element="">
+    <div
+      class="container"
+      data-ct-group-filter-element=""
+    >
       <div class="row">
         <div class="col-xxs-12">
           <div class="row row--no-wrap ct-group-filter__row">
             <!-- Title-->
             <div class="col col--no-grow">
               <div class="ct-align-middle">
-                <CTLabel class="ct-group-filter__title" :theme="theme">
+                <CTLabel
+                  class="ct-group-filter__title"
+                  :theme="theme"
+                >
                   {{ title }}
                 </CTLabel>
               </div>
@@ -28,7 +34,10 @@
                 >
                   <template #default="{ item }">
                     <slot :name="`filter-wrapper-${item.id}`">
-                      <CTPopover :trigger="item.name" group="group-filters">
+                      <CTPopover
+                        :trigger="item.name"
+                        group="group-filters"
+                      >
                         <slot :name="`filter-${item.id}`">
                           <!-- @TODO - default filter? -->
                         </slot>
@@ -44,7 +53,6 @@
               <div class="ct-align-middle">
                 <slot name="apply">
                   <CTButton
-                    @click.native="$emit('apply')"
                     class="ct-group-filter__submit"
                     icon="approve"
                     icon-position="before"
@@ -52,6 +60,7 @@
                     size="small"
                     text="Apply"
                     type="secondary"
+                    @click.native="$emit('apply')"
                   />
                 </slot>
               </div>

@@ -17,11 +17,19 @@
 
     <template #close-button>
       <div class="ct-mobile-navigation-close ct-theme-light">
-        <CTButton type="tertiary" data-flyout-close-all-trigger>Close <CTIcon symbol="close" /></CTButton>
+        <CTButton
+          type="tertiary"
+          data-flyout-close-all-trigger
+        >
+          Close <CTIcon symbol="close" />
+        </CTButton>
       </div>
     </template>
 
-    <div v-if="$scopedSlots['content_top']" class="ct-mobile-navigation__content_top">
+    <div
+      v-if="$scopedSlots['content_top']"
+      class="ct-mobile-navigation__content_top"
+    >
       <slot name="content_top" />
     </div>
 
@@ -29,7 +37,10 @@
       v-if="topMenuItems.length || $scopedSlots['top_menu']"
       class="ct-mobile-navigation__top-menu-wrapper"
     >
-      <slot name="top_menu" v-bind="{ topMenuItems }">
+      <slot
+        name="top_menu"
+        v-bind="{ topMenuItems }"
+      >
         <CTMenu
           class="ct-mobile-navigation__top-menu"
           :items="topMenuItems"
@@ -42,7 +53,10 @@
       v-if="bottomMenuItems.length || $scopedSlots['bottom_menu']"
       class="ct-mobile-navigation__bottom-menu-wrapper"
     >
-      <slot name="bottom_menu" v-bind="{ bottomMenuItems }">
+      <slot
+        name="bottom_menu"
+        v-bind="{ bottomMenuItems }"
+      >
         <CTMenu
           class="ct-mobile-navigation__bottom-menu"
           :items="bottomMenuItems"
@@ -51,7 +65,10 @@
       </slot>
     </div>
 
-    <div v-if="$scopedSlots['content_bottom']" class="ct-mobile-navigation__content_bottom">
+    <div
+      v-if="$scopedSlots['content_bottom']"
+      class="ct-mobile-navigation__content_bottom"
+    >
       <slot name="content_bottom" />
     </div>
   </CTFlyout>

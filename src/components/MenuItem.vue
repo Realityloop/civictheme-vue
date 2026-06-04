@@ -57,12 +57,20 @@
 
       <template #close-button>
         <div class="ct-mobile-navigation-close ct-theme-light">
-          <CTButton type="tertiary" data-flyout-close-all-trigger>Close <CTIcon symbol="close" /></CTButton>
+          <CTButton
+            type="tertiary"
+            data-flyout-close-all-trigger
+          >
+            Close <CTIcon symbol="close" />
+          </CTButton>
         </div>
       </template>
 
       <div class="ct-mobile-navigation__close-trigger">
-        <CTButton kind="link" data-flyout-close-trigger="">
+        <CTButton
+          kind="link"
+          data-flyout-close-trigger=""
+        >
           <CTIcon symbol="left-arrow-outline" />
           {{ item.title }}
         </CTButton>
@@ -92,7 +100,7 @@ export default {
   props: {
     item: {
       type: Object,
-      require: true,
+      required: true,
     },
     level: {
       type: Number,
@@ -108,6 +116,18 @@ export default {
     hasChildren: ({ item }) => !!item.children?.length,
     isCollapsible: ({ type }) => type === 'collapsible',
     isFlyout: ({ type }) => type === 'flyout',
+  },
+
+  watch: {
+    item(to) {
+      if (to.children.length) {
+        this.attachJs()
+      }
+    }
+  },
+
+  mounted() {
+    this.attachJs()
   },
 
   methods: {
@@ -128,18 +148,6 @@ export default {
         console.error(e)
       }
     },
-  },
-
-  mounted() {
-    this.attachJs()
-  },
-
-  watch: {
-    item(to) {
-      if (to.children.length) {
-        this.attachJs()
-      }
-    }
   }
 }
 </script>

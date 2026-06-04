@@ -17,9 +17,16 @@
       </a>
     </div>
 
-    <CTHeading v-if="title" class="ct-side-navigation__title" :text="title" />
+    <CTHeading
+      v-if="title"
+      class="ct-side-navigation__title"
+      :text="title"
+    />
 
-    <CTMenu class="ct-side-navigation__menu" :items="items" />
+    <CTMenu
+      class="ct-side-navigation__menu"
+      :items="items"
+    />
   </div>
 </template>
 

@@ -9,7 +9,7 @@
     :src="src"
     :title="title"
     :width="width"
-  ></iframe>
+  />
 </template>
 
 <script>

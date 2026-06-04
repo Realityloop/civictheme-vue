@@ -18,12 +18,18 @@
       </div>
 
       <!-- Filters -->
-      <div v-if="filters?.length > 0 || $scopedSlots.filters" class="ct-list__filters">
+      <div
+        v-if="filters?.length > 0 || $scopedSlots.filters"
+        class="ct-list__filters"
+      >
         <div class="container">
           <div class="row">
             <div class="col-xxs-12">
               <slot name="filters">
-                <CTGroupFilter :filters="filters" :theme="theme" />
+                <CTGroupFilter
+                  :filters="filters"
+                  :theme="theme"
+                />
               </slot>
             </div>
           </div>
@@ -31,7 +37,10 @@
       </div>
 
       <!-- Slot: Body Top -->
-      <div v-if="$slots['body_top']" class="ct-list__body-top">
+      <div
+        v-if="$slots['body_top']"
+        class="ct-list__body-top"
+      >
         <div class="container">
           <slot name="body_top" />
         </div>
@@ -76,18 +85,27 @@
       </div>
 
       <!-- Slot: Body Bottom -->
-      <div v-if="$slots['body_bottom']" class="ct-list__body-bottom">
+      <div
+        v-if="$slots['body_bottom']"
+        class="ct-list__body-bottom"
+      >
         <div class="container">
           <slot name="body_bottom" />
         </div>
       </div>
 
       <!-- Pager -->
-      <div v-if="(pager && pages) || $scopedSlots.pager" class="ct-list__results-below">
+      <div
+        v-if="(pager && pages) || $scopedSlots.pager"
+        class="ct-list__results-below"
+      >
         <div class="container">
           <div class="row">
             <div class="col-xxs-12">
-              <slot class="ct-list__pager" name="pager">
+              <slot
+                class="ct-list__pager"
+                name="pager"
+              >
                 <CTPager
                   v-model="page"
                   :pages="pages"

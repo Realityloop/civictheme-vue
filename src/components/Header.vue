@@ -64,13 +64,13 @@
 
       <div class="container">
         <div class="row">
-          <div  :class="columnClasses.middle[1]">
+          <div :class="columnClasses.middle[1]">
             <div class="ct-header__content-middle2">
               <slot name="content_middle2" />
             </div>
           </div>
 
-          <div  :class="columnClasses.middle[2]">
+          <div :class="columnClasses.middle[2]">
             <div
               class="
                 ct-header__content-middle3
@@ -92,7 +92,7 @@
     >
       <div class="container">
         <div class="row">
-          <div  :class="columnClasses.bottom[0]">
+          <div :class="columnClasses.bottom[0]">
             <div class="ct-header__content-bottom1">
               <slot name="content_bottom1" />
             </div>

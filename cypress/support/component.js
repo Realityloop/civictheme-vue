@@ -38,10 +38,7 @@ Cypress.Commands.add('standardComponentTest', (component, context) => {
   cy.injectAxe()
   cy.configureAxe({
     rules: axeRules || [
-      {
-        id: 'page-has-heading-one',
-        enabled: false,
-      },
+      { id: 'page-has-heading-one', enabled: false },
     ],
   })
   cy.checkA11y()

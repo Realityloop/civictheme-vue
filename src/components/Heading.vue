@@ -1,5 +1,8 @@
 <template>
-  <component :is="component" :class="`ct-heading ${themeClass}`">
+  <component
+    :is="component"
+    :class="`ct-heading ${themeClass}`"
+  >
     <slot>{{ text }}</slot>
   </component>
 </template>

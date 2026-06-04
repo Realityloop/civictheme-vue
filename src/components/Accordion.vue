@@ -10,7 +10,10 @@
       <div class="row">
         <div class="col-xxs-12">
           <!-- Slot: Content Top -->
-          <div v-if="$slots['content_top']" class="ct-accordion__content-top">
+          <div
+            v-if="$slots['content_top']"
+            class="ct-accordion__content-top"
+          >
             {{ content_top }}
           </div>
 
@@ -18,11 +21,11 @@
             <ul class="ct-accordion__panels">
               <CTCollapsible
                 v-for="(panel, delta) of panels"
+                :key="`panel-${delta}`"
                 :collapsed="!expandAll && !panel.expanded"
                 class="ct-accordion__panels__panel"
                 data-collapsible-duration="250"
                 data-collapsible-trigger-wide=""
-                :key="`panel-${delta}`"
                 panel-class="ct-accordion__panels__panel__content"
                 tag="li"
               >
@@ -37,7 +40,10 @@
                 </template>
 
                 <CTParagraph class="ct-accordion__panels__panel__content__inner">
-                  <slot name="panel" :panel="panel">
+                  <slot
+                    name="panel"
+                    :panel="panel"
+                  >
                     {{ panel.content }}
                   </slot>
                 </CTParagraph>
@@ -46,7 +52,10 @@
           </div>
 
           <!-- Slot: Content Top -->
-          <div v-if="$slots['content_bottom']" class="ct-accordion__content-bottom">
+          <div
+            v-if="$slots['content_bottom']"
+            class="ct-accordion__content-bottom"
+          >
             {{ content_bottom }}
           </div>
         </div>

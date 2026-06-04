@@ -8,7 +8,10 @@
     <div class="container">
       <div class="row">
         <div class="col-xxs-12">
-          <div v-if="$slots['content_top']" class="ct-promo__content-top">
+          <div
+            v-if="$slots['content_top']"
+            class="ct-promo__content-top"
+          >
             {{ content_top }}
           </div>
 
@@ -20,7 +23,10 @@
                 :theme="theme"
               />
 
-              <CTParagraph class="ct-promo__content" :theme="theme">
+              <CTParagraph
+                class="ct-promo__content"
+                :theme="theme"
+              >
                 <slot>
                   <div v-html="content" />
                 </slot>
@@ -42,7 +48,10 @@
             </div>
           </div>
 
-          <div v-if="$slots['content_bottom']" class="ct-promo__content-bottom">
+          <div
+            v-if="$slots['content_bottom']"
+            class="ct-promo__content-bottom"
+          >
             {{ content_bottom }}
           </div>
         </div>

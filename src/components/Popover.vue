@@ -26,7 +26,10 @@
       data-collapsible-panel
       data-collapsible-trigger-no-icon
     >
-      <component :is="tag" class="ct-popover__content__inner">
+      <component
+        :is="tag"
+        class="ct-popover__content__inner"
+      >
         <slot />
       </component>
     </component>

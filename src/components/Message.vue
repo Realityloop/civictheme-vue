@@ -11,7 +11,11 @@
     </div>
 
     <div class="ct-message__content">
-      <div v-if="title" class="ct-message__title" v-text="title" />
+      <div
+        v-if="title"
+        class="ct-message__title"
+        v-text="title"
+      />
 
       <div class="ct-message__summary">
         <slot />

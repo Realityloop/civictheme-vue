@@ -5,7 +5,11 @@
         <div class="col-xxs-12">
           <div class="ct-next-step__wrapper">
             <div class="ct-next-step__inner">
-              <CTHeading class="ct-next-step__title" :level="4" :theme="theme">
+              <CTHeading
+                class="ct-next-step__title"
+                :level="4"
+                :theme="theme"
+              >
                 <CTLink
                   class="ct-next-step__title__link"
                   :link="link"
@@ -15,7 +19,11 @@
                 />
               </CTHeading>
 
-              <CTParagraph v-if="$slots['default']" class="ct-next-step__content" :theme="theme">
+              <CTParagraph
+                v-if="$slots['default']"
+                class="ct-next-step__content"
+                :theme="theme"
+              >
                 <slot />
               </CTParagraph>
             </div>

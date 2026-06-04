@@ -68,7 +68,14 @@
       v-text="description"
     />
 
-    <CTFieldMessage v-if="$slots.error || error" type="error"><slot name="error">{{ error }}</slot></CTFieldMessage>
+    <CTFieldMessage
+      v-if="$slots.error || error"
+      type="error"
+    >
+      <slot name="error">
+        {{ error }}
+      </slot>
+    </CTFieldMessage>
   </div>
 </template>
 

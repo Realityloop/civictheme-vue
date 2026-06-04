@@ -46,22 +46,25 @@
         :value="date"
       />
 
-       <!-- Title -->
-       <CTHeading
-         v-if="title"
-         class="ct-event-card__title"
-         :level="4"
-         :theme="theme"
-       >
-         <CTLink
-           v-if="link"
-           class="ct-event-card__title__link"
-           :link="link"
-           :theme="theme"
-           :text="title"
-         />
-         <span v-else :class="['ct-event-card__title__link', 'ct-link', themeClass]">{{ title }}</span>
-       </CTHeading>
+      <!-- Title -->
+      <CTHeading
+        v-if="title"
+        class="ct-event-card__title"
+        :level="4"
+        :theme="theme"
+      >
+        <CTLink
+          v-if="link"
+          class="ct-event-card__title__link"
+          :link="link"
+          :theme="theme"
+          :text="title"
+        />
+        <span
+          v-else
+          :class="['ct-event-card__title__link', 'ct-link', themeClass]"
+        >{{ title }}</span>
+      </CTHeading>
 
       <!-- Slot: Content middle -->
       <div
@@ -81,7 +84,11 @@
       </CTParagraph>
 
       <!-- Slot: Default/summary -->
-      <CTParagraph v-if="$slots['default'] || summary" class="ct-event-card__summary" :theme="theme">
+      <CTParagraph
+        v-if="$slots['default'] || summary"
+        class="ct-event-card__summary"
+        :theme="theme"
+      >
         <slot>{{ summary }}</slot>
       </CTParagraph>
 
@@ -94,7 +101,10 @@
           type="horizontal"
         >
           <template #default="{ item }">
-            <CTTag :value="item.value" :theme="theme" />
+            <CTTag
+              :value="item.value"
+              :theme="theme"
+            />
           </template>
         </CTItemList>
 

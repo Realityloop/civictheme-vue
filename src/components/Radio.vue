@@ -7,15 +7,19 @@
     }"
   >
     <input
-      v-model="model"
       v-bind="$attrs"
+      :id="inputId"
+      v-model="model"
       class="ct-radio__element"
       :name="name"
       :required="required"
       type="radio"
     >
     <span class="ct-radio__state" />
-    <label class="ct-radio__label"><slot /></label>
+    <label
+      :for="inputId"
+      class="ct-radio__label"
+    ><slot /></label>
   </div>
 </template>
 
@@ -40,9 +44,12 @@ export default {
     }
   },
 
-  data: ({ value }) => ({
-    model: value
-  }),
+  data() {
+    return {
+      model: this.value,
+      inputId: `ct-radio-${this._uid}`
+    }
+  },
 
   watch: {
     model() {

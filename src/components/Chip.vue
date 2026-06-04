@@ -15,10 +15,10 @@
     <input
       v-if="kind === 'input'"
       ref="ct-chip-input"
+      v-model="model"
       class="ct-chip__input"
       :type="inputType"
-      v-model="model"
-    />
+    >
     <slot>{{ label }}</slot>
     <CTIcon
       v-if="isMultiple"
@@ -34,10 +34,6 @@ import ThemeMixin from '../mixins/theme'
 
 export default {
   mixins: [ThemeMixin],
-
-  data: ({ value }) => ({
-    model: value,
-  }),
 
   props: {
     kind: {
@@ -62,9 +58,23 @@ export default {
     },
   },
 
+  data: ({ value }) => ({
+    model: value,
+  }),
+
   computed: {
     element: ({ kind }) => kind === 'input' ? 'label' : 'span',
     inputType: ({ isMultiple }) => isMultiple ? 'checkbox' : 'radio',
+  },
+
+  watch: {
+    model() {
+      this.$emit('input', this.model)
+    },
+
+    value() {
+      this.model = this.value
+    }
   },
 
   mounted() {
@@ -93,16 +103,6 @@ export default {
   // Delete require cache for chip component
   beforeDestroy() {
     delete require.cache[require.resolve('@civictheme/uikit/components/01-atoms/chip/chip')]
-  },
-
-  watch: {
-    model() {
-      this.$emit('input', this.model)
-    },
-
-    value() {
-      this.model = this.value
-    }
   }
 }
 </script>

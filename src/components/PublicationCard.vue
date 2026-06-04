@@ -41,7 +41,10 @@
           :theme="theme"
           target="_blank"
         >
-          {{ title }} <CTIcon class="ct-link__icon" symbol="download" />
+          {{ title }} <CTIcon
+            class="ct-link__icon"
+            symbol="download"
+          />
         </CTLink>
       </CTHeading>
 
@@ -54,7 +57,10 @@
       </div>
 
       <!-- Slot: Default/summary -->
-      <CTParagraph class="ct-publication-card__summary" :theme="theme">
+      <CTParagraph
+        class="ct-publication-card__summary"
+        :theme="theme"
+      >
         <slot>{{ summary }}</slot>
       </CTParagraph>
 

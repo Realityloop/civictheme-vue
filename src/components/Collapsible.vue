@@ -1,17 +1,28 @@
 <template>
-  <component :is="tag"
+  <component
+    :is="tag"
     data-collapsible="1"
     v-bind="{
       'data-collapsible-collapsed': collapsed
     }"
   >
-    <slot name="trigger" :trigger="{ onClick, trigger, triggerClass }">
-      <div :class="triggerClass" data-collapsible-trigger="" @click="onClick">
+    <slot
+      name="trigger"
+      :trigger="{ onClick, trigger, triggerClass }"
+    >
+      <div
+        :class="triggerClass"
+        data-collapsible-trigger=""
+        @click="onClick"
+      >
         {{ trigger }}
       </div>
     </slot>
 
-    <div :class="panelClass" data-collapsible-panel="">
+    <div
+      :class="panelClass"
+      data-collapsible-panel=""
+    >
       <slot />
     </div>
   </component>

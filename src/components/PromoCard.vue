@@ -39,7 +39,11 @@
         v-if="subtitle"
         class="ct-promo-card__subtitle"
       >
-        <CTTag :value="subtitle" :theme="theme" type="tertiary" />
+        <CTTag
+          :value="subtitle"
+          :theme="theme"
+          type="tertiary"
+        />
       </div>
 
       <!-- Date -->
@@ -52,20 +56,23 @@
         :value="date"
       />
 
-       <!-- Title -->
-       <div
-         v-if="title"
-         class="ct-promo-card__title"
-       >
-         <CTLink
-           v-if="link"
-           class="ct-promo-card__title-link"
-           :link="link"
-           :text="title"
-           :theme="theme"
-         />
-         <span v-else :class="['ct-promo-card__title-link', 'ct-link', themeClass]">{{ title }}</span>
-       </div>
+      <!-- Title -->
+      <div
+        v-if="title"
+        class="ct-promo-card__title"
+      >
+        <CTLink
+          v-if="link"
+          class="ct-promo-card__title-link"
+          :link="link"
+          :text="title"
+          :theme="theme"
+        />
+        <span
+          v-else
+          :class="['ct-promo-card__title-link', 'ct-link', themeClass]"
+        >{{ title }}</span>
+      </div>
 
       <!-- Slot: Content middle -->
       <div
@@ -76,13 +83,19 @@
       </div>
 
       <!-- Slot: Default/summary -->
-      <CTParagraph class="ct-promo-card__summary" :theme="theme">
+      <CTParagraph
+        class="ct-promo-card__summary"
+        :theme="theme"
+      >
         <slot>{{ summary }}</slot>
       </CTParagraph>
 
       <div class="ct-promo-card__bottom-wrapper">
         <!-- Tags -->
-        <div v-if="tags.length" class="ct-promo-card__tags">
+        <div
+          v-if="tags.length"
+          class="ct-promo-card__tags"
+        >
           <CTTag
             v-for="tag of tags"
             :key="tag.id"

@@ -5,7 +5,10 @@
     v-html="html"
   />
 
-  <div v-else :class="classes">
+  <div
+    v-else
+    :class="classes"
+  >
     <slot />
   </div>
 </template>

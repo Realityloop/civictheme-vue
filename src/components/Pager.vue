@@ -115,16 +115,16 @@ import ThemeMixin from '../mixins/theme'
 export default {
   mixins: [ThemeMixin],
 
-  data: () => ({
-    model: 1,
-  }),
-
   props: {
     pages: {
       type: Number,
       default: 1
     },
   },
+
+  data: () => ({
+    model: 1,
+  }),
 
   computed: {
     next: ({ model, pages }) => model < pages,

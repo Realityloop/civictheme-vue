@@ -8,8 +8,9 @@
     }"
   >
     <input
-      v-model="model"
       v-bind="$attrs"
+      :id="inputId"
+      v-model="model"
       class="ct-checkbox__element"
       :disabled="disabled"
       :name="name"
@@ -18,6 +19,7 @@
     >
     <span class="ct-checkbox__state" />
     <label
+      :for="inputId"
       :class="{
         'ct-checkbox__label': true,
         'ct-checkbox__label--disabled': disabled,
@@ -61,9 +63,12 @@ export default {
     }
   },
 
-  data: ({ value }) => ({
-    model: value
-  }),
+  data() {
+    return {
+      model: this.value,
+      inputId: `ct-checkbox-${this._uid}`
+    }
+  },
 
   watch: {
     model() {

@@ -6,7 +6,11 @@
       'ct-social-links--with-border': border
     }"
   >
-    <CTItemList class="ct-social-links__list" :items="items" type="horizontal">
+    <CTItemList
+      class="ct-social-links__list"
+      :items="items"
+      type="horizontal"
+    >
       <template #default="{ item }">
         <CTButton
           class="ct-social-links__button"

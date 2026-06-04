@@ -1,5 +1,8 @@
 <template>
-  <nav :class="`ct-breadcrumb ${themeClass}`" aria-label="breadcrumb">
+  <nav
+    :class="`ct-breadcrumb ${themeClass}`"
+    aria-label="breadcrumb"
+  >
     <CTItemList
       class="ct-breadcrumb__links show-xxs-flex hide-m"
       :items="[{ ...breadcrumbs[breadcrumbs.length - 2] }]"
@@ -11,7 +14,10 @@
           v-bind="item"
           :theme="theme"
         >
-          <CTIcon class="ct-link__icon" symbol="left-arrow" />
+          <CTIcon
+            class="ct-link__icon"
+            symbol="left-arrow"
+          />
           {{ item.text }}
         </CTLink>
       </template>

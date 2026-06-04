@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   env: { browser: true, es6: true, node: true },
   extends: [
     'eslint:recommended',
@@ -7,6 +8,7 @@ module.exports = {
   ],
   rules: {
     'vue/multi-word-component-names': 'off',
-    'vue/no-v-text-v-html-on-component': 'off'
+    'vue/no-v-text-v-html-on-component': 'off',
+    'vue/no-v-html': 'off'
   }
 }

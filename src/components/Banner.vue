@@ -15,7 +15,10 @@
       >
         <div class="container">
           <!-- Slot: Content Top 1 -->
-          <div v-if="$slots['content_top1']" class="row">
+          <div
+            v-if="$slots['content_top1']"
+            class="row"
+          >
             <div class="col-xxs-12">
               <div class="ct-banner__content-top">
                 <slot name="content_top1" />
@@ -29,13 +32,23 @@
             class="row"
           >
             <div class="col-xxs-12 col-m-6">
-              <slot v-if="hasBreadcrumbs" name="breadcrumbs">
-                <CTBreadcrumb :breadcrumbs="breadcrumbs" class="ct-banner__breadcrumb" :theme="theme" />
+              <slot
+                v-if="hasBreadcrumbs"
+                name="breadcrumbs"
+              >
+                <CTBreadcrumb
+                  :breadcrumbs="breadcrumbs"
+                  class="ct-banner__breadcrumb"
+                  :theme="theme"
+                />
               </slot>
             </div>
 
             <!-- Slot: Content Top 2 -->
-            <div v-if="$slots['content_top2']" class="col-xxs-12 col-m-6">
+            <div
+              v-if="$slots['content_top2']"
+              class="col-xxs-12 col-m-6"
+            >
               <div class="ct-banner__content-top2">
                 <slot name="content_top2" />
               </div>
@@ -43,7 +56,10 @@
           </div>
 
           <!-- Slot: Content Top 3 -->
-          <div class="row" v-if="$slots['content_top3']">
+          <div
+            v-if="$slots['content_top3']"
+            class="row"
+          >
             <div class="col-xxs-12">
               <div class="ct-banner__content-top3">
                 {{ content_top3 }}
@@ -52,7 +68,10 @@
           </div>
 
           <!-- Section -->
-          <div v-if="section" class="row">
+          <div
+            v-if="section"
+            class="row"
+          >
             <div class="col-xxs-12">
               <CTHeading
                 class="ct-banner__site-section"
@@ -79,7 +98,10 @@
           </div>
 
           <!-- Slot: Middle -->
-          <div class="row" v-if="$slots['content_middle']">
+          <div
+            v-if="$slots['content_middle']"
+            class="row"
+          >
             <div class="col-xxs-12 col-m-6">
               <div class="ct-banner__content-middle">
                 <slot name="content_middle" />
@@ -88,7 +110,10 @@
           </div>
 
           <!-- Slot: Default -->
-          <div v-if="$slots['default']" class="row">
+          <div
+            v-if="$slots['default']"
+            class="row"
+          >
             <div class="col-xxs-12 col-m-6">
               <div class="ct-banner__content">
                 <slot />
@@ -113,7 +138,10 @@
     </div>
 
     <!-- Slot: Content bottom -->
-    <div class="container" v-if="$slots['content_middle']">
+    <div
+      v-if="$slots['content_middle']"
+      class="container"
+    >
       <div class="row">
         <div class="col-xxs-12">
           <div class="ct-banner__content-bottom">

@@ -23,9 +23,9 @@
           <slot />
 
           <CTButton
+            :id="`dismiss-alert-${id}`"
             class="ct-alert__dismiss-button"
             data-alert-dismiss-trigger=""
-            :id="`dismiss-alert-${id}`"
             icon="close"
             type="tertiary"
             :title="`close ${type} alert`"

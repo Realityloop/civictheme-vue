@@ -8,21 +8,33 @@
     }"
     data-table="true"
   >
-    <caption v-if="caption">{{ caption }}</caption>
+    <caption v-if="caption">
+      {{ caption }}
+    </caption>
 
     <thead v-if="Array.isArray(header) && header.length">
       <tr>
-        <th v-for="(item, key) of header" :key="`header-${key}`" scope="col">{{ item }}</th>
+        <th
+          v-for="(item, key) of header"
+          :key="`header-${key}`"
+          scope="col"
+        >
+          {{ item }}
+        </th>
       </tr>
     </thead>
 
     <tbody v-if="Array.isArray(body) && body.length">
-      <tr v-for="(row, rowKey) of body" :key="`row-${rowKey}`">
+      <tr
+        v-for="(row, rowKey) of body"
+        :key="`row-${rowKey}`"
+      >
         <component
-          v-for="(col, colKey) of row"
           :is="headerColumn && colKey === 0 ? 'th' : 'td'"
+          v-for="(col, colKey) of row"
           :key="`col-${colKey}`"
-          :data-title="(header || [])[colKey] || undefined">
+          :data-title="(header || [])[colKey] || undefined"
+        >
           {{ col }}
         </component>
       </tr>
@@ -30,7 +42,13 @@
 
     <tfoot v-if="Array.isArray(footer) && footer.length">
       <tr>
-        <th v-for="(item, key) of footer" :key="`footer-${key}`" scope="col">{{ item }}</th>
+        <th
+          v-for="(item, key) of footer"
+          :key="`footer-${key}`"
+          scope="col"
+        >
+          {{ item }}
+        </th>
       </tr>
     </tfoot>
   </table>

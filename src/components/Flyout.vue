@@ -11,14 +11,17 @@
     </slot>
 
     <div
-      :class="wrapperClasses"
       :id="id"
+      :class="wrapperClasses"
       data-flyout=""
       :data-flyout-direction="direction"
       :data-flyout-duration="duration"
       :data-flyout-expanded="expanded"
     >
-      <div data-flyout-panel="" :class="panelClasses">
+      <div
+        data-flyout-panel=""
+        :class="panelClasses"
+      >
         <slot name="close-button">
           <span data-flyout-close-trigger="">{{ closeButtonText }}</span>
         </slot>
@@ -72,6 +75,14 @@ export default {
     }
   },
 
+  computed: {
+    flyoutTarget: ({ target, id }) => {
+      if (target) return target
+      if (id) return `#${id}`
+      return false
+    }
+  },
+
   mounted() {
     if (typeof document !== 'undefined') {
       // @TODO - Only target this instance.
@@ -79,14 +90,6 @@ export default {
         // eslint-disable-next-line no-new
         new CivicThemeFlyout(flyout)
       })
-    }
-  },
-
-  computed: {
-    flyoutTarget: ({ target, id }) => {
-      if (target) return target
-      if (id) return `#{$id}`
-      return false
     }
   }
 }
